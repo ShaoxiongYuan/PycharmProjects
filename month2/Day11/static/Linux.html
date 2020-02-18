@@ -1,0 +1,1089 @@
+<!DOCTYPE html><html><head>
+      <title>Linux</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Levi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.0\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="linux-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">Linux &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</h1>
+
+<table>
+<thead>
+<tr>
+<th>Tedu Python &#x6559;&#x5B66;&#x90E8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Author&#xFF1A;&#x5415;&#x6CFD;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li><a href="#linux-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">Linux &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</a>
+<ul>
+<li><a href="#linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B">Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7B80;&#x4ECB;</a></li>
+<li><a href="#linux-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84">Linux &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84">&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;</a>
+<ul>
+<li><a href="#%E4%B8%BB%E8%A6%81%E7%9B%AE%E5%BD%95%E5%8A%9F%E8%83%BD">&#x4E3B;&#x8981;&#x76EE;&#x5F55;&#x529F;&#x80FD;</a></li>
+<li><a href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84">&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x548C;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">&#x73AF;&#x5883;&#x53D8;&#x91CF;</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BC%96%E8%AF%91%E5%99%A8%E4%BD%BF%E7%94%A8">&#x7F16;&#x8BD1;&#x5668;&#x4F7F;&#x7528;</a>
+<ul>
+<li><a href="#vi%E4%BD%BF%E7%94%A8">vi&#x4F7F;&#x7528;</a>
+<ul>
+<li><a href="#vi%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">Vi&#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#shell%E5%91%BD%E4%BB%A4">shell&#x547D;&#x4EE4;</a>
+<ul>
+<li><a href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4">&#x57FA;&#x7840;&#x547D;&#x4EE4;</a></li>
+<li><a href="#%E5%8E%8B%E7%BC%A9%E7%AE%A1%E7%90%86">&#x538B;&#x7F29;&#x7BA1;&#x7406;</a></li>
+<li><a href="#%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86">&#x8F6F;&#x4EF6;&#x7BA1;&#x7406;</a></li>
+<li><a href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x7BA1;&#x7406;</a></li>
+</ul>
+</li>
+<li><a href="#ssh%E6%9C%8D%E5%8A%A1">ssh&#x670D;&#x52A1;</a>
+<ul>
+<li><a href="#linux%E4%B8%8B%E7%9A%84ssh%E6%9C%8D%E5%8A%A1">Linux&#x4E0B;&#x7684;SSH&#x670D;&#x52A1;</a></li>
+<li><a href="#ssh%E5%91%BD%E4%BB%A4">ssh&#x547D;&#x4EE4;</a>
+<ul>
+<li><a href="#ssh%E7%99%BB%E5%BD%95%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA">ssh&#x767B;&#x5F55;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;</a></li>
+<li><a href="#scp%E5%91%BD%E4%BB%A4">scp&#x547D;&#x4EE4;</a></li>
+</ul>
+</li>
+<li><a href="#ssh%E7%A7%98%E9%92%A5">ssh&#x79D8;&#x94A5;</a>
+<ul>
+<li><a href="#%E7%94%9F%E4%BA%A7ssh%E7%A7%98%E9%92%A5%E6%AD%A5%E9%AA%A4">&#x751F;&#x4EA7;ssh&#x79D8;&#x94A5;&#x6B65;&#x9AA4;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B">Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7B80;&#x4ECB;</h2>
+
+<ol>
+<li>
+<p>&#x4EC0;&#x4E48;&#x662F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</p>
+<p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF08;OS&#xFF09;&#x662F;&#x7BA1;&#x7406;&#x8BA1;&#x7B97;&#x673A;&#x786C;&#x4EF6;&#x4E0E;&#x8F6F;&#x4EF6;&#x8D44;&#x6E90;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x7A0B;&#x5E8F;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x7EDF;&#x7684;&#x5185;&#x6838;&#x4E0E;&#x57FA;&#x77F3;&#x3002;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x5904;&#x7406;&#x5982;&#x7BA1;&#x7406;&#x4E0E;&#x914D;&#x7F6E;&#x5185;&#x5B58;&#x3001;&#x51B3;&#x5B9A;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x4F9B;&#x9700;&#x7684;&#x4F18;&#x5148;&#x6B21;&#x5E8F;&#x3001;&#x63A7;&#x5236;&#x8F93;&#x5165;&#x8BBE;&#x5907;&#x4E0E;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#x3001;&#x64CD;&#x4F5C;&#x7F51;&#x7EDC;&#x4E0E;&#x7BA1;&#x7406;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7B49;&#x57FA;&#x672C;&#x4E8B;&#x52A1;&#x3002;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E5F;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x8BA9;&#x7528;&#x6237;&#x4E0E;&#x7CFB;&#x7EDF;&#x4EA4;&#x4E92;&#x7684;&#x64CD;&#x4F5C;&#x754C;&#x9762;&#x3002;</p>
+</li>
+<li>
+<p>Linux&#x7B80;&#x4ECB;</p>
+<p>&#x200B;		Linux&#x662F;&#x4E00;&#x5957;&#x514D;&#x8D39;&#x4F7F;&#x7528;&#x548C;&#x81EA;&#x7531;&#x4F20;&#x64AD;&#x7684;&#x7C7B;Unix&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x591A;&#x7528;&#x6237;&#x3001;&#x591A;&#x4EFB;&#x52A1;&#x3001;&#x652F;&#x6301;&#x591A;&#x7EBF;&#x7A0B;&#x548C;&#x591A;CPU&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;&#x4F34;&#x968F;&#x7740;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x53D1;&#x5C55;&#xFF0C;Linux&#x5F97;&#x5230;&#x4E86;&#x6765;&#x81EA;&#x5168;&#x4E16;&#x754C;&#x8F6F;&#x4EF6;&#x7231;&#x597D;&#x8005;&#x3001;&#x7EC4;&#x7EC7;&#x3001;&#x516C;&#x53F8;&#x7684;&#x652F;&#x6301;&#x3002;&#x5B83;&#x9664;&#x4E86;&#x5728;&#x670D;&#x52A1;&#x5668;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x65B9;&#x9762;&#x4FDD;&#x6301;&#x7740;&#x5F3A;&#x52B2;&#x7684;&#x53D1;&#x5C55;&#x52BF;&#x5934;&#x4EE5;&#x5916;&#xFF0C;&#x5728;&#x4E2A;&#x4EBA;&#x7535;&#x8111;&#x3001;&#x5D4C;&#x5165;&#x5F0F;&#x7CFB;&#x7EDF;&#x4E0A;&#x90FD;&#x6709;&#x7740;&#x957F;&#x8DB3;&#x7684;&#x8FDB;&#x6B65;&#x3002;</p>
+<p>&#x200B;		Linux&#x4E0D;&#x4EC5;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x7A33;&#x5B9A;&#xFF0C;&#x800C;&#x4E14;&#x662F;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#x3002;&#x5176;&#x6838;&#x5FC3;&#x9632;&#x706B;&#x5899;&#x7EC4;&#x4EF6;&#x6027;&#x80FD;&#x9AD8;&#x6548;&#x3001;&#x914D;&#x7F6E;&#x7B80;&#x5355;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x3002;&#x5728;&#x5F88;&#x591A;&#x4F01;&#x4E1A;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x4E3A;&#x4E86;&#x8FFD;&#x6C42;&#x901F;&#x5EA6;&#x548C;&#x5B89;&#x5168;&#xFF0C;Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x88AB;&#x7F51;&#x7EDC;&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x5F53;&#x4F5C;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x200B;		Linux&#x4E0E;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x76F8;&#x6BD4; &#xFF0C;&#x5177;&#x6709;&#x5F00;&#x653E;&#x6E90;&#x7801;&#x3001;&#x6CA1;&#x6709;&#x7248;&#x6743;&#x3001;&#x6280;&#x672F;&#x793E;&#x533A;&#x7528;&#x6237;&#x591A;&#x7B49;&#x7279;&#x70B9; &#xFF0C;&#x5F00;&#x653E;&#x6E90;&#x7801;&#x4F7F;&#x5F97;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x88C1;&#x526A;&#xFF0C;&#x7075;&#x6D3B;&#x6027;&#x9AD8;&#xFF0C;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#xFF0C;&#x6210;&#x672C;&#x4F4E;&#x3002;</p>
+<p><img src="img/linus.png" alt="Linus"></p>
+</li>
+<li>
+<p>Linux&#x7279;&#x70B9;</p>
+<ul>
+<li>&#x4E00;&#x5207;&#x90FD;&#x662F;&#x6587;&#x4EF6;</li>
+<li>Linux&#x662F;&#x4E00;&#x6B3E;&#x514D;&#x8D39;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</li>
+<li>Linux&#x652F;&#x6301;&#x591A;&#x7528;&#x6237;&#xFF0C;&#x591A;&#x4EFB;&#x52A1;</li>
+<li>&#x652F;&#x6301;&#x591A;&#x79CD;&#x5E73;&#x53F0;</li>
+<li>&#x5177;&#x6709;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x7684;&#x7F51;&#x7EDC;&#x529F;&#x80FD;</li>
+<li>&#x7B80;&#x5316;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#xFF0C;&#x8F83;&#x5F3A;&#x7684;&#x79FB;&#x690D;&#x6027;</li>
+</ul>
+</li>
+<li>
+<p>&#x53D1;&#x884C;&#x7248;&#x672C;</p>
+<p>&#x4E25;&#x683C;&#x7684;&#x6765;&#x8BB2;&#xFF0C;Linux &#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#xFF0C;&#x5373;&#x8BA1;&#x7B97;&#x673A;&#x8F6F;&#x4EF6;&#x4E0E;&#x786C;&#x4EF6;&#x901A;&#x8BAF;&#x4E4B;&#x95F4;&#x7684;&#x5E73;&#x53F0;&#x3002;&#x4E00;&#x4E9B;&#x7EC4;&#x7EC7;&#x6216;&#x5382;&#x5BB6;&#x5C06; Linux &#x5185;&#x6838;&#x4E0E;GNU&#x8F6F;&#x4EF6;&#xFF08;&#x7CFB;&#x7EDF;&#x8F6F;&#x4EF6;&#x548C;&#x5DE5;&#x5177;&#xFF09;&#x6574;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x5B89;&#x88C5;&#x754C;&#x9762;&#x548C;&#x7CFB;&#x7EDF;&#x8BBE;&#x5B9A;&#x4E0E;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x6784;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x53D1;&#x578B;&#x5957;&#x4EF6;&#xFF0C;&#x76EE;&#x524D;&#x5E02;&#x9762;&#x4E0A;&#x8F83;&#x77E5;&#x540D;&#x7684;&#x53D1;&#x884C;&#x7248;&#x6709;&#xFF1A;Ubuntu&#x3001;RedHat&#x3001;CentOS&#x3001;Debian&#x3001;Fedora&#x3001;SuSE&#x3001;OpenSUSE&#x3001;Arch Linux&#x3001;SolusOS &#x7B49;&#x3002;</p>
+</li>
+<li>
+<p>Linux&#x5E94;&#x7528;&#x9886;&#x57DF;</p>
+</li>
+</ol>
+<ul>
+<li>Linux &#x670D;&#x52A1;&#x5668; : &#x76EE;&#x524D;Linux&#x670D;&#x52A1;&#x5668;&#x662F;&#x5F53;&#x524D;&#x6700;&#x5E7F;&#x6CDB;&#x7684;&#x5E94;&#x7528;&#x3002;</li>
+<li>&#x684C;&#x9762;&#x5E94;&#x7528;:&#x65B0;&#x7248;&#x672C;&#x7684;Linux&#x7CFB;&#x7EDF;&#x7279;&#x522B;&#x5728;&#x684C;&#x9762;&#x5E94;&#x7528;&#x65B9;&#x9762;&#x8FDB;&#x884C;&#x4E86;&#x6539;&#x8FDB;&#xFF0C;&#x8FBE;&#x5230;&#x76F8;&#x5F53;&#x7684;&#x6C34;&#x5E73;</li>
+<li>&#x5D4C;&#x5165;&#x5F0F;&#x7CFB;&#x7EDF;&#xFF1A;&#x7531;&#x4E8E;Linux&#x7CFB;&#x7EDF;&#x5F00;&#x653E;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x3001;&#x53EF;&#x9760;&#x3001;&#x7A33;&#x5B9A;&#x6027;&#x5F3A;&#x3001;&#x7075;&#x6D3B;&#x800C;&#x4E14;&#x5177;&#x6709;&#x6781;&#x5927;&#x7684;&#x4F38;&#x7F29;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x5D4C;&#x5165;&#x5F0F;&#x5E94;&#x7528;&#x7684;&#x9886;&#x57DF;&#x91CC;LINUX&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x90FD;&#x6709;&#x5F88;&#x5E7F;&#x9614;&#x7684;&#x5E94;&#x7528;&#x5E02;&#x573A;&#x3002;</li>
+</ul>
+<h2 class="mume-header" id="linux-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84">Linux &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;</h2>
+
+<p>&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7EC4;&#x6210;&#x4E3A;&#xFF1A;Linux&#x5185;&#x6838;&#xFF0C;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x547D;&#x4EE4;&#x884C;shell&#xFF0C;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x548C;&#x684C;&#x9762;&#x73AF;&#x5883;&#xFF0C;&#x5E76;&#x5305;&#x5404;&#x79CD;&#x5DE5;&#x5177;&#x548C;&#x5E94;&#x7528;&#x8F6F;&#x4EF6;&#x3002;</p>
+<ul>
+<li>Linux&#x5185;&#x6838;: Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#xFF0C;&#x662F;Linux&#x7CFB;&#x7EDF;&#x7684;&#x6700;&#x5E95;&#x5C42;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x6838;&#x5FC3;&#x529F;&#x80FD;&#x5E76;&#x5141;&#x8BB8;&#x8FDB;&#x7A0B;&#x4EE5;&#x4E00;&#x79CD;&#x6709;&#x5E8F;&#x7684;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#x786C;&#x4EF6;&#x3002;</li>
+<li>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF1A;&#x901A;&#x5E38;&#x6307;&#x79F0;&#x7BA1;&#x7406;&#x78C1;&#x76D8;&#x6570;&#x636E;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x5C06;&#x6570;&#x636E;&#x4EE5;&#x76EE;&#x5F55;&#x6216;&#x6587;&#x4EF6;&#x7684;&#x578B;&#x5F0F;&#x5B58;&#x50A8;&#x3002;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x6B8A;&#x683C;&#x5F0F;&#x4E0E;&#x529F;&#x80FD;</li>
+<li>shell&#x547D;&#x4EE4;&#xFF1A;Shell&#x662F;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x5B83;&#x4F7F;&#x5F97;&#x7528;&#x6237;&#x80FD;&#x591F;&#x4E0E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#xFF0C;&#x8D1F;&#x8D23;&#x63A5;&#x6536;&#x7528;&#x6237;&#x547D;&#x4EE4;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6307;&#x4EE4;&#x6765;&#x53CD;&#x9988;&#x7ED9;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x4FE1;&#x606F;&#x3002;</li>
+<li>&#x5E94;&#x7528;&#x8F6F;&#x4EF6;&#xFF1A;&#x5305;&#x542B;&#x684C;&#x9762;&#x7CFB;&#x7EDF;&#x548C;&#x57FA;&#x7840;&#x7684;&#x8F6F;&#x4EF6;&#x64CD;&#x4F5C;&#x5DE5;&#x5177;&#x7B49;&#x3002;</li>
+</ul>
+<p><img src="img/linux.jpg" alt="Linux"></p>
+<h2 class="mume-header" id="%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84">&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;</h2>
+
+<p>&#x5728;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x90FD;&#x662F;&#x5176;&#x91CD;&#x8981;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x7528;&#x4E8E;&#x7EC4;&#x7EC7;&#x548C;&#x7BA1;&#x7406;&#x8BA1;&#x7B97;&#x673A;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x5927;&#x91CF;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x63A5;&#x53E3;&#x3002;Linux&#x540C;&#x6837;&#x5177;&#x5907;&#x5B8C;&#x5584;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3002;Linux&#x7684;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x6A21;&#x5F0F;&#x72B9;&#x5982;&#x4E00;&#x9897;&#x5012;&#x7F6E;&#x7684;&#x6811;&#xFF0C;&#x6240;&#x6709;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x4F5C;&#x4E3A;&#x8FD9;&#x9897;&#x6811;&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x76EE;&#x5F55;&#x3002;&#x5C06;&#x6839;&#xFF08;/&#xFF09;&#x4F5C;&#x4E3A;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x552F;&#x4E00;&#x8D77;&#x70B9;&#xFF0C;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x76EE;&#x5F55;&#x90FD;&#x4ECE;&#x8BE5;&#x70B9;&#x51FA;&#x53D1;&#x3002;</p>
+<ul>
+<li>linux&#x4E0B;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</li>
+</ul>
+<p><img src="img/linux_fs.jpg" alt="Linux"></p>
+<h3 class="mume-header" id="%E4%B8%BB%E8%A6%81%E7%9B%AE%E5%BD%95%E5%8A%9F%E8%83%BD">&#x4E3B;&#x8981;&#x76EE;&#x5F55;&#x529F;&#x80FD;</h3>
+
+<ol>
+<li>/bin&#x76EE;&#x5F55;</li>
+</ol>
+<p>&#x200B;        /bin&#x76EE;&#x5F55;&#x5305;&#x542B;&#x4E86;&#x5F15;&#x5BFC;&#x542F;&#x52A8;&#x6240;&#x9700;&#x7684;&#x547D;&#x4EE4;&#x6216;&#x666E;&#x901A;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x7528;&#x7684;&#x547D;&#x4EE4;(&#x53EF;&#x80FD;&#x5728;&#x5F15;&#x5BFC;&#x542F;&#x52A8;&#x540E;)&#x3002;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x90FD;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;(bin&#x662F;binary----&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x7B80;&#x79F0;)&#xFF0C;&#x591A;&#x662F;&#x7CFB;&#x7EDF;&#x4E2D;&#x91CD;&#x8981;&#x7684;&#x7CFB;&#x7EDF;&#x6587;&#x4EF6;&#x3002;</p>
+<ol start="2">
+<li>/sbin&#x76EE;&#x5F55;</li>
+</ol>
+<p>&#x200B;        /sbin&#x76EE;&#x5F55;&#x7C7B;&#x4F3C;/bin&#xFF0C;&#x4E5F;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x3002;&#x56E0;&#x4E3A;&#x5176;&#x4E2D;&#x7684;&#x5927;&#x90E8;&#x5206;&#x6587;&#x4EF6;&#x591A;&#x662F;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x4F7F;&#x7528;&#x7684;&#x57FA;&#x672C;&#x7684;&#x7CFB;&#x7EDF;&#x7A0B;&#x5E8F;&#xFF0C;&#x6240;&#x4EE5;&#x867D;&#x7136;&#x666E;&#x901A;&#x7528;&#x6237;&#x5FC5;&#x8981;&#x4E14;&#x5141;&#x8BB8;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x4E00;&#x822C;&#x4E0D;&#x7ED9;&#x666E;&#x901A;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x3002;</p>
+<ol start="3">
+<li>/etc&#x76EE;&#x5F55;</li>
+</ol>
+<p>&#x200B;        /etc&#x76EE;&#x5F55;&#x5B58;&#x653E;&#x7740;&#x5404;&#x79CD;&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;&#x4E86;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x6587;&#x4EF6;/etc/ passwd&#xFF0C;&#x7CFB;&#x7EDF;&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;/etc/rc&#x7B49;&#x3002;linux&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x624D;&#x5F97;&#x4EE5;&#x6B63;&#x5E38;&#x5730;&#x8FD0;&#x884C;&#x3002;</p>
+<ol start="4">
+<li>/root&#x76EE;&#x5F55;</li>
+</ol>
+<p>&#x200B;        /root &#x76EE;&#x5F55;&#x662F;&#x8D85;&#x7EA7;&#x7528;&#x6237;&#x7684;&#x76EE;&#x5F55;&#x3002;</p>
+<ol start="5">
+<li>/lib&#x76EE;&#x5F55;</li>
+</ol>
+<p>&#x200B;        /lib&#x76EE;&#x5F55;&#x662F;&#x6839;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x7A0B;&#x5E8F;&#x6240;&#x9700;&#x7684;&#x5171;&#x4EAB;&#x5E93;&#xFF0C;&#x5B58;&#x653E;&#x4E86;&#x6839;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x6240;&#x9700;&#x7684;&#x5171;&#x4EAB;&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x4E86;&#x53EF;&#x88AB;&#x8BB8;&#x591A;&#x7A0B;&#x5E8F;&#x5171;&#x4EAB;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x6BCF;&#x4E2A;&#x7A0B;&#x5E8F;&#x90FD;&#x5305;&#x542B;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5B50;&#x7A0B;&#x5E8F;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x6545;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x53D8;&#x5F97;&#x66F4;&#x5C0F;&#xFF0C;&#x8282;&#x7701;&#x7A7A;&#x95F4;&#x3002;</p>
+<ol start="6">
+<li>/dev&#x76EE;&#x5F55;</li>
+</ol>
+<p>&#x200B;       /dev&#x76EE;&#x5F55;&#x5B58;&#x653E;&#x4E86;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x8BBE;&#x5907;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x8BBE;&#x5907;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBF;&#x95EE;/dev/mouse&#x6765;&#x8BBF;&#x95EE;&#x9F20;&#x6807;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x5C31;&#x50CF;&#x8BBF;&#x95EE;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x4E00;&#x6837;&#x3002;</p>
+<ol start="7">
+<li>/usr&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</li>
+</ol>
+<p>&#x200B;        /usr &#x662F;&#x4E2A;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x901A;&#x5E38;&#x8FD9;&#x4E00;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5F88;&#x5927;&#xFF0C;&#x56E0;&#x4E3A;&#x6240;&#x6709;&#x7A0B;&#x5E8F;&#x5B89;&#x88C5;&#x5728;&#x8FD9;&#x91CC;&#x3002;&#x672C;&#x5730;&#x5B89;&#x88C5;&#x7684;&#x7A0B;&#x5E8F;&#x548C;&#x5176;&#x4ED6;&#x4E1C;&#x897F;&#x5728;/usr/local &#x4E0B;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5728;&#x5347;&#x7EA7;&#x65B0;&#x7248;&#x7CFB;&#x7EDF;&#x6216;&#x65B0;&#x53D1;&#x884C;&#x7248;&#x65F6;&#x65E0;&#x987B;&#x91CD;&#x65B0;&#x5B89;&#x88C5;&#x5168;&#x90E8;&#x7A0B;&#x5E8F;&#x3002;</p>
+<ol start="8">
+<li>/var&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</li>
+</ol>
+<p>&#x200B;       /var &#x5305;&#x542B;&#x7CFB;&#x7EDF;&#x4E00;&#x822C;&#x8FD0;&#x884C;&#x65F6;&#x8981;&#x6539;&#x53D8;&#x7684;&#x6570;&#x636E;&#x3002;&#x901A;&#x5E38;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x8981;&#x7ECF;&#x5E38;&#x53D8;&#x5316;&#x6216;&#x6269;&#x5145;&#x7684;&#x3002;</p>
+<ol start="9">
+<li>/home</li>
+</ol>
+<p>&#x666E;&#x901A;&#x7528;&#x6237;&#x7684;&#x9ED8;&#x8BA4;&#x76EE;&#x5F55;&#xFF0C;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x4EE5;&#x7528;&#x6237;&#x540D;&#x547D;&#x540D;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;</p>
+<h3 class="mume-header" id="%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84">&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x548C;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;</h3>
+
+<p>&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x548C;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x90FD;&#x662F;&#x5728;Linux&#x4E2D;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x7684;&#x63CF;&#x8FF0;&#x65B9;&#x6CD5;</p>
+<blockquote>
+<p>&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1A;&#x6307;&#x6587;&#x4EF6;&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x4EE5;&#x6839;&#x76EE;&#x5F55;&#x4E3A;&#x8D77;&#x59CB;&#x70B9;&#x7684;&#x51C6;&#x786E;&#x4F4D;&#x7F6E;&#x63CF;&#x8FF0;&#x3002;&#x4F8B;&#x5982;&#x201C;/usr/bin/gnect&#x201D;&#x5C31;&#x662F;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p>
+</blockquote>
+<blockquote>
+<p>&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1A;&#x6307;&#x76F8;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x4E3A;&#x8D77;&#x59CB;&#x70B9;&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x7684;&#x9010;&#x5C42;&#x63CF;&#x8FF0;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x7528;&#x6237;&#x5904;&#x5728;usr&#x76EE;&#x5F55;&#x4E2D;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x201C;games/gnect&#x201D;&#x5C31;&#x53EF;&#x786E;&#x5B9A;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002;&#x5728;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x63CF;&#x8FF0;&#x65F6;  .  &#x8868;&#x793A;&#x5F53;&#x524D;&#x76EE;&#x5F55;,   ..  &#x8868;&#x793A;&#x4E0A;&#x4E00;&#x7EA7;&#x76EE;&#x5F55;&#x3002;</p>
+</blockquote>
+<h3 class="mume-header" id="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">&#x73AF;&#x5883;&#x53D8;&#x91CF;</h3>
+
+<p>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E00;&#x822C;&#x662F;&#x6307;&#x5728;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;<em>&#x73AF;&#x5883;</em>&#x7684;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x6BD4;&#x5982;&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;&#x4F4D;&#x7F6E;&#x7B49;&#x3002;&#x5982;&#x679C;&#x5C06;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x4E3A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x76EE;&#x5F55;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x5728;&#x4EFB;&#x4F55;&#x76EE;&#x5F55;&#x4E0B;&#x90FD;&#x53EF;&#x4EE5;&#x67E5;&#x627E;&#x5230;&#x3002;</p>
+<blockquote>
+<p>&#x4E34;&#x65F6;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;  export  PATH=&quot;$PATH:/your_dir_path&quot;</p>
+</blockquote>
+<blockquote>
+<p>&#x6C38;&#x4E45;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;&#x4FEE;&#x6539;etc&#x4E0B;&#x7684;profile&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x5165;vi  /etc/profile&#xFF0C;&#x5C06;&#x4E0A;&#x8FF0;&#x8BED;&#x53E5;&#x6DFB;&#x52A0;&#x8FDB;&#x53BB;</p>
+</blockquote>
+<h2 class="mume-header" id="%E7%BC%96%E8%AF%91%E5%99%A8%E4%BD%BF%E7%94%A8">&#x7F16;&#x8BD1;&#x5668;&#x4F7F;&#x7528;</h2>
+
+<h3 class="mume-header" id="vi%E4%BD%BF%E7%94%A8">vi&#x4F7F;&#x7528;</h3>
+
+<p>Vi&#x662F;&#x4E00;&#x4E2A;&#x8457;&#x540D;&#x7684;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x5B83;&#x662F;Linux&#x4E2D;&#x6700;&#x57FA;&#x672C;&#x7684;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x867D;&#x7136;&#x4E0D;&#x50CF;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x7F16;&#x8F91;&#x5668;&#x90A3;&#x6837;&#x7F8E;&#x89C2;&#xFF0C;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x9F20;&#x6807;&#x90A3;&#x6837;&#x65B9;&#x4FBF;&#x3002;&#x4F46;vi&#x7F16;&#x8F91;&#x5668;&#x5728;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x3001;&#x670D;&#x52A1;&#x5668;&#x914D;&#x7F6E;&#x5DE5;&#x4F5C;&#x4E2D;&#x6C38;&#x8FDC;&#x90FD;&#x662F;&#x65E0;&#x53EF;&#x66FF;&#x4EE3;&#x7684;&#x3002;</p>
+<blockquote>
+<p>&#x63D2;&#x5165;&#x6A21;&#x5F0F;&#xFF1A; &#x7528;&#x6765;&#x8F93;&#x5165;&#x6587;&#x672C;&#x5185;&#x5BB9;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4E0B;&#x6441; esc &#x952E;&#x8FDB;&#x5165;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;</p>
+<p>&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF1A;&#x547D;&#x4EE4;&#x64CD;&#x4F5C;&#xFF0C;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x53C8;&#x5305;&#x542B;&#x5E95;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x5373;&#x5728;vi&#x5E95;&#x90E8;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#x3002;&#x5728;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#x4E0B;&#x952E;&#x5165; &apos;:&apos; &#x5373;&#x8FDB;&#x5165;&#x5E95;&#x884C;&#x547D;&#x4EE4;&#x8F93;&#x5165;</p>
+</blockquote>
+<h4 class="mume-header" id="vi%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">Vi&#x5E38;&#x7528;&#x547D;&#x4EE4;</h4>
+
+<blockquote>
+<p>&#x64CD;&#x4F5C;&#x547D;&#x4EE4;</p>
+<ul>
+<li>i  &#x5728;&#x5F53;&#x524D;&#x5B57;&#x7B26;&#x7684;&#x5DE6;&#x8FB9;&#x63D2;&#x5165;</li>
+<li>o  &#x5728;&#x5F53;&#x524D;&#x884C;&#x4E0B;&#x9762;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x884C;</li>
+<li>h  &#x5411;&#x524D;&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;</li>
+<li>j  &#x5411;&#x4E0B;&#x79FB;&#x52A8;&#x4E00;&#x884C;</li>
+<li>k &#x5411;&#x4E0A;&#x79FB;&#x52A8;&#x4E00;&#x884C;</li>
+<li>l  &#x5411;&#x540E;&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;</li>
+<li>b	&#x79FB;&#x52A8;&#x5230;&#x5F53;&#x524D;&#x5355;&#x8BCD;&#x7684;&#x5F00;&#x59CB;</li>
+<li>e  &#x79FB;&#x52A8;&#x5230;&#x5F53;&#x524D;&#x5355;&#x8BCD;&#x7684;&#x7ED3;&#x5C3E;</li>
+<li>w  &#x79FB;&#x52A8;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;</li>
+<li>0&#xFF1A;&#x5149;&#x6807;&#x79FB;&#x52A8;&#x5230;&#x884C;&#x9996;</li>
+<li>$&#xFF1A;&#x5149;&#x6807;&#x79FB;&#x52A8;&#x5230;&#x884C;&#x672B;</li>
+<li>G &#xFF1A; &#x5149;&#x6807;&#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x7ED3;&#x5C3E;</li>
+<li>gg &#xFF1A; &#x5149;&#x6807;&#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x5F00;&#x5934;</li>
+<li>yy &#x590D;&#x5236;&#x5F53;&#x524D;&#x4E00;&#x884C;</li>
+<li>dd &#x526A;&#x5207;&#x5F53;&#x524D;&#x4E00;&#x884C;</li>
+<li>p  &#x7C98;&#x8D34;&#x5185;&#x5BB9;&#x5230;&#x6E38;&#x6807;&#x4E4B;&#x540E;</li>
+<li>P	&#x5C06;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x7C98;&#x8D34;&#x5728;&#x5149;&#x6807;&#x524D;</li>
+<li>x   &#x5220;&#x9664;&#x5149;&#x6807;&#x6240;&#x5728;&#x5B57;&#x7B26;</li>
+<li>r  &#x4FEE;&#x6539;&#x5149;&#x6807;&#x6240;&#x5728;&#x5B57;&#x7B26;&#xFF0C;r&#x540E;&#x63A5;&#x7740;&#x8981;&#x4FEE;&#x6B63;&#x7684;&#x5B57;&#x7B26;</li>
+<li>R  &#x8FDB;&#x5165;&#x53D6;&#x4EE3;&#x72B6;&#x6001;&#xFF0C;&#x65B0;&#x589E;&#x8D44;&#x6599;&#x4F1A;&#x8986;&#x6539;&#x539F;&#x5148;&#x8D44;&#x6599;&#xFF0C; &#x76F4;&#x5230;&#x6309;ESC&#x56DE;&#x5230;&#x6307;&#x4EE4;&#x6A21;&#x5F0F;&#x4E0B;&#x4E3A;&#x6B62;</li>
+<li>s &#x5220;&#x9664;&#x5149;&#x6807;&#x6240;&#x5728;&#x5B57;&#x7B26;&#xFF0C;&#x5E76;&#x8FDB;&#x5165;&#x8F93;&#x5165;&#x6A21;&#x5F0F;</li>
+<li>S  &#x5220;&#x9664;&#x5149;&#x6807;&#x6240;&#x5728;&#x7684;&#x884C;&#xFF0C;&#x5E76;&#x8FDB;&#x5165;&#x8F93;&#x5165;&#x6A21;&#x5F0F;</li>
+<li>cw &#x5220;&#x9664;&#x5149;&#x6807;&#x6240;&#x5728;&#x7684;&#x540E;&#x4E00;&#x5355;&#x8BCD;&#x8FDB;&#x5165;&#x63D2;&#x5165;&#x6A21;&#x5F0F;</li>
+<li>cb &#x5220;&#x9664;&#x5149;&#x6807;&#x6240;&#x5728;&#x7684;&#x524D;&#x4E00;&#x5355;&#x8BCD;&#x8FDB;&#x5165;&#x63D2;&#x5165;&#x6A21;&#x5F0F;</li>
+<li>c$ &#x5220;&#x9664;&#x81EA;&#x5149;&#x6807;&#x4F4D;&#x7F6E;&#x81F3;&#x884C;&#x5C3E;&#x7684;&#x6240;&#x6709;&#x5B57;&#x7B26;&#xFF0C;&#x8FDB;&#x5165;&#x63D2;&#x5165;&#x6A21;&#x5F0F;</li>
+<li>c0  &#x5220;&#x9664;&#x81EA;&#x5149;&#x6807;&#x4F4D;&#x7F6E;&#x81F3;&#x884C;&#x9996;&#x7684;&#x6240;&#x6709;&#x5B57;&#x7B26;&#xFF0C;&#x8FDB;&#x5165;&#x63D2;&#x5165;&#x6A21;&#x5F0F;</li>
+<li>cc  &#x5220;&#x9664;&#x5F53;&#x524D;&#x884C;&#x8FDB;&#x5165;&#x63D2;&#x5165;&#x6A21;&#x5F0F;</li>
+<li>u &#x64A4;&#x9500;&#x64CD;&#x4F5C;</li>
+<li>ctrl-r &#x53CD;&#x64A4;&#x9500;</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>&#x5E95;&#x884C;&#x547D;&#x4EE4;</p>
+<ul>
+<li>:n  &#x8DF3;&#x8F6C;&#x5230;&#x5E95;n&#x884C;</li>
+</ul>
+<ul>
+<li>:w &#x4FDD;&#x5B58;</li>
+<li>:w filename   &#x5B58;&#x5165;&#x6587;&#x4EF6;filename &#x4E2D;</li>
+<li>:w! filename  &#x5F3A;&#x5236;&#x6027;&#x5B58;&#x5165;&#x6587;&#x4EF6;filename &#x4E2D;</li>
+<li>:q &#x9000;&#x51FA;</li>
+<li>:q!  &#x5F3A;&#x884C;&#x9000;&#x51FA;</li>
+<li>:set nu &#x663E;&#x793A;&#x884C;&#x53F7;</li>
+<li>/word &#x67E5;&#x627E;&#x5185;&#x5BB9;</li>
+<li>&#xFF1A;%s/hello/nihao/g  &#x5C06;&#x6240;&#x6709;&#x7684;hello &#x66FF;&#x6362;&#x4E3A;nihao</li>
+<li>&#xFF1A;5,8s/hello/nihao/g  &#x5C06;5-8&#x884C;&#x7684;hello &#x66FF;&#x6362;&#x4E3A;nihao</li>
+</ul>
+</blockquote>
+<p><img src="img/vi.png" alt></p>
+<h2 class="mume-header" id="shell%E5%91%BD%E4%BB%A4">shell&#x547D;&#x4EE4;</h2>
+
+<p>&#x6211;&#x4EEC;&#x5728;Linux&#x7EC8;&#x7AEF;&#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x8F93;&#x5165;&#x7684;&#x547D;&#x4EE4;&#x79F0;&#x4E3A;shell&#x547D;&#x4EE4;&#xFF0C;&#x662F;&#x901A;&#x8FC7;shell&#x89E3;&#x91CA;&#x5668;&#x89E3;&#x91CA;&#x540E;&#x7531;&#x7CFB;&#x7EDF;&#x6267;&#x884C;&#x3002;shell&#x89E3;&#x91CA;&#x5668;&#x4E5F;&#x662F;&#x4E00;&#x4EE3;&#x4E00;&#x4EE3;&#x8FDB;&#x5316;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x6240;&#x4F7F;&#x7528;&#x7684;shell&#x662F; bash shell&#x3002; &#x5728;&#x670D;&#x52A1;&#x5668;&#x7CFB;&#x7EDF;&#x64CD;&#x4F5C;&#x7EF4;&#x62A4;&#x4E2D;&#xFF0C;shell&#x547D;&#x4EE4;&#x8D77;&#x5230;&#x4E86;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x64CD;&#x4F5C;&#x5F80;&#x5F80;&#x6CA1;&#x6709;&#x56FE;&#x5F62;&#x754C;&#x9762;&#xFF0C;&#x6216;&#x8005;&#x901A;&#x8FC7;&#x8FDC;&#x7A0B;&#x547D;&#x4EE4;&#x63A7;&#x5236;&#x5B8C;&#x6210;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;shell&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x5F88;&#x591A;&#x529F;&#x80FD;&#x3002;</p>
+<p>shell&#x547D;&#x4EE4;&#x57FA;&#x672C;&#x683C;&#x5F0F;&#x6709;&#x4E09;&#x90E8;&#x5206;,&#x6BCF;&#x90E8;&#x5206;&#x4E4B;&#x95F4;&#x6709;&#x7A7A;&#x683C;&#xFF0C;&#x9009;&#x9879;&#x4E0E;&#x9009;&#x9879;&#xFF0C;&#x53C2;&#x6570;&#x4E0E;&#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x4E5F;&#x6709;&#x7A7A;&#x683C;&#x3002;&#xFF08;&#x591A;&#x4E2A;&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x5199;&#x5728;&#x4E00;&#x8D77;&#xFF09;&#xFF1A;</p>
+<blockquote>
+<p>&#x547D;&#x4EE4;    [&#x9009;&#x9879;]    [&#x53C2;&#x6570;]</p>
+</blockquote>
+<h3 class="mume-header" id="%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4">&#x57FA;&#x7840;&#x547D;&#x4EE4;</h3>
+
+<table>
+<thead>
+<tr>
+<th>&#x4F5C;&#x7528;</th>
+<th>&#x547D;&#x4EE4;&#x53CA;&#x5E38;&#x7528;&#x9009;&#x9879;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5173;&#x95ED;&#x91CD;&#x542F;&#x7CFB;&#x7EDF;</td>
+<td>shutdown</td>
+</tr>
+<tr>
+<td>&#x4E34;&#x65F6;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;</td>
+<td>sudo</td>
+</tr>
+<tr>
+<td>&#x5E2E;&#x52A9;&#x8BF4;&#x660E;</td>
+<td>man</td>
+</tr>
+<tr>
+<td>&#x9000;&#x51FA;&#x7EC8;&#x7AEF;</td>
+<td>exit</td>
+</tr>
+<tr>
+<td>&#x6E05;&#x7A7A;&#x5C4F;&#x5E55;</td>
+<td>clear</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</td>
+<td>pwd</td>
+</tr>
+<tr>
+<td>&#x5207;&#x6362;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;</td>
+<td>cd</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x770B;&#x6587;&#x4EF6;</td>
+<td>ls  &#xFF0C;  ls -l &#xFF0C;  ls -a</td>
+</tr>
+<tr>
+<td>&#x6253;&#x5370;&#x5185;&#x5BB9;</td>
+<td>echo</td>
+</tr>
+<tr>
+<td>&#x521B;&#x5EFA;&#x76EE;&#x5F55;</td>
+<td>mkdir -p</td>
+</tr>
+<tr>
+<td>&#x5220;&#x9664;&#x76EE;&#x5F55;</td>
+<td>rmdir</td>
+</tr>
+<tr>
+<td>&#x521B;&#x5EFA;&#x6587;&#x4EF6;</td>
+<td>touch</td>
+</tr>
+<tr>
+<td>&#x590D;&#x5236;&#x6587;&#x4EF6;</td>
+<td>cp  -r</td>
+</tr>
+<tr>
+<td>&#x79FB;&#x52A8;&#x6587;&#x4EF6;</td>
+<td>mv</td>
+</tr>
+<tr>
+<td>&#x5220;&#x9664;&#x6587;&#x4EF6;</td>
+<td>rm  -rf</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x627E;&#x6587;&#x4EF6;</td>
+<td>find</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x4FE1;&#x606F;</td>
+<td>file</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</td>
+<td>cat</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x524D; n &#x884C;</td>
+<td>head</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x540E;n&#x884C;</td>
+<td>tail</td>
+</tr>
+<tr>
+<td>&#x5BF9;&#x6BD4;&#x6587;&#x4EF6;&#x5DEE;&#x5F02;</td>
+<td>diff</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x8BE2;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x4FE1;&#x606F;</td>
+<td>wc</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x627E;&#x6587;&#x4EF6;&#x91CC;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x5B57;&#x7B26;&#x4E32;</td>
+<td>grep</td>
+</tr>
+<tr>
+<td>&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x6743;&#x9650;</td>
+<td>chmod</td>
+</tr>
+<tr>
+<td>&#x521B;&#x5EFA;&#x94FE;&#x63A5;&#x6587;&#x4EF6;</td>
+<td>ln    &#xFF0C;  ln -s</td>
+</tr>
+<tr>
+<td>&#x663E;&#x793A;&#x5F53;&#x524D;&#x65F6;&#x95F4;</td>
+<td>date</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</td>
+<td>df</td>
+</tr>
+<tr>
+<td>&#x663E;&#x793A;&#x5F53;&#x524D;&#x7528;&#x6237;</td>
+<td>whoami</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x627E;&#x670D;&#x52A1;&#x7A0B;&#x5E8F;&#x4F4D;&#x7F6E;</td>
+<td>witch</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x627E;&#x547D;&#x4EE4;&#x6587;&#x4EF6;&#x53CA;&#x5173;&#x8054;&#x76EE;&#x5F55;</td>
+<td>whereis</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>shutdown &#xFF1A; &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E3A;1&#x5206;&#x949F;&#x540E;&#x5173;&#x673A;&#xFF0C; +n &#x8868;&#x793A;n&#x5206;&#x949F;&#x540E;&#x5173;&#x673A;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;shutdown  -c &#x53EF;&#x4EE5;&#x53D6;&#x6D88;&#x3002;shutdown -h now&#x8868;&#x793A;&#x7ACB;&#x5373;&#x5173;&#x673A;</li>
+<li>sudo&#xFF1A;&#x5728;&#x547D;&#x4EE4;&#x524D;&#x4E66;&#x5199;&#xFF0C;&#x8868;&#x793A;&#x5DF2;&#x4EE5;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x3002;</li>
+<li>man&#xFF1A;&#x4F7F;&#x7528;man&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x7279;&#x5B9A;&#x7684;&#x8054;&#x673A;&#x5E2E;&#x52A9;&#x9875;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x7B80;&#x77ED;&#x7684;&#x547D;&#x4EE4;&#x8BF4;&#x660E;&#x3002;</li>
+<li>exit &#xFF1A; &#x5173;&#x95ED;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#xFF0C;&#x901A;&#x8FC7;ctrl+alt +t  ,shift+ctrl + t  , shift+ctrl+n &#x90FD;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;</li>
+<li>clear&#xFF1A;&#x7B49;&#x540C;&#x4E8E;ctrl-l&#xFF0C;&#x6E05;&#x7A7A;&#x5C4F;&#x5E55;</li>
+<li>pwd&#xFF1A;pwd&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x663E;&#x793A;&#x7528;&#x6237;&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x3002;</li>
+<li>cd&#xFF1A;&#x7528;&#x4E8E;&#x6539;&#x53D8;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x53C2;&#x6570;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;&#x8005;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</li>
+<li>ls &#xFF1A; &#x67E5;&#x770B;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x5217;&#x8868;  -l &#x5C55;&#x793A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;-a&#x5C55;&#x793A;&#x9690;&#x85CF;&#x6587;&#x4EF6;&#xFF08;Linux&#x4E0B; . &#x5F00;&#x5934;&#x7684;&#x4E3A;&#x9690;&#x85CF;&#x6587;&#x4EF6;&#xFF09;</li>
+</ul>
+<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>d    rwx r-x r-x    2    linux    linux      4096         Sep 22  2012       Desktop
+
+&#x5404;&#x9879;&#x542B;&#x4E49;&#x5206;&#x522B;&#x662F;&#xFF1A; &#x6587;&#x4EF6;&#x7C7B;&#x578B;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x94FE;&#x63A5;&#x6570;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x8005;&#xFF0C;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7EC4;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x66F4;&#x65B0;&#x65F6;&#x95F4;&#xFF0C;&#x6587;&#x4EF6;&#x540D;
+</code></pre><ul>
+<li>
+<p>echo &#xFF1A;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x4E00;&#x6BB5;&#x6587;&#x5B57;&#x5728;&#x663E;&#x793A;&#x5668;&#x4E0A;&#xFF0C;-n&#x8868;&#x793A;&#x8F93;&#x51FA;&#x540E;&#x4E0D;&#x6362;&#x884C;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x8F93;&#x5165;/&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;&#x662F;&#x6539;&#x53D8;Shell&#x547D;&#x4EE4;&#x6216;&#x7A0B;&#x5E8F;&#x9ED8;&#x8BA4;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x5165;/&#x8F93;&#x51FA;&#x76EE;&#x6807;&#xFF0C;&#x91CD;&#x65B0;&#x5B9A;&#x5411;&#x5230;&#x65B0;&#x7684;&#x76EE;&#x6807;&#x3002;
+</code></pre><table>
+<thead>
+<tr>
+<th>&#x91CD;&#x5B9A;&#x5411;&#x7B26;</th>
+<th>&#x542B;&#x4E49;</th>
+<th>&#x5B9E;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;   file</td>
+<td>&#x5C06;file&#x6587;&#x4EF6;&#x91CD;&#x5B9A;&#x5411;&#x4E3A;&#x8F93;&#x51FA;&#x6E90;&#xFF0C;&#x65B0;&#x5EFA;&#x6A21;&#x5F0F;</td>
+<td>echo &quot;hello world&quot;   &gt; out.txt&#xFF0C;&#x5C06;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x5199;&#x5230;out.txt&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x82E5;&#x6709;&#x540C;&#x540D;&#x6587;&#x4EF6;&#x5C06;&#x88AB;&#x5220;&#x9664;</td>
+</tr>
+<tr>
+<td>&gt;&gt;   file</td>
+<td>&#x5C06;file&#x6587;&#x4EF6;&#x91CD;&#x5B9A;&#x5411;&#x4E3A;&#x8F93;&#x51FA;&#x6E90;&#xFF0C;&#x8FFD;&#x52A0;&#x6A21;&#x5F0F;</td>
+<td>ls   /usr   &gt;&gt; Lsoutput.txt&#xFF0C;&#x5C06;ls   /usr&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x8FFD;&#x52A0;&#x5230;Lsoutput.txt&#x6587;&#x4EF6;&#x5DF2;&#x6709;&#x5185;&#x5BB9;&#x540E;</td>
+</tr>
+<tr>
+<td>&lt;   file</td>
+<td>&#x5C06;file&#x6587;&#x4EF6;&#x91CD;&#x5B9A;&#x5411;&#x4E3A;&#x8F93;&#x5165;&#x6E90;</td>
+<td>wc   &lt; file1&#xFF0C;&#x5C06;file1&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x4F20;&#x7ED9;wc&#x547D;&#x4EE4;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>mkdir &#xFF1A; &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;-p&#x7528;&#x6237;&#x521B;&#x5EFA;&#x591A;&#x5C42;&#x76EE;&#x5F55;</p>
+</li>
+<li>
+<p>rmdir &#xFF1A; &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7A7A;&#x76EE;&#x5F55;</p>
+</li>
+<li>
+<p>touch &#xFF1A; &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</p>
+</li>
+<li>
+<p>cp &#xFF1A; &#x590D;&#x5236;&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x53E6;&#x5B58;&#xFF0C; -r &#x53EF;&#x4EE5;&#x590D;&#x5236;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</p>
+</li>
+<li>
+<p>mv&#xFF1A; &#x79FB;&#x52A8;&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x91CD;&#x547D;&#x540D;</p>
+</li>
+<li>
+<p>rm &#xFF1A; &#x5220;&#x9664;&#x6587;&#x4EF6;&#xFF0C;-rf &#x7528;&#x4E8E;&#x5220;&#x9664;&#x76EE;&#x5F55;</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x5F53;&#x9700;&#x8981;&#x7528;&#x547D;&#x4EE4;&#x5904;&#x7406;&#x4E00;&#x7EC4;&#x6587;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982;file1.txt&#x3001;file2.txt&#x3001;file3.txt&#x2026;&#x2026;&#xFF0C;&#x7528;&#x6237;&#x4E0D;&#x5FC5;&#x4E00;&#x4E00;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Shell&#x901A;&#x914D;&#x7B26;&#x3002;
+</code></pre><table>
+<thead>
+<tr>
+<th>&#x901A;&#x914D;&#x7B26;</th>
+<th>&#x542B;&#x4E49;</th>
+<th>&#x5B9E;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>&#x661F;&#x53F7;&#xFF08;*&#xFF09;</strong></td>
+<td>&#x5339;&#x914D;&#x4EFB;&#x610F;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#x4E32;</td>
+<td>&#x7528;file_*.txt&#xFF0C;&#x5339;&#x914D;file_wang.txt&#x3001;file_Lee.txt&#x3001;file3_Liu.txt</td>
+</tr>
+<tr>
+<td>&#x95EE;&#x53F7;&#xFF08;?&#xFF09;</td>
+<td>&#x5339;&#x914D;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x7B26;</td>
+<td>&#x7528;flie_?.txt&#xFF0C;&#x5339;&#x914D;file_1.txt&#x3001;file1_2.txt&#x3001;file_3.txt</td>
+</tr>
+<tr>
+<td><strong>&#x65B9;&#x62EC;&#x53F7;&#xFF08;</strong>[&#x2026;]&#xFF09;</td>
+<td>&#x5339;&#x914D;&#x5176;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;</td>
+<td>&#x7528;file_[otr].txt&#xFF0C;&#x5339;&#x914D;file_o.txt&#x3001;file_r.txt&#x548C;file_t.txt</td>
+</tr>
+<tr>
+<td>&#x65B9;&#x62EC;&#x53F7;&#xFF08;[   - ]&#xFF09;</td>
+<td>&#x5339;&#x914D;&#x6307;&#x5B9A;&#x7684;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x8303;&#x56F4;</td>
+<td>&#x7528;file_[a-z].txt&#xFF0C;&#x5339;&#x914D;file_a.txt&#x3001;file_b.txt&#xFF0C;&#x76F4;&#x5230;file_z.txt</td>
+</tr>
+<tr>
+<td>&#x65B9;&#x62EC;&#x53F7;&#xFF08;<strong>[^&#x2026;]</strong>&#xFF09;</td>
+<td>&#x9664;&#x4E86;&#x5176;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x5747;&#x53EF;&#x5339;&#x914D;</td>
+<td>&#x7528;file_<strong>[^otr]</strong>.txt&#xFF0C;&#x9664;&#x4E86;file_o.txt&#x3001;file_r.txt&#x548C;file_t.txt&#x7684;&#x5176;&#x4ED6;&#x6587;&#x4EF6;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>find &#xFF1A; &#x5728;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x67E5;&#x627E;&#x6587;&#x4EF6;  find path  -name &#x6309;&#x7167;&#x540D;&#x5B57;&#x67E5;&#x627E;</p>
+</li>
+<li>
+<p>file &#xFF1A; &#x67E5;&#x770B;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x7C7B;&#x578B;</p>
+</li>
+<li>
+<p>cat &#xFF1A; &#x67E5;&#x770B;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</p>
+</li>
+<li>
+<p>head &#xFF1A;  head  - n  file &#x7528;&#x6765;&#x67E5;&#x770B;&#x4E00;&#x4E2A; &#x6587;&#x4EF6;&#x524D;n&#x884C;</p>
+</li>
+<li>
+<p>tail &#xFF1A; tail  -n file &#x7528;&#x6765;&#x67E5;&#x770B;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x540E;n&#x884C;</p>
+</li>
+<li>
+<p>wc &#xFF1A; &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x4FE1;&#x606F;&#xFF0C; -c &#x8868;&#x793A;&#x67E5;&#x770B;&#x591A;&#x5C11;&#x5B57;&#x7B26;&#xFF0C;-l&#x67E5;&#x770B;&#x591A;&#x5C11;&#x884C;&#xFF0C;-w &#x67E5;&#x770B;&#x591A;&#x5C11;&#x5355;&#x8BCD;</p>
+</li>
+<li>
+<p>grep : &#x7528;&#x4E8E;&#x67E5;&#x627E;&#x5185;&#x5BB9;&#x5305;&#x542B;&#x6307;&#x5B9A;&#x7684;&#x8303;&#x672C;&#x6837;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#xFF0C; grep &#x6307;&#x4EE4;&#x4F1A;&#x628A;&#x542B;&#x6709;&#x8303;&#x672C;&#x6837;&#x5F0F;&#x7684;&#x90A3;&#x4E00;&#x884C;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;&#x82E5;&#x4E0D;&#x6307;&#x5B9A;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF0C;&#x5219; grep &#x6307;&#x4EE4;&#x4F1A;&#x4ECE;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x3002;-n &#x7528;&#x4E8E;&#x663E;&#x793A;&#x884C;&#x53F7;&#xFF0C;-i&#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x7BA1;&#x9053;&#x53EF;&#x4EE5;&#x628A;&#x4E00;&#x7CFB;&#x5217;&#x547D;&#x4EE4;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x7B2C;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x51FA;&#x5C06;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4F20;&#x9012;&#x7ED9;&#x7B2C;&#x4E8C;&#x4E2A;&#x547D;&#x4EE4;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x51FA;&#x53C8;&#x5C06;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E09;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;
+
+ls | grep &apos;test&apos;
+</code></pre></li>
+<li>
+<p>chmod &#xFF1A; chmod  [&#x6743;&#x9650;&#x58F0;&#x660E;] [file]  &#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x6743;&#x9650;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>u &#x8868;&#x793A;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x62E5;&#x6709;&#x8005;&#xFF0C;g &#x8868;&#x793A;&#x4E0E;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x62E5;&#x6709;&#x8005;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x7FA4;&#x4F53;(group)&#x8005;&#xFF0C;o &#x8868;&#x793A;&#x5176;&#x4ED6;&#x4EE5;&#x5916;&#x7684;&#x4EBA;&#xFF0C;a &#x8868;&#x793A;&#x8FD9;&#x4E09;&#x8005;&#x7686;&#x662F;&#x3002;
++ &#x8868;&#x793A;&#x589E;&#x52A0;&#x6743;&#x9650;&#x3001;- &#x8868;&#x793A;&#x53D6;&#x6D88;&#x6743;&#x9650;&#x3001;= &#x8868;&#x793A;&#x552F;&#x4E00;&#x8BBE;&#x5B9A;&#x6743;&#x9650;&#x3002;
+r &#x8868;&#x793A;&#x53EF;&#x8BFB;&#x53D6;&#xFF0C;w &#x8868;&#x793A;&#x53EF;&#x5199;&#x5165;&#xFF0C;x &#x8868;&#x793A;&#x53EF;&#x6267;&#x884C;&#xFF0C;X &#x8868;&#x793A;&#x53EA;&#x6709;&#x5F53;&#x8BE5;&#x6587;&#x4EF6;&#x662F;&#x4E2A;&#x5B50;&#x76EE;&#x5F55;&#x6216;&#x8005;&#x8BE5;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x88AB;&#x8BBE;&#x5B9A;&#x8FC7;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x3002;
+
+&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E09;&#x4F4D;8&#x8FDB;&#x5236;&#x8868;&#x8FBE;&#x6743;&#x9650;
+</code></pre></li>
+<li>
+<p>ln &#xFF1A; ln  [&#x6E90;&#x6587;&#x4EF6;]  [&#x76EE;&#x6807;&#x6587;&#x4EF6;]  &#x521B;&#x5EFA;&#x94FE;&#x63A5;&#xFF0C;-s&#x8868;&#x793A;&#x521B;&#x5EFA;&#x8F6F;&#x94FE;&#x63A5;&#xFF0C;&#x4E0D;&#x52A0;&#x8868;&#x793A;&#x786C;&#x94FE;&#x63A5;&#x3002;&#x786C;&#x94FE;&#x63A5;&#x60F3;&#x76F8;&#x5F53;&#x4E8E;&#x526F;&#x672C;&#xFF0C;&#x6E90;&#x6587;&#x4EF6;&#x540D;&#x6539;&#x53D8;&#x4E5F;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x94FE;&#x63A5;&#xFF0C;&#x6E90;&#x6587;&#x4EF6;&#x5220;&#x9664;&#x5219;&#x94FE;&#x63A5;&#x65AD;&#x5F00;&#x3002;&#x8F6F;&#x94FE;&#x63A5;&#x76F8;&#x5F53;&#x4E8E;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#xFF0C;&#x6E90;&#x6587;&#x4EF6;&#x6539;&#x53D8;&#x5219;&#x94FE;&#x63A5;&#x65AD;&#x5F00;&#xFF0C;&#x6E90;&#x6587;&#x4EF6;&#x5220;&#x9664;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x540E;&#x94FE;&#x63A5;&#x53EF;&#x4EE5;&#x6062;&#x590D;&#x3002;</p>
+</li>
+<li>
+<p>date &#xFF1A; &#x663E;&#x793A;&#x65F6;&#x95F4;</p>
+</li>
+<li>
+<p>df  :  &#x663E;&#x793A;&#x76EE;&#x524D;&#x5728;Linux&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x78C1;&#x76D8;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x7EDF;&#x8BA1;,&#x5176;&#x4E2D;-T&#x663E;&#x793A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7C7B;&#x578B; ext4&#x7684;&#x4E3A;&#x78C1;&#x76D8;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x4E3A;&#x865A;&#x62DF;&#x6587;&#x4EF6;&#x3002;-h&#x4EE5;M&#x4E3A;&#x5355;&#x4F4D;&#x663E;&#x793A;</p>
+</li>
+<li>
+<p>whoami : &#x663E;&#x793A;&#x5F53;&#x524D;&#x7528;&#x6237;</p>
+</li>
+</ul>
+<h3 class="mume-header" id="%E5%8E%8B%E7%BC%A9%E7%AE%A1%E7%90%86">&#x538B;&#x7F29;&#x7BA1;&#x7406;</h3>
+
+<p>&#x5F52;&#x6863;&#x548C;&#x538B;&#x7F29;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5F88;&#x597D;&#x7684;&#x6574;&#x7406;&#x6587;&#x4EF6;&#xFF0C;&#x5728;Linux&#x7CFB;&#x7EDF;&#x4E0B;&#x652F;&#x6301;&#x591A;&#x79CD;&#x538B;&#x7F29;&#x683C;&#x5F0F;&#x3002;&#x5176;&#x4E2D;gzip&#x662F;Linux&#x4E2D;&#x6700;&#x6D41;&#x884C;&#x7684;&#x538B;&#x7F29;&#x5DE5;&#x5177;&#xFF0C;&#x5177;&#x6709;&#x5F88;&#x597D;&#x7684;&#x79FB;&#x690D;&#x6027;&#xFF0C;&#x53EF;&#x5728;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x67B6;&#x6784;&#x7684;&#x7CFB;&#x7EDF;&#x4E2D;&#x4F7F;&#x7528;&#x3002;bzip2&#x5728;&#x6027;&#x80FD;&#x4E0A;&#x4F18;&#x4E8E;gzip&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x6700;&#x5927;&#x9650;&#x5EA6;&#x7684;&#x538B;&#x7F29;&#x6BD4;&#x7387;&#x3002;&#x5982;&#x679C;&#x7528;&#x6237;&#x9700;&#x8981;&#x7ECF;&#x5E38;&#x5728;Linux&#x548C;&#x5FAE;&#x8F6F;Windows&#x95F4;&#x4EA4;&#x6362;&#x6587;&#x4EF6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;zip&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x4F5C;&#x7528;</th>
+<th>&#x547D;&#x4EE4;&#x53CA;&#x5E38;&#x7528;&#x9009;&#x9879;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x538B;&#x7F29;&#x89E3;&#x538B;zip&#x683C;&#x5F0F;</td>
+<td>zip  -r&#xFF0C; unzip</td>
+</tr>
+<tr>
+<td>&#x538B;&#x7F29;&#x89E3;&#x538B;gz&#x683C;&#x5F0F;</td>
+<td>gzip, gunzip</td>
+</tr>
+<tr>
+<td>&#x538B;&#x7F29;&#x89E3;&#x538B;bz2&#x683C;&#x5F0F;</td>
+<td>bzip2,bunzip2</td>
+</tr>
+<tr>
+<td>&#x5F52;&#x6863;&#x538B;&#x7F29;&#x89E3;&#x538B;&#x6587;&#x4EF6;</td>
+<td>tar</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>zip &#xFF1A; &#x5C06;&#x6587;&#x4EF6;&#x538B;&#x7F29;&#x4E3A;zip&#x683C;&#x5F0F;</p>
+<ul>
+<li>
+<blockquote>
+<p>zip    test.zip   filelist</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>unzip : &#x5C06;zip&#x683C;&#x5F0F;&#x6587;&#x4EF6;&#x89E3;&#x538B;</p>
+<ul>
+<li>
+<blockquote>
+<p>unzip  test.zip</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>gzip &#xFF1A; &#x5C06;&#x6587;&#x4EF6;&#x538B;&#x7F29;&#x4E3A;gz&#x683C;&#x5F0F;</p>
+<ul>
+<li>
+<blockquote>
+<p>gzip  file</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>gunzip &#xFF1A;&#x5C06;gz&#x6587;&#x4EF6;&#x89E3;&#x538B;</p>
+<ul>
+<li>
+<blockquote>
+<p>gunzip  file.gz</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>bzip2 :  &#x5C06;&#x6587;&#x4EF6;&#x538B;&#x7F29;&#x4E3A;bz2&#x683C;&#x5F0F;</p>
+<ul>
+<li>
+<blockquote>
+<p>bzip2  file</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>bunzip2 : &#x5C06;bz2 &#x6587;&#x4EF6;&#x89E3;&#x538B;</p>
+<ul>
+<li>
+<blockquote>
+<p>bunzip2  file.bz2</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>tar :  &#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5C06;&#x82E5;&#x5E72;&#x6587;&#x4EF6;&#x6216;&#x76EE;&#x5F55;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;&#x4FBF;&#x5907;&#x4EFD;&#x548C;&#x538B;&#x7F29;&#x3002;-cjf &#x7528;&#x4E8E;&#x538B;&#x7F29;bz2&#x683C;&#x5F0F;&#x6587;&#x4EF6;&#xFF0C;-czf&#x7528;&#x4E8E;&#x538B;&#x7F29;gz&#x683C;&#x5F0F;&#x6587;&#x4EF6;&#xFF0C;-xvf&#x7528;&#x4E8E;&#x89E3;&#x538B;&#x6587;&#x4EF6;</p>
+<table>
+<thead>
+<tr>
+<th>&#x9009;&#x9879;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-t</td>
+<td>&#x663E;&#x793A;&#x5F52;&#x6863;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>&#x91CA;&#x653E;&#x5F52;&#x6863;&#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>&#x66F4;&#x65B0;&#x5F52;&#x6863;&#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5F52;&#x6863;&#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>&#x663E;&#x793A;&#x5F52;&#x6863;&#x548C;&#x91CA;&#x653E;&#x7684;&#x8FC7;&#x7A0B;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>&#x7528;&#x6237;&#x6307;&#x5B9A;&#x5F52;&#x6863;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5426;&#x5219;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td>-j</td>
+<td>&#x7531;tar&#x751F;&#x6210;&#x5F52;&#x6863;&#xFF0C;&#x7136;&#x540E;&#x7531;bzip2&#x538B;&#x7F29;</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>&#x7531;tar&#x751F;&#x6210;&#x5F52;&#x6863;&#xFF0C;&#x7136;&#x540E;&#x7531;gzip&#x538B;&#x7F29;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>tar -czf   file.tar.gz   file1  file2</p>
+<p>tar -xvf file.tar.gz</p>
+</blockquote>
+</li>
+</ul>
+<h3 class="mume-header" id="%E8%BD%AF%E4%BB%B6%E7%AE%A1%E7%90%86">&#x8F6F;&#x4EF6;&#x7BA1;&#x7406;</h3>
+
+<p>Linux&#x4E0B;&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#x662F; deb&#x683C;&#x5F0F;&#x8F6F;&#x4EF6;&#x5305;&#x3002;Deb&#x8F6F;&#x4EF6;&#x5305;&#x5C06;&#x4E8C;&#x8FDB;&#x5236;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3001;&#x914D;&#x7F6E;&#x6587;&#x6863;&#x3001;&#x5E2E;&#x52A9;&#x9875;&#x9762;&#x90FD;&#x6574;&#x5408;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4FBF;&#x4E8E;&#x4F20;&#x9012;&#x3001;&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x548C;&#x5907;&#x4EFD;&#x3002;dpkg&#x662F;&#x6700;&#x65E9;&#x7684;Deb&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x4F7F;&#x7528;dpkg&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x5B89;&#x88C5;&#x3001;&#x7F16;&#x8BD1;&#x3001;&#x5378;&#x8F7D;&#x3001;&#x67E5;&#x8BE2;&#xFF0C;&#x4EE5;&#x53CA;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6253;&#x5305;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x5F53;&#x65F6;Linux&#x7CFB;&#x7EDF;&#x89C4;&#x6A21;&#x548C;Internet&#x7F51;&#x7EDC;&#x6761;&#x4EF6;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x5230;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x8F6F;&#x4EF6;&#x5305;&#x5B58;&#x5728;&#x5982;&#x6B64;&#x590D;&#x6742;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;&#x56E0;&#x800C;&#xFF0C;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8F6F;&#x4EF6;&#x5305;&#x4F9D;&#x8D56;&#x6027;&#x95EE;&#x9898;&#x548C;&#x83B7;&#x53D6;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x51FA;&#x73B0;&#x4E86;APT&#x5DE5;&#x5177;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x4F5C;&#x7528;</th>
+<th>&#x547D;&#x4EE4;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x672C;&#x5730;&#x5305;&#x5B89;&#x88C5;</td>
+<td>dpkg -i <package></package></td>
+</tr>
+<tr>
+<td>&#x672C;&#x5730;&#x5B89;&#x88C5;&#x5305;&#x5378;&#x8F7D;</td>
+<td>dpkg -r <package></package></td>
+</tr>
+<tr>
+<td>&#x672C;&#x5730;&#x5305;&#x5378;&#x8F7D;&#x5E76;&#x6E05;&#x9664;&#x8BB0;&#x5F55;</td>
+<td>dpkg -P <package></package></td>
+</tr>
+<tr>
+<td>&#x5347;&#x7EA7;&#x8F6F;&#x4EF6;&#x5305;</td>
+<td>apt-get   update</td>
+</tr>
+<tr>
+<td>&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;</td>
+<td>apt-get   install</td>
+</tr>
+<tr>
+<td>&#x5378;&#x8F7D;&#x8F6F;&#x4EF6;</td>
+<td>apt-get   remove  --purge</td>
+</tr>
+<tr>
+<td>&#x5220;&#x9664;&#x7F13;&#x5B58;&#x7684;&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;&#x5305;</td>
+<td>apt-get   clean</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">&#x7528;&#x6237;&#x7BA1;&#x7406;</h3>
+
+<p>Linux&#x7CFB;&#x7EDF;&#x662F;&#x4E00;&#x4E2A;&#x591A;&#x7528;&#x6237;&#x591A;&#x4EFB;&#x52A1;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x8981;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x9996;&#x5148;&#x5411;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x5458;&#x7533;&#x8BF7;&#x4E00;&#x4E2A;&#x8D26;&#x53F7;&#xFF0C;&#x7136;&#x540E;&#x4EE5;&#x8FD9;&#x4E2A;&#x8D26;&#x53F7;&#x7684;&#x8EAB;&#x4EFD;&#x8FDB;&#x5165;&#x7CFB;&#x7EDF;&#x3002;&#x7528;&#x6237;&#x7684;&#x8D26;&#x53F7;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x7528;&#x6237;&#x7EC4;&#x7EC7;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E3A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x5B89;&#x5168;&#x6027;&#x4FDD;&#x62A4;&#x3002;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#x8D26;&#x53F7;&#x90FD;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x60DF;&#x4E00;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x5404;&#x81EA;&#x7684;&#x53E3;&#x4EE4;&#x3002;&#x7528;&#x6237;&#x5728;&#x767B;&#x5F55;&#x65F6;&#x952E;&#x5165;&#x6B63;&#x786E;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x53E3;&#x4EE4;&#x540E;&#xFF0C;&#x5C31;&#x80FD;&#x591F;&#x8FDB;&#x5165;&#x7CFB;&#x7EDF;&#x548C;&#x81EA;&#x5DF1;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x3002;</p>
+<p>&#x5B9E;&#x73B0;&#x7528;&#x6237;&#x8D26;&#x53F7;&#x7684;&#x7BA1;&#x7406;&#xFF0C;&#x8981;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x65B9;&#x9762;&#xFF1A;</p>
+<ul>
+<li>&#x7528;&#x6237;&#x8D26;&#x53F7;&#x7684;&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x4E0E;&#x4FEE;&#x6539;&#x3002;</li>
+<li>&#x7528;&#x6237;&#x53E3;&#x4EE4;&#x7684;&#x7BA1;&#x7406;&#x3002;</li>
+<li>&#x7528;&#x6237;&#x7EC4;&#x7684;&#x7BA1;&#x7406;&#x3002;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x4F5C;&#x7528;</th>
+<th>&#x547D;&#x4EE4;&#x53CA;&#x5E38;&#x7528;&#x9009;&#x9879;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x589E;&#x52A0;&#x7528;&#x6237;</td>
+<td>adduser</td>
+</tr>
+<tr>
+<td>&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x5BC6;&#x7801;</td>
+<td>passwd</td>
+</tr>
+<tr>
+<td>&#x5220;&#x9664;&#x7528;&#x6237;</td>
+<td>deluser</td>
+</tr>
+<tr>
+<td>&#x5220;&#x9664;&#x7528;&#x6237;&#x7EC4;</td>
+<td>delgroup</td>
+</tr>
+<tr>
+<td>&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x5F52;&#x5C5E;</td>
+<td>chown</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>adduser &#xFF1A; &#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#xFF0C;--home &#x751F;&#x4EA7;&#x4E3B;&#x76EE;&#x5F55; --ingroup&#x9009;&#x62E9;&#x7528;&#x6237;&#x7EC4;&#x540D;&#x79F0;&#x3002;&#x9ED8;&#x8BA4;&#x7EC4;&#x540D;&#x548C;&#x7528;&#x6237;&#x540D;&#x76F8;&#x540C;</li>
+<li>passwd &#xFF1A; &#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;</li>
+<li>usermod: &#x4FEE;&#x6539;&#x7528;&#x6237;&#x6743;&#x9650;&#xFF0C;&#x5982;&#x5BC6;&#x7801;&#x6216;&#x5219;&#x6240;&#x5C5E;&#x7684;&#x7EC4;&#x7B49;</li>
+<li>deluser : &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7528;&#x6237; --remove-home &#x8868;&#x793A;&#x540C;&#x65F6;&#x5220;&#x9664;&#x7528;&#x6237;&#x4E3B;&#x76EE;&#x5F55;</li>
+<li>delgroup &#xFF1A; &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x7EC4;</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x6DFB;&#x52A0;&#x7528;&#x6237;&#x540E;&#x4E3A;&#x4FDD;&#x8BC1;&#x7528;&#x6237;&#x6709;sudo &#x6743;&#x9650;&#xFF0C;&#x9700;&#x4FEE;&#x6539; /etc/sudoers &#x6587;&#x4EF6;&#xFF0C;&#x627E;&#x5230;&#x4E0B;&#x9762;&#x4E00;&#x884C;&#xFF0C;&#x5728;root&#x4E0B;&#x9762;&#x6DFB;&#x52A0;&#x4E00;&#x884C;&#xFF0C;&#x5047;&#x8BBE;aid&#x4E3A;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;
+## Allow root to run any commands anywhere
+root ALL=(ALL&#xFF1A;ALL) ALL
+aid ALL=(ALL:ALL) ALL
+</code></pre><pre data-role="codeBlock" data-info class="language-"><code>&#x901A;&#x8FC7;sudo vipw&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF0C;&#x5728;&#x4FE1;&#x606F;&#x5217;&#x8868;&#x4E2D;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x4E3A;&#x865A;&#x62DF;&#x7528;&#x6237;&#x3002;&#x5F53;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x65F6;&#x8BE5;&#x6587;&#x4EF6;&#x4F1A;&#x81EA;&#x52A8;&#x4FEE;&#x6539;&#xFF0C;&#x5982;&#x679C;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5219;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7528;&#x6237;&#x624D;&#x5F7B;&#x5E95;&#x5220;&#x9664;
+</code></pre><h2 class="mume-header" id="ssh%E6%9C%8D%E5%8A%A1">ssh&#x670D;&#x52A1;</h2>
+
+<p>ssh&#x662F;&#x4E00;&#x79CD;&#x5B89;&#x5168;&#x534F;&#x8BAE;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x7ED9;&#x8FDC;&#x7A0B;&#x767B;&#x5F55;&#x4F1A;&#x8BDD;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x52A0;&#x5BC6;&#xFF0C;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x7684;&#x5B89;&#x5168;&#x3002;&#x5728;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x65B9;&#x9762;&#x6709;&#x5F88;&#x591A;&#x5E94;&#x7528;&#x3002;</p>
+<h3 class="mume-header" id="linux%E4%B8%8B%E7%9A%84ssh%E6%9C%8D%E5%8A%A1">Linux&#x4E0B;&#x7684;SSH&#x670D;&#x52A1;</h3>
+
+<blockquote>
+<p>&#x5728;Linux&#x4E0B;SSH&#x670D;&#x52A1;&#x7AEF;&#x662F;&#x4E00;&#x4E2A;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x54CD;&#x5E94;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x3002; SSH&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x8BB2;&#x7A0B;&#x540D;&#x4E3A;sshd&#xFF0C;&#x8D1F;&#x8D23;&#x5B9E;&#x65F6;&#x76D1;&#x542C;&#x8FDC;&#x7A0B;SSH&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDC;&#x7A0B;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
+</blockquote>
+<ul>
+<li>
+<p>&#x5B89;&#x88C5; &#xFF1A; sudo apt-get install openssh-server</p>
+</li>
+<li>
+<p>&#x67E5;&#x770B;ssh&#x670D;&#x52A1;&#x72B6;&#x6001; &#xFF1A; ps -e|grep ssh</p>
+</li>
+<li>
+<p>&#x542F;&#x52A8;&#x548C;&#x5173;&#x95ED; &#xFF1A;</p>
+<blockquote>
+<p>sudo service ssh start/restart/stop<br>
+sudo  /etc/init.d/ssh start/restart/stop</p>
+</blockquote>
+</li>
+</ul>
+<h3 class="mume-header" id="ssh%E5%91%BD%E4%BB%A4">ssh&#x547D;&#x4EE4;</h3>
+
+<h4 class="mume-header" id="ssh%E7%99%BB%E5%BD%95%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA">ssh&#x767B;&#x5F55;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;</h4>
+
+<blockquote>
+<p>ssh [-p port] username@ip<br>
+&#x9000;&#x51FA;&#xFF1A; exit &#x6216; ctrl-D</p>
+</blockquote>
+<h4 class="mume-header" id="scp%E5%91%BD%E4%BB%A4">scp&#x547D;&#x4EE4;</h4>
+
+<p>scp&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x901A;&#x8FC7;&#x5B89;&#x5168;&#x3001;&#x52A0;&#x5BC6;&#x7684;&#x8FDE;&#x63A5;&#x5728;&#x673A;&#x5668;&#x95F4;&#x4F20;&#x8F93;&#x6587;&#x4EF6;&#x3002;</p>
+<blockquote>
+<p>&#x628A;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x7ED9;&#x8FDC;&#x7A0B;&#x7CFB;&#x7EDF;&#xFF1A;<br>
+scp localfile  username@tohostname:/newfilename</p>
+</blockquote>
+<blockquote>
+<p>&#x628A;&#x8FDC;&#x7A0B;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x7ED9;&#x672C;&#x5730;&#x7CFB;&#x7EDF;&#xFF1A;<br>
+scp username@tohostname:/remotefile /localfile</p>
+</blockquote>
+<h3 class="mume-header" id="ssh%E7%A7%98%E9%92%A5">ssh&#x79D8;&#x94A5;</h3>
+
+<p>&#x6BCF;&#x6B21;&#x767B;&#x5F55;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#x90FD;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x662F;&#x5F88;&#x4E0D;&#x4FBF;&#x6377;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x52A0;&#x901F;&#x8FD9;&#x4E00;&#x6B65;&#x9AA4;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5BC6;&#x94A5;&#x5BF9;&#x8FDB;&#x884C;&#x8FDE;&#x63A5;&#xFF0C;&#x4E3B;&#x8981;&#x601D;&#x8DEF;&#x662F;&#xFF1A;&#x751F;&#x6210;&#x4E00;&#x5BF9;&#x516C;&#x94A5;&#x79C1;&#x94A5;&#xFF0C;&#x79C1;&#x94A5;&#x5728;local&#x4E3B;&#x673A;&#x4E0A;&#xFF0C;&#x516C;&#x94A5;&#x5728;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x6BCF;&#x6B21;&#x5EFA;&#x7ACB;ssh&#x8FDE;&#x63A5;&#x81EA;&#x52A8;&#x68C0;&#x67E5;&#x5BC6;&#x94A5;&#x5BF9;&#x662F;&#x5426;&#x5339;&#x914D;&#x3002;</p>
+<h4 class="mume-header" id="%E7%94%9F%E4%BA%A7ssh%E7%A7%98%E9%92%A5%E6%AD%A5%E9%AA%A4">&#x751F;&#x4EA7;ssh&#x79D8;&#x94A5;&#x6B65;&#x9AA4;</h4>
+
+<blockquote>
+<blockquote>
+<ol>
+<li>&#x751F;&#x4EA7;&#x79D8;&#x94A5;&#x5BF9; &#xFF1A; ssh-keygen  &#x6267;&#x884C;&#x4EE5;&#x540E;&#x4F1A;&#x5728;&#x4E3B;&#x76EE;&#x5F55;&#x4E0B;&#x751F;&#x6210;&#x4E00;&#x4E2A;.ssh&#x6587;&#x4EF6;&#x5939;,&#x5176;&#x4E2D;&#x5305;&#x542B;&#x79C1;&#x94A5;&#x6587;&#x4EF6;id_rsa&#x548C;&#x516C;&#x94A5;&#x6587;&#x4EF6;id_rsa.pub&#x3002;</li>
+<li>&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E3B;&#x673A;&#x4E0A;&#x5C06;id_rsa.pub&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x9644;&#x52A0;~/.ssh/authorized_keys&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x4FEE;&#x6539;&#x5668;&#x6743;&#x9650;&#x3002;</li>
+</ol>
+</blockquote>
+</blockquote>
+<p><img src="img/ssh.png" alt="ssh"></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
