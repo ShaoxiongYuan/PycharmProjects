@@ -2,14 +2,13 @@ from socket import *
 from select import *
 
 
-# 具体功能实现
 class HTTPServer:
     def __init__(self, host='0.0.0.0', port=8000, dir=None):
         self.host = host
         self.port = port
         self.address = (host, port)
         self.dir = dir
-        self.sockfd = socket()  # 套接字属性
+        self.sockfd = socket()
         self.sockfd.setblocking(False)
         self.sockfd.bind(self.address)
         self.rlist = []
