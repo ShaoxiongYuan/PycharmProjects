@@ -28,27 +28,27 @@ def main():
         else:
             print("该用户已存在")
 
-    while True:
-        pid = os.fork()
-        if pid < 0:
-            print("error")
-        elif pid == 0:
-            receive_message(s)
-        else:
-            send_message(name, s)
+    pid = os.fork()
+    if pid < 0:
+        print("error")
+    elif pid == 0:
+        receive_message(s)
+    else:
+        send_message(name, s)
 
 
 def send_message(name, s):
-    try:
-        content = input("发言：")
-    except:
-        content = ""
-    if content == "":
-        msg = "Q " + name
+    while True:
+        try:
+            content = input("发言：")
+        except:
+            content = ""
+        if content == "":
+            msg = "Q " + name
+            s.sendto(msg.encode(), server_addr)
+            sys.exit("谢谢使用")
+        msg = "C " + name + " " + content
         s.sendto(msg.encode(), server_addr)
-        sys.exit("谢谢使用")
-    msg = "C " + name + " " + content
-    s.sendto(msg.encode(), server_addr)
 
 
 if __name__ == '__main__':

@@ -15,11 +15,10 @@ class HTTPServer:
         self.rlist = []
         self.wlist = []
         self.xlist = []
+        self.sockfd.setsockopt(SOL_SOCKET, SO_REUSEADDR, True)
 
     def serve_forever(self):
         self.sockfd.listen(3)
-        print("Listen the port %d" % self.port)
-
         self.rlist.append(self.sockfd)
         while True:
             rs, ws, xs = select(self.rlist, self.wlist, self.xlist)
@@ -32,17 +31,19 @@ class HTTPServer:
                     self.handle(r)
 
     def handle(self, connfd):
-        data = connfd.recv(1024)
+        data = connfd.recv(4096)
         if not data:
             self.rlist.remove(connfd)
             connfd.close()
             return
+        self.response(connfd,data)
+
+    def response(self,connfd,data):
         info = data.decode().split(" ")[1]
-        print("请求内容：", info)
         if info == "/":
             info = "/index.html"
         try:
-            f=open(self.dir+info)
+            f = open(self.dir + info)
         except:
             data = "HTTP/1.1 404 Not Found\r\n"
             data += "Content-Type:text/html\r\n"
@@ -54,7 +55,7 @@ class HTTPServer:
             data += "\r\n"
             data += f.read()
             f.close()
-        self.sockfd.send(data.encode())
+        connfd.send(data.encode())
 
 
 if __name__ == '__main__':
