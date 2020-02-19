@@ -16,6 +16,7 @@ print(obj.group(2))
 print(obj.group("dog"))
 print(obj.groups())
 
+# match对象属性
 print(obj.lastgroup)
 print(obj.lastindex)
 print(obj.endpos)

@@ -8,6 +8,6 @@ print(re.findall(pattern, s))
 regex = re.compile(pattern)
 print(regex.findall(s, 0, 13))
 
-print(re.split(r"[:,]",s,2))
+print(re.split(r"[:,]", s, 2))
 
-print(re.sub(r":","--",s,1))
+print(re.sub(r":", "--", s, 1))
