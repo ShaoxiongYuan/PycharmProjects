@@ -1,5 +1,6 @@
 import re
 
+# 基本元字符
 print(re.findall("ab", "abcdefabcd"))
 print(re.findall("中国", "你好，中国"))
 print(re.findall("ab|ef", "abcdefabcd"))
