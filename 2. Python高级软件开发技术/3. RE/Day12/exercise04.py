@@ -2,8 +2,6 @@ import re
 
 portname = input("请输入端口名称：")
 
-regex1 = re.compile(r"^" + portname, flags=re.MULTILINE)
-
 f = open("exc.txt")
 while True:
     s = ""
