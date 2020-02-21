@@ -1,3 +1,0 @@
-import pymysql
-
-pymysql.connect()
