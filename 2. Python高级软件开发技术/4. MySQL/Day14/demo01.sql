@@ -33,4 +33,20 @@ where age = 14;
 -- 删除
 delete
 from class_1
-where name = 'Baron'
+where name = 'Baron';
+
+-- alter
+alter table interest
+    add tel char(11) after price;
+
+alter table interest
+    drop price;
+
+alter table interest
+    modify tel char(16);
+
+alter table interest
+    change tel telephone char(11);
+
+alter table class_1 rename cls;
+-- rename table class_1 to cls;
