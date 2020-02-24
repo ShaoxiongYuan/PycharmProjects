@@ -39,5 +39,16 @@ values (7, 'James', 33, 'm', 40000, '2017-5-20', 5),
        (8, 'Baron', 20, 'm', 34000, '2020-1-4', 2);
 
 -- 删除foreign key并且一起删除对应索引
-# alter table person drop foreign key dept_fk;
-# drop index dept_fk on person;
+alter table person
+    drop foreign key dept_fk;
+drop index dept_fk on person;
+
+-- constraint(default), cascade, set null, no action=restrict
+alter table person
+    add constraint dept_fk foreign key (dept_id) references dept (id) on delete cascade on update cascade;
+
+alter table person
+    add constraint dept_fk foreign key (dept_id) references dept (id) on delete set null on update set null;
+
+
+
