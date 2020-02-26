@@ -72,3 +72,14 @@ select distinct s_name
 from total
 where s_id not in (select s_id from total where t_name = '张三');
 
+-- 11、查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩
+-- 思路：先找不及格超过两门的s_id，为表a，再根据表a连接学生信息表student和平均分表b。
+select a.s_id as s_id, a.s_name as s_name, avg_score
+from (select s_id, s_name
+      from total
+      where score < 60
+      group by s_id
+      having count(s_id) >= 2) as a
+         left join (select s_id, avg(score) as avg_score from total group by s_id) as b on a.s_id = b.s_id;
+
+
