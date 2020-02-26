@@ -82,4 +82,8 @@ from (select s_id, s_name
       having count(s_id) >= 2) as a
          left join (select s_id, avg(score) as avg_score from total group by s_id) as b on a.s_id = b.s_id;
 
-
+-- 12、检索"01"课程分数小于60，按分数降序排列的学生信息
+select b.s_id, s_name, b.score
+from student
+         right join (select s_id, score from score where c_id = '01' and score < 60) as b on student.s_id = b.s_id
+order by score desc;
