@@ -59,7 +59,7 @@ class Database:
             return None
 
     def history(self, name):
-        sql = "select name,word,time from dict.history where name=%s"
+        sql = "select name,word,time from dict.history where name=%s order by time desc"
         self.cur.execute(sql, [name])
         r = self.cur.fetchmany(10)
         return r
