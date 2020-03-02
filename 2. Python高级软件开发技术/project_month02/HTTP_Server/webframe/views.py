@@ -5,7 +5,7 @@ def get_time():
     return time.ctime()
 
 
-def Hello():
+def hello():
     return "Hello!"
 
 

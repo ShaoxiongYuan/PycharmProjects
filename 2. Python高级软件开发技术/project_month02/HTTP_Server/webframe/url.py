@@ -1,7 +1,8 @@
 from views import *
 
-url = [("/time", get_time),
-       ("/hello", Hello),
-       ("/welcome", welcome),
-       ("/Goodbye", goodbye)
-       ]
+url = [
+    ("/time", get_time),
+    ("/hello", hello),
+    ("/welcome", welcome),
+    ("/goodbye", goodbye)
+]

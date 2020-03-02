@@ -54,10 +54,8 @@ class WebFrame:
     def get_data(self, spec):
         for name, func in url:
             if spec == name:
-                result = func()
-                return {'status': '200', 'data': result}
-        with open(DIR + "/404.html") as f:
-            return {'status': '404', 'data': f.read()}
+                return {'status': '200', 'data': func()}
+        return {'status': '404', 'data': 'Sorry...'}
 
 
 if __name__ == '__main__':
