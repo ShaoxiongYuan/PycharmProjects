@@ -1,11 +1,15 @@
-from socket import *
-from config import *
-from threading import *
+import json
 import re
+from socket import *
+from threading import *
+from config import *
 
 
-def connect_frame(env):
-    pass
+def connect_frame(content):
+    s = socket()
+    s.connect((frame_ip, frame_port))
+    data = json.dumps(content)
+    s.send(data.encode())
 
 
 class HTTPServer:
@@ -17,7 +21,7 @@ class HTTPServer:
         self.sockfd.setsockopt(SOL_SOCKET, SO_REUSEADDR, DEBUG)
         self.sockfd.bind(self.address)
 
-    def serve_forever(self):
+    def serve(self):
         self.sockfd.listen(3)
         while True:
             print("Waiting for connect...")
@@ -32,12 +36,12 @@ class HTTPServer:
         request = connfd.recv(4096).decode()
         pattern = r"(?P<method>[A-Z]+)\s+(?P<info>/\S*)"
         try:
-            env = re.match(pattern, request).groupdict()
+            content = re.match(pattern, request).groupdict()
         except:
             connfd.close()
             return
         else:
-            data = connect_frame(env)
+            data = connect_frame(content)
             if data:
                 self.response(connfd, data)
 
@@ -62,4 +66,4 @@ class HTTPServer:
 
 if __name__ == '__main__':
     httpd = HTTPServer()
-    httpd.serve_forever()
+    httpd.serve()
