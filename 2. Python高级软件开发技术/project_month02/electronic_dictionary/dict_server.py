@@ -36,9 +36,10 @@ def search(c, name, word):
 def history(c, name):
     result = db.history(name)
     for i in result:
-        msg = "用户名：%s,单词：%s,时间：%s\n" % (i[0], i[1], i[2])
+        msg = "用户名：%s,单词：%s,时间：%s" % (i[0], i[1], i[2])
+        sleep(0.1)
         c.send(msg.encode())
-    sleep(0.2)
+    sleep(0.1)
     c.send(b"end")
 
 
