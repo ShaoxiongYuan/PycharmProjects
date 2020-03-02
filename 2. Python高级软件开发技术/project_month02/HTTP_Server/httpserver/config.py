@@ -1,4 +1,4 @@
-HOST = '0.0.0.0'
+HOST = "192.168.0.114"
 PORT = 11111
 
 DEBUG = True

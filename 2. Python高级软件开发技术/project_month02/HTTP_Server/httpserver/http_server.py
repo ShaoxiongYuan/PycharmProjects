@@ -29,7 +29,6 @@ class HTTPServer:
     def serve(self):
         self.sockfd.listen(3)
         while True:
-            print("Waiting for connect...")
             connfd, addr = self.sockfd.accept()
             print("Connected from", addr)
             t = Thread(target=self.handle,
@@ -39,7 +38,6 @@ class HTTPServer:
 
     def handle(self, connfd):
         request = connfd.recv(4096).decode()
-        print(request)
         pattern = r"(?P<method>[A-Z]+)\s+(?P<info>/\S*)"
         try:
             content = re.match(pattern, request).groupdict()

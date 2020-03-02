@@ -27,27 +27,37 @@ class WebFrame:
     def handle(self, connfd):
         content = connfd.recv(1024).decode()
         data = json.loads(content)
+        if data["info"] == "/":
+            data["info"] = "/index.html"
         if data["method"] == "GET":
             if data["info"][-5:] == ".html":
-                self.get_html(data["info"])
+                msg = self.get_html(data["info"])
+                response = json.dumps(msg)
+                connfd.send(response.encode())
             else:
-                self.get_data(data["info"])
+                msg = self.get_data(data["info"])
+                response = json.dumps(msg)
+                connfd.send(response.encode())
         elif data["method"] == "POST":
             pass
 
     def get_html(self, spec):
-        if spec == "/":
-            spec = "/index.html"
         try:
             f = open(DIR + spec)
         except:
-            return {'status': '404', 'data': 'Sorry...'}
+            with open(DIR + "/404.html") as f:
+                return {'status': '404', 'data': f.read()}
         else:
             data = f.read()
             return {'status': '200', 'data': data}
 
     def get_data(self, spec):
-        pass
+        for name, func in url:
+            if spec == name:
+                result = func()
+                return {'status': '200', 'data': result}
+        with open(DIR + "/404.html") as f:
+            return {'status': '404', 'data': f.read()}
 
 
 if __name__ == '__main__':
