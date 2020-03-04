@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    height: 50px;
+    font-size: 32px;
+}
+
+div {
+    background-color: red;
+}
+
+p {
+    color: seagreen;
+}
