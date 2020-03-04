@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+
+    <style>
+        #d1{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            background-color: pink;
+            transition: all 2s;
+        }
+
+        #d1:hover{
+            font-size: 50px;
+            background-color: yellowgreen;
+        }
+
+        #button{
+            color: #136bc2;
+            text-decoration: none;
+        }
+        
+        /* 访问前 */
+        #button:link{
+            background-color: cadetblue;
+        }
+
+        #button:visited{
+            background-color: chartreuse;
+        }
+
+        #button:hover{
+            color: blue;
+            text-decoration: underline;
+        }
+
+        #button:active{
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">Hi!</div>
+    <a id="button" href="http://www.sina.com.cn">去往新浪</a>
+</body>
+</html>
