@@ -14,9 +14,22 @@
             list-style: none;
         }
 
-        .diff {
+        #nav {
+            border: 1px solid red;
+            padding: 7px;
+        }
+
+        #nav>.diff {
             margin-right: 50px;
             display: inline-block;
+        }
+
+        #nav .diff:hover{
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            padding: 3px;
+            transition: all 0.3s;
         }
 
         #diff {
@@ -34,7 +47,7 @@
 </head>
 
 <body>
-    <ul>
+    <ul id="nav">
         <li id="diff">难度：</li>
         <li class="diff">全部</li>
         <li class="diff">初级</li>
