@@ -1,1 +1,1 @@
-alert('外部javascript')
+alert('外部javascript');
