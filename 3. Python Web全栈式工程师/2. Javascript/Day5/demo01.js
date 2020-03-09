@@ -1,1 +1,1 @@
-document.write("Text written using JavaScript code!")
+alert('外部javascript')
