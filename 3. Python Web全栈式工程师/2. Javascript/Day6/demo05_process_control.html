@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Process Control</title>
+    <title>If</title>
 </head>
 
 <body>
     <script>
-        var num = 18
-        if (num < 18) {
-            alert('禁止访问')
-        }
-        else {
-            alert('嘿嘿')
+        // var num = 18
+        // if (num < 18) {
+        //     alert('禁止访问')
+        // } else {
+        //     alert('嘿嘿')
+        // }
+        var age = prompt('请输入年龄：')
+        if (age >= 18 && age < 30) {
+            alert('青年人')
+        } else if (age >= 30 && age < 60) {
+            alert('中年人')
+        } else if (age >= 60 && age < 100) {
+            alert('老年人')
         }
     </script>
 </body>
