@@ -23,9 +23,15 @@
     </script>
     <button id="btn">我是谁</button>
     <script>
+        var sayName='hello'//污染函数
         //通过id查找按钮
         var btn = document.getElementById('btn')
-        btn.onclick = function (){
+        // btn.onclick = function (){
+        //     alert('My name is Steven.')
+        // }
+        
+        btn.onclick = sayName
+        function sayName() {
             alert('My name is Steven.')
         }
     </script>
