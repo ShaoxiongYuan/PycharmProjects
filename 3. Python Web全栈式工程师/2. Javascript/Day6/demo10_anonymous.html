@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // (function () {
+        //     alert('Hello')
+        // })()//调用匿名函数
+
+
+        //变量接受匿名函数
+        // var fun=function(){
+        //     alert('Good')
+        // }
+        // console.log(fun)
+        // fun()
+    </script>
+    <button id="btn">我是谁</button>
+    <script>
+        //通过id查找按钮
+        var btn = document.getElementById('btn')
+        btn.onclick = function (){
+            alert('My name is Steven.')
+        }
+    </script>
+</body>
+
+</html>
