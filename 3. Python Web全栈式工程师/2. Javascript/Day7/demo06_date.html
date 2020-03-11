@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+<script>
+    var date = new Date();
+    var work = new Date('2020-05-01 12:00:00');
+    console.log(date);
+    console.log(work);
+
+    console.log(date.getFullYear());
+    console.log(date.getMonth());
+    console.log(date.getDate());
+    console.log(date.getDay());
+    console.log(date.getHours());
+    console.log(date.getMinutes());
+    console.log(date.getSeconds());
+
+    console.log(work.getTime() - date.getTime());
+</script>
+</body>
+</html>
