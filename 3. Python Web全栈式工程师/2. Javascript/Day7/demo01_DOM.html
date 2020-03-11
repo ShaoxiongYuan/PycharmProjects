@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn" class="red">Click Me</button>
+    <button>Click Me</button>
+    <button class="red">Click Me</button>
+    <button>Click Me</button>
+    <button class="red">Click Me</button>
+    <script>
+        var btn = document.getElementById('btn')
+        var btns = document.getElementsByTagName('button')
+        var red = document.getElementsByClassName('red')
+        // console.log(btns)
+        // console.log(btns[1])
+        for (var i = 0; i < btns.length; i++) {
+            console.log(btns[i]);
+        }
+        console.log(red)
+        for (let i = 0; i < red.length; i++) {
+            red[i].onclick = function () {
+                alert('Hello')
+            };
+        }
+    </script>
+</body>
+
+</html>

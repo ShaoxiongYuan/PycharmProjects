@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Attribute</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">测试</div>
+    <button id="btn">点击让文字变红</button>
+    <button id="btn2">点击取消文字样式</button>
+    <button id="btn3">点击让文字加粗</button>
+    <script>
+        var btn = document.getElementById('btn')
+        var btn2 = document.getElementById('btn2')
+        var btn3 = document.getElementById('btn3')
+        var d1 = document.getElementById('d1')
+        btn.onclick = function () {
+            // d1.setAttribute('class', 'red')
+            d1.className = 'red'
+        }
+        btn2.onclick = function () {
+            // d1.removeAttribute('class')
+            d1.className = ''
+        }
+        btn3.onclick = function () {
+            d1.setAttribute('class', 'bold')
+        }
+    </script>
+</body>
+
+</html>
