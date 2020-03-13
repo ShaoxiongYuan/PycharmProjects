@@ -11,6 +11,15 @@
             list-style: none;
         }
 
+        #list {
+            border: 2px solid red;
+            padding: 5px;
+        }
+
+        li {
+            padding: 3px;
+        }
+
         .diff {
             margin-right: 50px;
             display: inline-block;
@@ -23,6 +32,11 @@
             transition: all 0.3s;
         }
 
+        .active {
+            background-color: red;
+            color: white;
+        }
+
         #diff {
             margin-right: 30px;
             color: grey;
@@ -31,7 +45,7 @@
     </style>
 </head>
 <body>
-<ul>
+<ul id="list">
     <li id="diff">难度：</li>
     <li class="diff">全部</li>
     <li class="diff">初级</li>
@@ -40,9 +54,24 @@
 </ul>
 <script>
     items = document.getElementsByClassName('diff');
+    //方法一
+    // for (var i = 0; i < items.length; i++) {
+    //     items[i].onclick = function (inner_i) {
+    //         return function () {
+    //             for (var j = 0; j < items.length; j++) {
+    //                 items[j].className = 'diff';
+    //             }
+    //             items[inner_i].setAttribute('class','diff active');
+    //         }
+    //     }(i)
+    // }
+    //方法二
     for (var i = 0; i < items.length; i++) {
         items[i].onclick = function () {
-            style = 'background-color: red;color: white;';
+            for (var j = 0; j < items.length; j++) {
+                items[j].className = 'diff';
+                this.setAttribute('class', 'diff active');
+            }
         }
     }
 </script>
