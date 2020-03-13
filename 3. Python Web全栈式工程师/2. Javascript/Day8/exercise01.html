@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Countdown</title>
 </head>
+
 <body>
-<h1>五一倒计时</h1>
-<h2 id="title"></h2>
-<button id="btn">开始倒计时</button>
-<button id="btn2">停止倒计时</button>
-<script>
-    function countDown() {
-        var date = new Date();
-        var work = new Date('2020-05-01 12:00:00');
-        var timeDiff = Math.floor((work.getTime() - date.getTime()) / 1000);
+    <h1>五一倒计时</h1>
+    <h2 id="title"></h2>
+    <button id="btn">开始倒计时</button>
+    <button id="btn2">停止倒计时</button>
+    <script>
+        function countDown() {
+            var date = new Date();
+            var work = new Date('2020-05-01 12:00:00');
+            var timeDiff = Math.floor((work.getTime() - date.getTime()) / 1000);
 
-        var d = Math.floor(timeDiff / (60 * 60 * 24));
-        var h = Math.floor(timeDiff / (60 * 60) % 24);
-        var m = Math.floor(timeDiff / 60 % 60);
-        var s = Math.floor(timeDiff % 60);
+            var d = Math.floor(timeDiff / (60 * 60 * 24));
+            var h = Math.floor(timeDiff / (60 * 60) % 24);
+            var m = Math.floor(timeDiff / 60 % 60);
+            var s = Math.floor(timeDiff % 60);
 
-        d = addZero(d);
-        h = addZero(h);
-        m = addZero(m);
-        s = addZero(s);
+            d = addZero(d);
+            h = addZero(h);
+            m = addZero(m);
+            s = addZero(s);
 
-        title = document.getElementById('title');
-        title.innerHTML = '距离五一还有' + d + '天' + h + '时' + m + '分' + s + '秒';
-    }
-
-    var btn = document.getElementById('btn');
-    var btn2 = document.getElementById('btn2');
-
-    btn.onclick = function () {
-        timer = setInterval(countDown, 1000);
-    };
-
-    btn2.onclick = function () {
-        clearInterval(timer);
-        title.innerHTML = ''
-    };
-
-    function addZero(num) {
-        if (num < 10) {
-            return '0' + num;
-        } else {
-            return num + '';
+            title = document.getElementById('title');
+            title.innerHTML = '距离五一还有' + d + '天' + h + '时' + m + '分' + s + '秒';
         }
-    }
-</script>
+
+        var btn = document.getElementById('btn');
+        var btn2 = document.getElementById('btn2');
+
+        btn.onclick = function () {
+            timer = setInterval(countDown, 1000);
+        };
+
+        btn2.onclick = function () {
+            clearInterval(timer);
+            title.innerHTML = ''
+        };
+
+        function addZero(num) {
+            if (num < 10) {
+                return '0' + num;
+            } else {
+                return num + '';
+            }
+        }
+    </script>
 </body>
+
 </html>
