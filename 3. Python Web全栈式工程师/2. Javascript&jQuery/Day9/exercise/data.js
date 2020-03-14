@@ -4,59 +4,59 @@ var data = [
         provId: 1,
         citys: [
             {
-				cityname: "杭州市",
-				cityId: 101,
-				areas: [
-					{
-						areaname: "杭州一区",
-						areaId: 1011
-					},
-					{
-						areaname: "杭州二区",
-						areaId: 1012
-					}
-				]
-			}, 
-			{
-				cityname: "温州市",
-				cityId: 102,
-				areas: [
-						{
-							areaname: '温州一区',
-							areaId: 1021
-						},		
-						{
-							areaname: '温州二区',
-							areaId: 1022
-						}
-					]
-			}, 
-			{
-				cityname: "宁波市",
-				cityId: 103,
-				areas: [{
-					areaname: '宁波一区',
-					areaId: 1031
-				}, {
-					areaname: '宁波二区',
-					areaId: 1032
-				}]
+                cityname: "杭州市",
+                cityId: 101,
+                areas: [
+                    {
+                        areaname: "杭州一区",
+                        areaId: 1011
+                    },
+                    {
+                        areaname: "杭州二区",
+                        areaId: 1012
+                    }
+                ]
+            },
+            {
+                cityname: "温州市",
+                cityId: 102,
+                areas: [
+                    {
+                        areaname: '温州一区',
+                        areaId: 1021
+                    },
+                    {
+                        areaname: '温州二区',
+                        areaId: 1022
+                    }
+                ]
+            },
+            {
+                cityname: "宁波市",
+                cityId: 103,
+                areas: [{
+                    areaname: '宁波一区',
+                    areaId: 1031
+                }, {
+                    areaname: '宁波二区',
+                    areaId: 1032
+                }]
 
-			}, 
-			{
-				cityname: "绍兴市",
-				cityId: 104,
-				areas: [{
-					areaname: '绍兴一区',
-					areaId: 1041
-				}, {
-					areaname: '绍兴二区',
-					areaId: 1042
-				}]
+            },
+            {
+                cityname: "绍兴市",
+                cityId: 104,
+                areas: [{
+                    areaname: '绍兴一区',
+                    areaId: 1041
+                }, {
+                    areaname: '绍兴二区',
+                    areaId: 1042
+                }]
 
-			}
-		]
-    }, 
+            }
+        ]
+    },
 
     {
         provname: '山东省',
@@ -65,9 +65,9 @@ var data = [
             cityname: "济南市",
             cityId: 201,
             areas: [{
-                    areaname: "济南一区",
-                    areaId: 2011
-                },
+                areaname: "济南一区",
+                areaId: 2011
+            },
                 {
                     areaname: "济南二区",
                     areaId: 2012
@@ -115,9 +115,9 @@ var data = [
             cityname: "广州市",
             cityId: 301,
             areas: [{
-                    areaname: "广州一区",
-                    areaId: 3011
-                },
+                areaname: "广州一区",
+                areaId: 3011
+            },
                 {
                     areaname: "广州二区",
                     areaId: 3012
@@ -165,9 +165,9 @@ var data = [
             cityname: "兰州市",
             cityId: 401,
             areas: [{
-                    areaname: "兰州一区",
-                    areaId: 4011
-                },
+                areaname: "兰州一区",
+                areaId: 4011
+            },
                 {
                     areaname: "兰州二区",
                     areaId: 4012
@@ -207,4 +207,4 @@ var data = [
 
         }]
     }
-]
+];
