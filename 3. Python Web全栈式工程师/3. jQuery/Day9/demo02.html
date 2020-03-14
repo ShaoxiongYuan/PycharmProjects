@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector</title>
+</head>
+
+<body>
+    <!-- <div id="d1" class="c1"></div>
+    <p class="c1"></p> -->
+    <div id="parent">
+        <div class="first">以梦为马，越骑越傻</div>
+        <div>中国：我们好多了</div>
+        <p>欧洲：我们太烂了</p>
+    </div>
+    <script src="../documentation/jquery-3.4.1.js"></script>
+    <script>
+        // console.log($('.c1'))
+        // $('.c1').html('你好')
+        $('#parent>.first').html('中午吃啥')
+        $('.first~p').css('color', 'red')
+        $('.first+div').css('background-color','orange')
+    </script>
+</body>
+
+</html>
