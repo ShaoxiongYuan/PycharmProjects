@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>测试用的文字</p>
+    <div id="d1">hello</div>
+    <button id="btn">删除测试文字</button>
+    <script src="../documentation/jquery-3.4.1.js"></script>
+    <script>
+        $('#btn')[0].onclick=function () {
+            $('p').remove()
+        }
+    </script>
+    <script>
+        // $('body').prepend(
+        //     // $('<h1></h1>')
+        //     //     .html('jQuery动态创建标签')
+        //     //     .css('color', 'red')
+        //     //     .prop('id', 'title')
+        //     $('<h1 id="title" style="color: blue">jQuery动态创建标签</h1>')
+        // );
+
+        // $('p').after($('<h1 id="title" style="color: blue">jQuery动态创建标签</h1>'))
+        $('#d1').before($('<h1 id="title" style="color: blue">jQuery动态创建标签</h1>'))
+
+    </script>
+</body>
+
+</html>

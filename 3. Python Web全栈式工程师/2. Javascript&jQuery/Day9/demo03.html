@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <label for="text">请输入文字：</label>
+    <input type="text" id="text">
+    <button id="btn">Click Me</button>
+    <div id="show"></div>
+    <script src="../documentation/jquery-3.4.1.js"></script>
+    <script>
+        // var text = $('#text');
+        // var btn = $('#btn');
+        // var show = $('#show');
+        //
+        // btn[0].onclick = function () {
+        //     show.html('<h1>' + text.val() + '</h1>')
+        // }
+        $('#btn')[0].onclick = function () {
+            // $('#show').html('<h1>' + $('#text').val() + '</h1>')
+            $('#show').html($('#text').val()).css('font-size', '30px')
+                .css('font-weight', 'bold');
+        }
+    </script>
+</body>
+
+</html>

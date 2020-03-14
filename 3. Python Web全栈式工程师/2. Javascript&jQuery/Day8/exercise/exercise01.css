@@ -1,0 +1,24 @@
+#d1 {
+    width: 739px;
+    height: 419px;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+}
+
+#d2 {
+    position: relative;
+    left: 325px;
+}
+
+#d2>img:hover {
+    cursor: pointer;
+}
+
+#first {
+    z-index: 1;
+}
