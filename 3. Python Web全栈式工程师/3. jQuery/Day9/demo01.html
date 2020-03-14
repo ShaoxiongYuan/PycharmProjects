@@ -13,9 +13,14 @@
     <script>
         // $('#d1').html('你好')
         var d1 = document.getElementById('d1')
-        var $d1 = $('d1')
-        console.log(d1)
-        console.log($d1)
+        var $d1 = $('#d1')
+        var $d2 = $(d1)
+        var d2 = $d2[0]
+
+        // console.log(d1)
+        // console.log($d1)
+        console.log(d2)
+        console.log($d2)
     </script>
 </body>
 
