@@ -1,4 +1,4 @@
-timer = setInterval(left, 3000)
+timer = setInterval(left, 1000)
 
 function left() {
     for (i = 0; i < img.length; i++) {
@@ -31,6 +31,7 @@ function right() {
     }
 }
 
+var d1 = document.getElementById('d1');
 var img = document.getElementsByClassName('image');
 var i1 = document.getElementById('i1')
 var i2 = document.getElementById('i2')
@@ -42,14 +43,20 @@ i2.onclick = function () {
     right()
 }
 i1.onmouseout = function () {
-    timer = setInterval(left, 3000)
+    timer = setInterval(left, 1000)
 }
 i2.onmouseout = function () {
-    timer = setInterval(left, 3000)
+    timer = setInterval(left, 1000)
+}
+d1.onmouseout = function () {
+    timer = setInterval(left, 1000)
 }
 i1.onmouseover = function () {
     clearInterval(timer)
 }
 i2.onmouseover = function () {
+    clearInterval(timer)
+}
+d1.onmouseover = function () {
     clearInterval(timer)
 }

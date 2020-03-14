@@ -3,9 +3,9 @@ function getRandom(max, len, zero, top) {
     var _arr = [];
     while (_arr.length < len) {
         if (!top) {
-            n = Math.floor(Math.random * max);
+            n = Math.floor(Math.random() * max);
         } else {
-            n = Math.ceil(Math.random * max);
+            n = Math.ceil(Math.random() * max);
             console.log(n)
         }
 
