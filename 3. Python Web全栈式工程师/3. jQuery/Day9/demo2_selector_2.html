@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>jQuery Selector</title>
 </head>
+
 <body>
-$END$
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li class="last">4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li class="last">8</li>
+    </ul>
+    <script src="../documentation/jquery-3.4.1.js"></script>
+    <script>
+        // $('#list>li:first').css('background-color', 'pink');
+        // $('#list>li:last').html('中午吃了吗？')
+        $('#list>li:odd').css('background-color', 'red');
+        $('#list>li:even').css('background-color', 'pink');
+        // $('#list>li:eq(3)').css('color', 'blue');
+        // $('#list>li:lt(3)').css('color', 'yellow');
+        // $('#list>li:gt(3)').css('color', 'green')
+        $('#list>li:not(.last)').css('width','300px')
+    </script>
 </body>
+
 </html>
