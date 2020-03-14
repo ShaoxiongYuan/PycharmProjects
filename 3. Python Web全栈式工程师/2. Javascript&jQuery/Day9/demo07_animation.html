@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Animation</title>
 </head>
+
 <body>
-$END$
+    <div id="d1">
+        <img src="./gm1-6.jpg" alt="">
+    </div>
+
+    <div>
+        <button id="btn">隐藏</button>
+        <button id="btn2">上滑</button>
+        <button id="btn3">淡隐</button>
+    </div>
+
+    <script src="../documentation/jquery-3.4.1.js"></script>
+    <script>
+        $('#btn')[0].onclick = function () {
+            if ($('#btn').html() === '隐藏') {
+                $('img').hide(1500, function () {
+                    $('#btn').html('显示')
+                })
+            } else {
+                $('img').show(1500, function () {
+                    $('#btn').html('隐藏')
+                })
+            }
+        }
+    </script>
+    <script>
+        $('#btn2')[0].onclick = function () {
+            if ($('#btn2').html() === '上滑') {
+                $('#d1').slideUp(1500, function () {
+                    $('#btn2').html('下拉')
+                })
+            } else {
+                $('#d1').slideDown(1500, function () {
+                    $('#btn2').html('上滑')
+                })
+            }
+        }
+    </script>
+    <script>
+        $('#btn3')[0].onclick = function () {
+            if ($('#btn3').html() === '淡隐') {
+                $('#d1').fadeOut(1500, function () {
+                    $('#btn3').html('淡现')
+                })
+            } else {
+                $('#d1').fadeIn(1500, function () {
+                    $('#btn3').html('淡隐')
+                })
+            }
+        }
+    </script>
 </body>
+
 </html>
