@@ -1,4 +1,4 @@
-timer = setInterval(left, 1000)
+timer = setInterval(left, 3000)
 
 function left() {
     for (i = 0; i < img.length; i++) {
@@ -42,10 +42,10 @@ i2.onclick = function () {
     right()
 }
 i1.onmouseout = function () {
-    timer = setInterval(left, 1000)
+    timer = setInterval(left, 3000)
 }
 i2.onmouseout = function () {
-    timer = setInterval(left, 1000)
+    timer = setInterval(left, 3000)
 }
 i1.onmouseover = function () {
     clearInterval(timer)
