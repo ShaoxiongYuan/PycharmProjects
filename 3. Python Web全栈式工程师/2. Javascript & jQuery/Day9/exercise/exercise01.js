@@ -20,6 +20,10 @@ $prov.on('change', function () {
         }
     });
 
+    if ($prov.val() == 0) {
+        $city.html('<option value=0>请选择</option>');
+    }
+
     if ($city.val() == 0) {
         $area.html('<option value=0>请选择</option>');
     }
@@ -38,4 +42,8 @@ $city.on('change', function () {
             })
         }
     })
+
+    if ($city.val() == 0) {
+        $area.html('<option value=0>请选择</option>');
+    }
 });
