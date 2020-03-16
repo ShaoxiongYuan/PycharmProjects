@@ -30,7 +30,7 @@ def server():
     # uname = request.args['uname']
 
     # 接收POST请求的数据
-    uname = request.form['uname']
+    uname = request.form.get('uname', '')
     return "欢迎%s" % uname
 
 

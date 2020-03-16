@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+
+    <style>
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .diff {
+            margin-right: 50px;
+            display: inline-block;
+        }
+
+        .diff:hover {
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            padding: 3px;
+            transition: all 0.3s;
+        }
+
+        #diff {
+            margin-right: 30px;
+            color: grey;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<ul>
+    <li id="diff">难度：</li>
+    <li class="diff">全部</li>
+    <li class="diff">初级</li>
+    <li class="diff">中级</li>
+    <li class="diff">高级</li>
+</ul>
+</body>
+
+</html>
