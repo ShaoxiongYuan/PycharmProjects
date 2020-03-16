@@ -14,16 +14,18 @@
             list-style: none;
         }
 
+        ul{
+            padding: 3px;
+        }
+
         .diff {
             margin-right: 50px;
             display: inline-block;
         }
 
-        .diff:hover {
-            cursor: pointer;
+        a:hover {
             background-color: red;
             color: white;
-            padding: 3px;
             transition: all 0.3s;
         }
 
@@ -32,17 +34,30 @@
             color: grey;
             display: inline-block;
         }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 
 <body>
-<ul>
-    <li id="diff">难度：</li>
-    <li class="diff">全部</li>
-    <li class="diff">初级</li>
-    <li class="diff">中级</li>
-    <li class="diff">高级</li>
-</ul>
+    <ul>
+        <li id="diff">难度：</li>
+        <li class="diff">
+            <a href="http://127.0.0.1:5000/all">全部</a>
+        </li>
+        <li class="diff">
+            <a href="http://127.0.0.1:5000/easy">初级</a>
+        </li>
+        <li class="diff">
+            <a href="http://127.0.0.1:5000/middle">中级</a>
+        </li>
+        <li class="diff">
+            <a href="http://127.0.0.1:5000/high">高级</a>
+        </li>
+    </ul>
 </body>
 
 </html>

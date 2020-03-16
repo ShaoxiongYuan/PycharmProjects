@@ -3,6 +3,11 @@ from flask import Flask
 app = Flask(__name__)
 
 
+@app.route('/all')
+def all():
+    return '所有难度'
+
+
 @app.route('/easy')
 def easy():
     return '低级难度'
