@@ -8,7 +8,7 @@ def demo_view():
     return render_template('demo01.html')
 
 
-@app.route('/demo2')
+@app.route('/exer1')
 def exer1_view():
     return render_template('exercise01.html')
 
@@ -21,7 +21,7 @@ def server_view():
 @app.route('/exer_server')
 def server2():
     uname = request.args.get('uname')
-    return uname
+    return "欢迎%s" % uname
 
 
 if __name__ == '__main__':
