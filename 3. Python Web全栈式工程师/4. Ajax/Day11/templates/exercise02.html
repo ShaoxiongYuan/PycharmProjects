@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="uname">姓名：</label>
+        <input id="uname" type="text">
+        <span id="msg" style="font-size: 12px"></span>
+    </div>
+    <div>
+        <label for="pwd">密码：</label>
+        <input id="pwd" type="password">
+    </div>
+    <button id="btn">提交</button>
+
+    <script src="../static/jquery-3.4.1.js"></script>
+    <script>
+        $('#btn').on('click', function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET', '/exer2_server?uname='+$('#uname').val(), true)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    if (xhr.responseText == '用户名重复') {
+                        $('#msg').html(xhr.responseText).css('color', 'red')
+                    } else if (xhr.responseText == 'OK') {
+                        $('#msg').html(xhr.responseText).css('color', 'green')
+                    }
+                }
+            }
+            xhr.send(null)
+        })
+    </script>
+</body>
+
+</html>

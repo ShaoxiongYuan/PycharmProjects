@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 
+list_names = []
+
 app = Flask(__name__)
 
 
@@ -13,15 +15,30 @@ def exer1_view():
     return render_template('exercise01.html')
 
 
+@app.route('/exer2')
+def exer2_view():
+    return render_template('exercise02.html')
+
+
 @app.route('/server')
 def server_view():
     return '接收前端AJAX请求成功'
 
 
 @app.route('/exer_server')
-def server2():
+def server1():
     uname = request.args.get('uname')
     return "欢迎%s" % uname
+
+
+@app.route('/exer2_server')
+def server2():
+    uname = request.args.get('uname')
+    if uname in list_names:
+        return '用户名重复'
+    else:
+        list_names.append(uname)
+        return 'OK'
 
 
 if __name__ == '__main__':
