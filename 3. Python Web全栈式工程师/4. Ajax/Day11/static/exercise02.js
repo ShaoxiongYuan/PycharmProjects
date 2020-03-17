@@ -1,4 +1,4 @@
-$('#btn').on('click', function () {
+$('#uname').on('change', function () {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/exer2_server?uname=' + $('#uname').val(), true);
     xhr.onreadystatechange = function () {
