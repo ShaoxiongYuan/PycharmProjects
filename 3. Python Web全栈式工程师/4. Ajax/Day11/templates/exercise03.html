@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            border: 1px solid lightgrey;
+            border-top: 0;
+            position: relative;
+            left: 132px;
+            width: 164px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="keyword">请输入查询内容：</label>
+    <input id="keyword" type="text">
+    <div id="d1"></div>
+    <script src="../static/jquery-3.4.1.js"></script>
+    <script>
+        $('#keyword').on('change', function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET', '/exer3_server?keyword=' + $('#keyword').val(), true)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    $('#d1').html(xhr.responseText)
+                }
+            }
+            xhr.send(null)
+        })
+    </script>
+</body>
+
+</html>
