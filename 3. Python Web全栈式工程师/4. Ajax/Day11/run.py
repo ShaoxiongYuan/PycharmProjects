@@ -35,10 +35,10 @@ def server1():
 def server2():
     uname = request.args.get('uname')
     if uname in list_names:
-        return '用户名重复'
+        return '0'
     else:
         list_names.append(uname)
-        return 'OK'
+        return '1'
 
 
 if __name__ == '__main__':
