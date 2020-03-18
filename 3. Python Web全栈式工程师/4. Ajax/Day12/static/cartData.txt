@@ -1,0 +1,35 @@
+cartdata={
+    "username":"dongdong",
+    "cart":[
+        {
+            "id":"1",
+            "count":"11",
+            "name":"蓝色小尺寸",
+            "default_image_url":"2_5pdezhv.jpg",
+            "price":100,
+            "selected":true,
+            "sku_sale_attr_name":["安踏A/尺寸：","安踏A/颜色："],
+            "sku_sale_attr_val":["15寸","蓝色"]
+        },
+        {
+            "id":"2",
+            "count":"9",
+            "name":"红色大尺寸",
+            "default_image_url":"3_JGA6F97.jpg",
+            "price":10000,
+            "selected":true,
+            "sku_sale_attr_name":["安踏A/尺寸：","安踏A/颜色："],
+            "sku_sale_attr_val":["18寸","绿色"]
+        },
+        {
+            "id":"3",
+            "count":"10",
+            "name":"蓝色小尺寸",
+            "default_image_url":"4_z3FdRMq.jpg",
+            "price":1000,
+            "selected":true,
+            "sku_sale_attr_name":["安踏B/尺寸：","安踏B/颜色："],
+            "sku_sale_attr_val":["18寸","蓝色"]
+        }
+    ]
+}

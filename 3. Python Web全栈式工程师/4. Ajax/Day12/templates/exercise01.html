@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cart Data</title>
+    <style>
+        table {
+            border: 0.5px solid darkgrey;
+            margin-top: 5px;
+        }
+
+        td {
+            padding: 5px;
+            text-align: center;
+            border: 0.5px solid darkgrey;
+        }
+
+        thead>tr>td {
+            font-weight: bold;
+            font-size: 20px;
+            font-family: Roboto;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">获取数据</button>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Count</td>
+                <td>Name</td>
+                <td>Image</td>
+                <td>Price</td>
+                <td>Selected</td>
+                <td>Size</td>
+                <td>Color</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="../static/jquery-3.4.1.js"></script>
+    <script>
+        $('#btn').on('click', function () {
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET', '/data_server', true)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var json_obj = JSON.parse(xhr.responseText)
+                    $.each(json_obj.cart, function (index, element) {
+                        $('tbody').append("<tr id='num" + index + "'></tr>")
+                        var $data = $('#num' + index)
+                        var price = "￥" + element.price
+                        $data.append("<td>" + element.id + "</td>")
+                        $data.append("<td>" + element.count + "</td>")
+                        $data.append("<td>" + element.name + "</td>")
+                        $data.append("<td>" + element.default_image_url + "</td>")
+                        $data.append("<td>" + price + "</td>")
+                        if (element.selected == true) {
+                            $data.append("<td><input type='checkbox' checked></td>")
+                        } else {
+                            $data.append("<td><input type='checkbox'></td>")
+                        }
+                        $.each(element.sku_sale_attr_name, function (i, e) {
+                            $data.append("<td>" + e + element.sku_sale_attr_val[i] + "</td>")
+                        })
+
+                    })
+                }
+            }
+            xhr.send(null)
+        })
+    </script>
+</body>
+
+</html>
