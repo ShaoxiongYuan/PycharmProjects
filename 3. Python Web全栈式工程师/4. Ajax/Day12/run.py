@@ -34,16 +34,16 @@ def demo3_view():
 def server3():
     uname = request.args.get('uname')
     if uname in list_names:
-        return '0'
+        return json.dumps({"code": 0, "msg": "用户名已存在"})
     else:
         list_names.append(uname)
-        return '1'
+        return json.dumps({"code": 1, "msg": "OK"})
 
 
 @app.route('/register', methods=['POST'])
 def register():
-    uname = request.form.get('uname')
-    pwd = request.form.get('pwd')
+    uname = request.json.get('uname')
+    pwd = request.json.get('pwd')
     return '注册成功' + uname + pwd
 
 
