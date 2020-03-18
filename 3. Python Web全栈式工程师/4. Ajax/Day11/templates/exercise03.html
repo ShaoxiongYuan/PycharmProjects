@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        #keyword {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+        }
+
         #d1 {
             border: 1px solid lightgrey;
             border-top: 0;
@@ -12,6 +18,7 @@
             left: 132px;
             width: 164px;
             font-size: 12px;
+            display: none;
         }
     </style>
 </head>
@@ -27,7 +34,7 @@
             xhr.open('GET', '/exer3_server?keyword=' + $('#keyword').val(), true)
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    $('#d1').html(xhr.responseText)
+                    $('#d1').html(xhr.responseText).css('display','block')
                 }
             }
             xhr.send(null)

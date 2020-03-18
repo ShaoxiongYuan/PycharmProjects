@@ -4,7 +4,8 @@ list_names = []
 advice = {
     'python': ['python能做什么', 'python书籍', 'python官网', 'python教程'],
     'pycharm': ['pycharm官网', 'jetbrains', 'intellij idea', '其他编译工具'],
-    '股票':['股票定义','股票怎么玩','股票开户基本知识','股票行情','美股暴跌']
+    '股票': ['股票定义', '股票怎么玩', '股票开户基本知识', '股票行情', '美股暴跌'],
+    '疫情': ['COVID-19', '新冠肺炎', '疫情分布地图', '意大利疫情人数', '特朗普极端言论']
 }
 
 app = Flask(__name__)
@@ -58,8 +59,7 @@ def server3():
     for k, v in advice.items():
         if k == keyword:
             for i in v:
-                new = i + '<br>'
-                str_item += new
+                str_item += i + '<br>'
             break
     return str_item
 
