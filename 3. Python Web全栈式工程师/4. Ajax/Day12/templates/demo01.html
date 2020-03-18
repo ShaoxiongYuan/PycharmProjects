@@ -15,7 +15,7 @@
     <script>
         $('#btn').on('click', function () {
             var xhr = new XMLHttpRequest()
-            xhr.open('POST', '/post_server', true)
+            xhr.open('POST', '/post', true)
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     $('#show').html(xhr.responseText)
