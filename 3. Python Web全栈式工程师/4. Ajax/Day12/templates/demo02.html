@@ -9,6 +9,17 @@
 
 <body>
     <script src="../static/jquery-3.4.1.js"></script>
+    <script>
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', '/demo2_server', true)
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json_obj = JSON.parse(xhr.responseText)
+                console.log(json_obj)
+            }
+        }
+        xhr.send(null)
+    </script>
 </body>
 
 </html>

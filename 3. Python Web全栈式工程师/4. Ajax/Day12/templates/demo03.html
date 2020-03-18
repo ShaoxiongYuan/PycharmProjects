@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>注册用户</h1>
+    <div>
+        <label for="uname">姓名：</label>
+        <input id="uname" type="text">
+        <span id="msg" style="font-size: 12px"></span>
+    </div>
+    <div>
+        <label for="pwd">密码：</label>
+        <input id="pwd" type="password">
+        <span id="tip" style="font-size: 12px"></span>
+    </div>
+    <button id="btn">提交</button>
+    <script src="../static/jquery-3.4.1.js"></script>
+    <script>
+        function check_uname() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/demo3_server?uname=' + $('#uname').val(), true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    if (xhr.responseText === '0') {
+                        $('#msg').html('用户名重复').css('color', 'red')
+                    } else if (xhr.responseText === '1') {
+                        $('#msg').html('OK').css('color', 'green')
+                    }
+                }
+            };
+            xhr.send(null)
+        }
+
+        function register() {
+            if ($('#msg').html() == 'OK' && $('#pwd').val()) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/register', true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        alert(xhr.responseText)
+                        location.href='http://www.baidu.com'
+                    }
+                }
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send('uname=' + $('#uname').val() + '&pwd=' + $('#pwd').val())
+            } else if ($('#msg').html() == '用户名重复') {
+                alert('请修改用户名')
+                $('#msg').html('')
+                $('#uname').val('')
+            } else if (!$('#uname').val()) {
+                $('#msg').html('用户名不能为空').css('color', 'red')
+            }
+            if (!$('#pwd').val()) {
+                $('#tip').html('密码不能为空').css('color', 'red')
+            }
+
+
+        }
+
+        function check_pwd() {
+            if (!$('#pwd').val()) {
+                $('#tip').html('密码不能为空')
+            } else {
+                $('#tip').html('')
+            }
+        }
+    </script>
+    <script>
+        $('#uname').on('change', check_uname);
+        $('#pwd').on('change', check_pwd);
+        $('#btn').on('click', register);
+    </script>
+</body>
+
+</html>
