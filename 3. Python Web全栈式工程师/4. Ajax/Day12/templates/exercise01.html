@@ -53,12 +53,11 @@
                     $.each(json_obj.data.cart, function (index, element) {
                         $('tbody').append("<tr id='num" + index + "'></tr>")
                         var $data = $('#num' + index)
-                        var price = "￥" + element.price
                         $data.append("<td>" + element.id + "</td>")
                         $data.append("<td>" + element.count + "</td>")
                         $data.append("<td>" + element.name + "</td>")
                         $data.append("<td>" + element.default_image_url + "</td>")
-                        $data.append("<td>" + price + "</td>")
+                        $data.append("<td>&yen;" + element.price + "</td>")
                         if (element.selected == true) {
                             $data.append("<td><input type='checkbox' checked></td>")
                         } else {

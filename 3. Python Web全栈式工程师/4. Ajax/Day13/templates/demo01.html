@@ -8,7 +8,23 @@
 </head>
 
 <body>
+    <header></header>
+    <button id="btn">显示load server内容</button>
+    <div id="show"></div>
+    <footer></footer>
     <script src="../static/jquery-3.4.1.js"></script>
+    <script>
+        $("#btn").on('click', function () {
+            // $("#show").load('/load_server')
+            // $('#show').load('/load_server #btn2')
+            // $('#show').load('/load_server', { uname: 'laowang', age: 18 })
+            // $('#show').load('/load_server', function () {
+            //     console.log('远程页面数据加载完成')
+            // })
+            $('header').load('/header')
+            $('footer').load('/footer')
+        })
+    </script>
 </body>
 
 </html>
