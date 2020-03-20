@@ -50,7 +50,7 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var json_obj = JSON.parse(xhr.responseText)
-                    $.each(json_obj.cart, function (index, element) {
+                    $.each(json_obj.data.cart, function (index, element) {
                         $('tbody').append("<tr id='num" + index + "'></tr>")
                         var $data = $('#num' + index)
                         var price = "￥" + element.price
@@ -67,7 +67,6 @@
                         $.each(element.sku_sale_attr_name, function (i, e) {
                             $data.append("<td>" + e + element.sku_sale_attr_val[i] + "</td>")
                         })
-
                     })
                 }
             }
