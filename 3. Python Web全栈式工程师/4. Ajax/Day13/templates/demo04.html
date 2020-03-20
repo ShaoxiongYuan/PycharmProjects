@@ -14,7 +14,8 @@
     <div id="loading" style="display: none">
         加载中...
     </div>
-    <button id="btn">jq_ajax</button>
+    <button id="btn">jq ajax get</button>
+    <button id="btn2">jq ajax post</button>
     <script src="../static/jquery-3.4.1.js"></script>
     <script>
         $('#btn').on('click', function () {
@@ -37,6 +38,26 @@
                     $('#btn').prop('disabled', 'disabled')
                     $('#loading').show(3000)
                 }
+            })
+        })
+    </script>
+    <script>
+        $('#btn2').on('click', function () {
+            $.ajax({
+                url: '/ajax_server',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({ uname: $('#uname').val() }),
+                success: function (response) {
+                    console.log(response)
+                },
+                error: function () {
+                    alert('服务器正忙')
+                }
+                // beforeSend: function (xhr) {
+                //     xhr.setRequestHeader('Content-Type', 'application/json')
+                // }
             })
         })
     </script>

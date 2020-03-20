@@ -66,11 +66,28 @@ def ajax_view():
     return render_template('demo04.html')
 
 
-@app.route('/ajax_server')
+@app.route('/ajax_server', methods=['GET', 'POST'])
 def ajax_server():
-    sleep(3)
-    return json.dumps({"code": 200, "msg": "OK"})
+    if request.method == 'GET':
+        sleep(3)
+        return json.dumps({"code": 200, "msg": "OK"})
+    elif request.method == 'POST':
+        uname = request.json.get('uname')
+        return json.dumps({"code": 200, "msg": '欢迎' + uname})
 
+
+@app.route('/cross')
+def cross():
+    return render_template('demo05_cross.html')
+
+
+@app.route('/cross1')
+def cross1():
+    return render_template('demo05_cross1.html')
+
+@app.route('/data')
+def data_view():
+    return render_template('exercise01.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
