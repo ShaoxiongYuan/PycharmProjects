@@ -85,9 +85,11 @@ def cross():
 def cross1():
     return render_template('demo05_cross1.html')
 
+
 @app.route('/data')
 def data_view():
     return render_template('exercise01.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
