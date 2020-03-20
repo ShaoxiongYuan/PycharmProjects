@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import json
+from time import sleep
 
 app = Flask(__name__)
 
@@ -30,6 +31,45 @@ def header_view():
 @app.route('/footer')
 def footer_view():
     return render_template('footer.html')
+
+
+@app.route('/get')
+def get_view():
+    return render_template('demo02.html')
+
+
+@app.route('/get_server')
+def get_server():
+    uname = request.args.get('uname')
+    age = int(request.args.get('age'))
+    if age < 18:
+        response = {"code": 200, "msg": 'Fail'}
+        return json.dumps(response)
+    else:
+        response = {"code": 200, "msg": 'OK', 'uname': uname}
+        return json.dumps(response)
+
+
+@app.route('/post', methods=['GET', 'POST'])
+def post_view():
+    if request.method == 'GET':
+        return render_template('demo03.html')
+    elif request.method == 'POST':
+        uname = request.form.get('uname')
+        age = request.form.get('age')
+        response = {"code": 200, "msg": '欢迎%s岁的%s' % (age, uname)}
+        return json.dumps(response)
+
+
+@app.route('/ajax')
+def ajax_view():
+    return render_template('demo04.html')
+
+
+@app.route('/ajax_server')
+def ajax_server():
+    sleep(3)
+    return json.dumps({"code": 200, "msg": "OK"})
 
 
 if __name__ == '__main__':

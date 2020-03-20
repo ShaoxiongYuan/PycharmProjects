@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jquery_ajax</title>
 </head>
+
 <body>
     <div>
         姓名：<input type="text" id="uname">
     </div>
+    <div id="loading" style="display: none">
+        加载中...
+    </div>
     <button id="btn">jq_ajax</button>
     <script src="../static/jquery-3.4.1.js"></script>
+    <script>
+        $('#btn').on('click', function () {
+            $.ajax({
+                url: '/ajax_server',
+                type: 'GET',
+                async: true,
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response)
+                    $('#btn').removeAttr('disabled')
+                    $('#loading').hide()
+                },
+                error: function () {
+                    alert('服务器正忙')
+                    $('#btn').removeAttr('disabled')
+                    $('#loading').hide()
+                },
+                beforeSend: function () {
+                    $('#btn').prop('disabled', 'disabled')
+                    $('#loading').show(3000)
+                }
+            })
+        })
+    </script>
 </body>
+
 </html>
