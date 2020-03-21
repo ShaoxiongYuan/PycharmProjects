@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/bootstrap-3.3.5/css/bootstrap.css" rel="stylesheet">
     <script src="../static/js/jquery-3.4.1.js"></script>
     <script src="../static/js/bootstrap.js"></script>
     <style>
@@ -22,8 +22,6 @@
 </head>
 
 <body>
-    <!--    <h1>测试Bootstrap样式</h1>-->
-    <!--    <div class="container-fluid"></div>-->
     <!--栅栏-->
     <div class="container">
         <div class="row">
@@ -41,19 +39,23 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">col-lg-3</div>
         </div>
     </div>
+
     <!--排版-->
     <div class="container">
         <h1>
             这是h1标签
             <small>这是h1中的small</small>
         </h1>
-        <p class="lead text-center">Lorem ipsum dolor it amet consectetur adipisicing elit. Nobis officiis labore totam illum at dolores
+        <p class="lead text-center text-capitalize">Lorem ipsum dolor it amet consectetur adipisicing elit. Nobis
+            officiis labore totam illum at dolores
             aspernatur, praesentium est mollitia explicabo aliquid tempore dolor molestias rerum fuga voluptatibus culpa
             sequi hic.</p>
-        <p class="lead text-right">Deserunt fugit maiores nisi quidem, voluptatum distinctio, libero rem molestias quod quae est repellendus
+        <p class="lead text-right text-lowercase">Deserunt fugit maiores nisi quidem, voluptatum distinctio, libero rem
+            molestias quod quae est repellendus
             odit adipisci laudantium aspernatur voluptatem doloribus assumenda! Corrupti ab iure, mollitia maiores
             deserunt quae obcaecati fugit!</p>
-        <p class="lead text-justify">Ratione non laboriosam nisi officia nesciunt vero? Ex iusto deleniti, beatae facilis vero consequuntur, nobis
+        <p class="lead text-justify text-uppercase">Ratione non laboriosam nisi officia nesciunt vero? Ex iusto
+            deleniti, beatae facilis vero consequuntur, nobis
             nulla placeat asperiores ipsam quibusdam, dolorem laudantium vitae reiciendis quam suscipit neque minima
             nisi. Amet?</p>
         <h1>
@@ -65,7 +67,92 @@
         <h1>
             <del>被删除的文本</del>
         </h1>
+
+        <blockquote>
+            <p>这句话不是我说的</p>
+            <footer>鲁迅</footer>
+        </blockquote>
+
+        <blockquote class="blockquote-reverse">
+            <p>表情包多的人没对象</p>
+            <footer>鲁迅</footer>
+        </blockquote>
     </div>
+
+    <!--列表-->
+    <div class="container">
+        <ul class="list-unstyled list-inline">
+            <li>难度</li>
+            <li>初级</li>
+            <li>中级</li>
+            <li>高级</li>
+        </ul>
+        <dl class="dl-horizontal">
+            <dt>标题</dt>
+            <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae odio soluta, voluptatibus aliquam
+                repudiandae asperiores iure sit aliquid. Quo, a repudiandae praesentium non fuga mollitia odio
+                molestiae! Similique, reprehenderit modi.</dd>
+            <dt>标题</dt>
+            <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae odio soluta, voluptatibus aliquam
+                repudiandae asperiores iure sit aliquid. Quo, a repudiandae praesentium non fuga mollitia odio
+                molestiae! Similique, reprehenderit modi.</dd>
+            <dt>标题</dt>
+            <dd>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae odio soluta, voluptatibus aliquam
+                repudiandae asperiores iure sit aliquid. Quo, a repudiandae praesentium non fuga mollitia odio
+                molestiae! Similique, reprehenderit modi.</dd>
+        </dl>
+    </div>
+
+    <!-- 代码 -->
+    <div class="container">
+        <code>&lt;code&gt;</code>
+        <kbd>ctrl + C</kbd>
+        <samp>程序输出内容</samp>
+        <var>y</var>=<var>x</var>+1
+    </div>
+
+    <!--表格-->
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>第一列</th>
+                    <th>第二列</th>
+                    <th>第三列</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="success">
+                    <td>1912</td>
+                    <td>1912</td>
+                    <td>1912</td>
+                </tr>
+                <tr class="info">
+                    <td>1912</td>
+                    <td>1912</td>
+                    <td>1912</td>
+                </tr>
+                <tr class="warning">
+                    <td>1912</td>
+                    <td>1912</td>
+                    <td>1912</td>
+                </tr>
+                <tr class="danger">
+                    <td>1912</td>
+                    <td>1912</td>
+                    <td>1912</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+    <div style="height: 300px"></div>
 
 </body>
 
