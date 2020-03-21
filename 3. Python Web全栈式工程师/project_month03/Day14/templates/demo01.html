@@ -13,7 +13,7 @@
         /*    height: 1000px;*/
         /*    background-color: pink;*/
         /*}*/
-        .row div{
+        .row div {
             height: 30px;
             background-color: pink;
             border: 1px solid rebeccapurple;
@@ -22,24 +22,33 @@
 </head>
 
 <body>
-    <h1>测试Bootstrap样式</h1>
-<!--    <div class="container-fluid"></div>-->
+    <!--    <h1>测试Bootstrap样式</h1>-->
+    <!--    <div class="container-fluid"></div>-->
+    <!--栅栏-->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">col-lg-6</div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">col-lg-6</div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">col-lg-6</div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">col-lg-6</div>
         </div>
         <div class="row">
-            <div class="col-lg-4">col-lg-4</div>
-            <div class="col-lg-8">col-lg-8</div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">col-lg-4</div>
+            <div class="col-lg-8 col-md-8 hidden-sm hidden-xs">col-lg-8</div>
         </div>
         <div class="row">
-            <div class="col-lg-3">col-lg-3</div>
-            <div class="col-lg-3">col-lg-3</div>
-            <div class="col-lg-3">col-lg-3</div>
-            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">col-lg-3</div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">col-lg-3</div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">col-lg-3</div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">col-lg-3</div>
         </div>
     </div>
+    <!--排版-->
+    <div class="container">
+        <h1>
+            这是h1标签
+            <small>这是h1中的small</small>
+        </h1>
+    </div>
+
 </body>
 
 </html>
