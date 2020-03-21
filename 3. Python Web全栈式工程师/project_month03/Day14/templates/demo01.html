@@ -5,10 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.4.1.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <style>
+        /*div{*/
+        /*    height: 1000px;*/
+        /*    background-color: pink;*/
+        /*}*/
+        .row div{
+            height: 30px;
+            background-color: pink;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
 </head>
 
 <body>
     <h1>测试Bootstrap样式</h1>
+<!--    <div class="container-fluid"></div>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">col-lg-6</div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">col-lg-6</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">col-lg-4</div>
+            <div class="col-lg-8">col-lg-8</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+        </div>
+    </div>
 </body>
 
 </html>
