@@ -86,6 +86,11 @@ def cross1():
     return render_template('demo05_cross1.html')
 
 
+@app.route('/cross2')
+def cross2():
+    return render_template('demo05_cross2.html')
+
+
 @app.route('/data')
 def data_view():
     return render_template('exercise01.html')
