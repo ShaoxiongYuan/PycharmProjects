@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Hello Tarena!</title>
-    <link rel="stylesheet" href="../static/bootstrap-3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
     <script src="../static/js/jquery-3.4.1.js"></script>
     <style>
         body {
@@ -14,6 +14,10 @@
 
         .container {
             max-width: 640px !important;
+        }
+
+        small {
+            font-size: 65%;
         }
 
         header {
@@ -25,12 +29,20 @@
             font-weight: bold;
         }
 
-        .hello_form {
+        .hello-form {
             margin-bottom: 20px;
         }
 
-        p {
+        a p {
             font-weight: bold;
+        }
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -43,10 +55,10 @@
                 <small>tarena</small>
             </h1>
         </header>
-        <div class="hello_form">
+        <div class="hello-form">
             <div class="form-group">
-                <label for="uname">Name</label>
-                <input type="text" id="uname" class="form-control">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control">
             </div>
             <div class="form-group">
                 <label for="content">Message</label>
@@ -55,41 +67,52 @@
             <button id="btn" class="btn btn-success">Submit</button>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item">
-                <div>
-                    <h4 class="pull-left text-success">
-                        嘿嘿1
-                        <small>第1条评论</small>
-                    </h4>
-                    <h4 class="pull-right">
-                        <small>2020-01-01 12:00:00</small>
-                    </h4>
-                    <div class="clearfix"></div>
-                </div>
-                <p>你好啊，我的祖国</p>
-            </a>
-            <div class="list-group-item text-center">已经没有内容了</div>
+            <div id="d1" class="list-group-item text-center">已经没有内容了</div>
         </div>
         <footer class="text-center">
-            <small>
-                &copy;2020 <a href="#">Franckisses</a> / <a href="#">Hello Tarena</a>
-            </small>
-            <p>
-                <a href="#" class="glyphicon glyphicon-qrcode"></a>
-            </p>
+            &copy;2020 <a href="#">Franckisses</a> / <a href="#">Hello Tarena</a>
+            <p>&uarr;</p>
         </footer>
     </div>
     <script>
-        $('#btn').on('click', function () {
+        function addData(res) {
+            $.each(res.data, function (index, element) {
+                var http = ''
+                http += '<a href="#" class="list-group-item"><div><h5 class="float-left text-success">'
+                http += element.username + ' '
+                http += '<small>第' + element.num + '条评论' + '</small></h5>'
+                http += '<h5 class="float-right"><small>'
+                http += element.time + '</small></h5>'
+                http += '<div class="clearfix"></div></div>'
+                http += '<p>' + element.content + '</p></a>'
+                $('#d1').before(http)
+            })
+        }
+        $(function () {
             $.ajax({
-                url: '/server',
+                url: 'http://127.0.0.1:5000/data',
                 type: 'GET',
                 dataType: 'json',
-                success: function (res) {
-
-                },
-                error: function (err) {
-                    alert(err)
+                success: addData,
+                error: function () {
+                    alert('服务器错误')
+                }
+            })
+            $(document).on('scroll', function () {
+                var scrollT = $(document).scrollTop()
+                var windowH = $(window).height()
+                var documentH = $(document).height()
+                if (Math.round(scrollT) + windowH == documentH) {
+                    var size = $('.list-group-item').length - 1
+                    $.ajax({
+                        url: 'http://127.0.0.1:5000/data?size='+size,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: addData,
+                        error: function () {
+                            alert('服务器错误')
+                        }
+                    })
                 }
             })
         })
