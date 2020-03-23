@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <table height="300" width="500" align="center">
+        <caption style="text-align: center;"><b>增加管理员</b></caption>
+        <tr>
+            <td>
+                <label for="uname">姓名：</label>
+            </td>
+            <td>
+                <input name="uname" id="uname" maxlength="10" type="text">
+            </td>
+            <td>十个字符以内</td>
+        </tr>
+        <tr>
+            <td>
+                <label for="pwd">密码：</label>
+            </td>
+            <td>
+                <input name="pwd" id="pwd" maxlength="10" type="password">
+            </td>
+            <td>十个字符以内</td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td>
+                <input name="gender" checked type="radio">男
+                <input name="gender" type="radio">女
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>角色：</td>
+            <td>
+                <div>
+                    <input type="checkbox">超级管理员
+                </div>
+                <div>
+                    <input type="checkbox">账单管理员
+                </div>
+            </td>
+            <td>至少选择一个角色</td>
+        </tr>
+        <tr>
+            <td>头像：</td>
+            <td><input type="file"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Save">
+                <input type="reset">
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="uname">姓名：</label>
+            <input id="uname" name="uname" placeholder="请输入用户名" maxlength="12" type="text">
+        </div>
+        <div>
+            <label for="pwd">密码：</label>
+            <input id="pwd" name="pwd" placeholder="请输入密码" maxlength="12" type="password">
+        </div>
+
+        <!-- 必须相同name -->
+        <div>
+            <input name="gender" checked type="radio">男
+            <input name="gender" type="radio">女
+        </div>
+
+        <div>
+            <input type="checkbox" checked>已阅读协议
+            <input type="checkbox">已阅读协议
+            <input type="checkbox">已阅读协议
+        </div>
+
+        <div>
+            <input type="file">
+        </div>
+
+        <div>
+            <input type="button" value="普通按钮">
+            <input type="submit">
+            <input type="reset">
+        </div>
+
+        <div>
+            <textarea name="" id="" cols="" rows=""></textarea>
+        </div>
+
+        <div>
+            <select name="" id="">
+                <option value="" selected>北京</option>
+                <option value="">上海</option>
+                <option value="">天津</option>
+            </select>
+        </div>
+
+    </form>
+</body>
+
+</html>

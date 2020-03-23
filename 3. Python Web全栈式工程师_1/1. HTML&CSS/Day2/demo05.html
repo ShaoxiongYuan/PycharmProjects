@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #parent li {
+            color: red;
+        }
+
+        #parent h3 {
+            font-size: 32px;
+            color: royalblue;
+        }
+
+        #parent>h3 {
+            color: coral;
+        }
+
+        #parent :nth-child(2) {
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <h3>晚上吃啥？</h3>
+        <ul>
+            <li>狮子头</li>
+            <h3>很好！</h3>
+            <li>鱼香肉丝</li>
+            <li>宫保鸡丁</li>
+            <li>烧白</li>
+        </ul>
+    </div>
+</body>
+
+</html>

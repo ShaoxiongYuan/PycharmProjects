@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+<body>
+<script>
+    var str = 'shibw@tedu.cn';
+    console.log('用户名：' + str.split('@')[0], '服务商：' + str.split('@')[1]);
+
+    var str2 = "2124_10|1977_5";
+    var arr = str2.split('|');
+    for (var i = 0; i < arr.length; i++) {
+        var res = arr[i].split('_');
+        console.log('ID:' + res[0], '数量：' + res[1]);
+    }
+
+</script>
+</body>
+</html>

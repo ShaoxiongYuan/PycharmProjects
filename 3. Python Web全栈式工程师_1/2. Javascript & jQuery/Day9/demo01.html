@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="d1">hello</div>
+    <script src="../documentation/jquery-3.4.1.js"></script>
+    <script>
+        // $('#d1').html('你好')
+        var d1 = document.getElementById('d1')
+        var $d1 = $('#d1')
+        var $d2 = $(d1)
+        var d2 = $d2[0]
+
+        // console.log(d1)
+        // console.log($d1)
+        console.log(d2)
+        console.log($d2)
+    </script>
+</body>
+
+</html>
