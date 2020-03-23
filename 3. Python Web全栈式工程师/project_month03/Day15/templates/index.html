@@ -1,10 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello Tarena!</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.5/css/bootstrap.css">
+    <script src="../static/js/jquery-3.4.1.js"></script>
+    <style>
+        body {
+            background-color: rgb(245, 245, 245) !important;
+        }
+
+        .container {
+            max-width: 640px !important;
+        }
+
+        header {
+            margin: 50px 0 40px 0;
+        }
+
+        header h1 {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .hello_form {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
-$END$
+    <div class="container">
+        <header>
+            <h1 class="text-center">
+                <span class="text-success">HELLO</span>
+                <small>tarena</small>
+            </h1>
+        </header>
+        <div class="hello_form">
+            <div class="form-group">
+                <label for="uname">Name</label>
+                <input type="text" id="uname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="content">Message</label>
+                <textarea name="content" id="content" class="form-control"></textarea>
+            </div>
+            <button id="btn" class="btn btn-success">Submit</button>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <div>
+                    <h4 class="pull-left text-success">
+                        嘿嘿1
+                        <small>第1条评论</small>
+                    </h4>
+                    <h4 class="pull-right">
+                        <small>2020-01-01 12:00:00</small>
+                    </h4>
+                    <div class="clearfix"></div>
+                </div>
+                <p>你好啊，我的祖国</p>
+            </a>
+            <div class="list-group-item text-center">已经没有内容了</div>
+        </div>
+        <footer class="text-center">
+            <small>
+                &copy;2020 <a href="#">Franckisses</a> / <a href="#">Hello Tarena</a>
+            </small>
+            <p>
+                <a href="#" class="glyphicon glyphicon-qrcode"></a>
+            </p>
+        </footer>
+    </div>
+    <script>
+        $('#btn').on('click', function () {
+            $.ajax({
+                url: '/server',
+                type: 'GET',
+                dataType: 'json',
+                success: function (res) {
+
+                },
+                error: function (err) {
+                    alert(err)
+                }
+            })
+        })
+    </script>
 </body>
+
 </html>
