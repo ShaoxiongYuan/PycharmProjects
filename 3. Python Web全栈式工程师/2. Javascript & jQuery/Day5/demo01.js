@@ -1,1 +1,0 @@
-alert('外部javascript');
