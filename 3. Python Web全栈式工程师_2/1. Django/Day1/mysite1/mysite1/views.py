@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 def main_view(request):
@@ -7,7 +7,10 @@ def main_view(request):
 
 def page1_view(request):
     html = "<h1>这是编号为1的页面</h1>"
-    return HttpResponse(html)
+    # return JsonResponse(html, safe=False)
+    # return HttpResponse(html)
+    # 302跳转依靠Response Header里的Location
+    return HttpResponseRedirect('/page2')
 
 
 def page2_view(request):
