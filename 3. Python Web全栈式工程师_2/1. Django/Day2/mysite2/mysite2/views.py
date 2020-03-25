@@ -49,7 +49,8 @@ def test(request):
         "lst": [1, 2],
         "d": {"name": "steven"},
         "func": say_hi,
-        "class_obj": dog.say()
+        "class_obj": dog.say(),
+        "script": "<script>alert('good')</script>"
     }
     return render(request, 'test.html', dict1)
 
@@ -58,15 +59,22 @@ def calculate(request):
     if request.method == 'GET':
         return render(request, 'calculate.html')
     elif request.method == 'POST':
-        x = int(request.POST.get('x'))
         op = request.POST.get('op')
-        y = int(request.POST.get('y'))
-        if op == 'add':
-            res = x + y
-        elif op == 'sub':
-            res = x - y
-        elif op == 'mul':
-            res = x * y
-        elif op == 'div':
-            res = x / y
-        return HttpResponse(res)
+        try:
+            x = int(request.POST.get('x'))
+            y = int(request.POST.get('y'))
+        except:
+            x = request.POST.get('x')
+            y = request.POST.get('y')
+            res = 'No result'
+        else:
+            if op == 'add':
+                res = x + y
+            elif op == 'sub':
+                res = x - y
+            elif op == 'mul':
+                res = x * y
+            elif op == 'div':
+                res = x / y
+        finally:
+            return render(request, 'calculate.html', locals())

@@ -14,5 +14,11 @@
     <h1>dict["name"]：{{ d.name }}</h1>
     <h1>function：{{ func }}</h1>
     <h1>class object：{{ class_obj }}</h1>
+{#    <h1>script:{{ script|safe }}</h1>#}
+    {% if age >= 18 %}
+        <h1>您已成年</h1>
+    {% else %}
+        <h1>您未成年</h1>
+    {% endif %}
 </body>
 </html>
