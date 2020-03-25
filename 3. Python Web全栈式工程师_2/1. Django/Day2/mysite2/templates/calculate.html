@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate</title>
+</head>
+<body>
+    <form action='/mycal' method='POST'>
+        <input type='text' name="x" value="1">
+        <select name='op'>
+            <option value="add"> +加 </option>
+            <option value="sub"> -减 </option>
+            <option value="mul"> *乘 </option>
+            <option value="div"> /除 </option>
+        </select>
+        <input type='text' name="y" value="2"> = <span>3</span>
+        <div>
+            <input type="submit" value='开始计算'>
+        </div>
+    </form>
+</body>
+</html>

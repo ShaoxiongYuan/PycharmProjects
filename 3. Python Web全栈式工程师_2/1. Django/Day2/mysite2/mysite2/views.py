@@ -1,4 +1,17 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def say_hi():
+    return "Hello Everyone"
+
+
+class Dog:
+    def say(self):
+        return "hahahahaha"
+
+
+dog = Dog()
 
 
 def test_get(request):
@@ -24,3 +37,36 @@ def test_post(request):
         username = request.POST.get('uname', 'hahaha')
         print(username)
         return HttpResponse('test post is OK.')
+
+
+def test(request):
+    # t = loader.get_template('test.html')
+    # html = t.render()
+    # return HttpResponse(html)
+    dict1 = {
+        "username": "steven",
+        "age": 18,
+        "lst": [1, 2],
+        "d": {"name": "steven"},
+        "func": say_hi,
+        "class_obj": dog.say()
+    }
+    return render(request, 'test.html', dict1)
+
+
+def calculate(request):
+    if request.method == 'GET':
+        return render(request, 'calculate.html')
+    elif request.method == 'POST':
+        x = int(request.POST.get('x'))
+        op = request.POST.get('op')
+        y = int(request.POST.get('y'))
+        if op == 'add':
+            res = x + y
+        elif op == 'sub':
+            res = x - y
+        elif op == 'mul':
+            res = x * y
+        elif op == 'div':
+            res = x / y
+        return HttpResponse(res)
