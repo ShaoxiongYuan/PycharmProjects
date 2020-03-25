@@ -20,5 +20,13 @@
     {% else %}
         <h1>您未成年</h1>
     {% endif %}
+    {% for i in lst %}
+        {% if forloop.first %}++++++{% endif %}
+        <p>{{ forloop.revcounter0 }}number：{{ i }}</p>
+        {% if forloop.last %}======={% endif %}
+        {% empty %}
+            <p>对不起，暂时无数据</p>
+    {% endfor %}
+
 </body>
 </html>

@@ -46,7 +46,7 @@ def test(request):
     dict1 = {
         "username": "steven",
         "age": 18,
-        "lst": [1, 2],
+        "lst": [],
         "d": {"name": "steven"},
         "func": say_hi,
         "class_obj": dog.say(),
