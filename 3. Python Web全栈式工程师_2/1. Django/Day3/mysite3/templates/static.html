@@ -6,5 +6,9 @@
 </head>
 <body>
 <img src="/static/img/Lenna.png" alt="">
+<img src="http://127.0.0.1:8000/static/img/Lenna.png" alt="">
+
+{% load static %}
+<img src="{% static 'img/Lenna.png' %}" alt="">
 </body>
 </html>

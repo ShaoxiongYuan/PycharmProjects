@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
 from . import views
@@ -13,5 +13,8 @@ urlpatterns = [
     url(r'^page2$', views.page2_view, name='page2'),
     # url(r'^page(\d+)', views.pagen_view, name='pn'),
     url(r'^page(?P<n>\d+)', views.pagen_view, name='pn'),
-    url(r'^static$', views.test_static)
+    url(r'^static$', views.test_static),
+    url(r'^music/', include('music.urls')),
+    url(r'^sport/', include('sport.urls')),
+    url(r'^news/', include('news.urls'))
 ]
