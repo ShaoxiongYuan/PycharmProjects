@@ -40,3 +40,7 @@ def pagen_view(request, n):
     # print(reverse('pn', args=['500']))
     print(reverse('pn', kwargs={'n': 500}))
     return HttpResponse('我是page%s' % n)
+
+
+def test_static(request):
+    return render(request, 'static.html')

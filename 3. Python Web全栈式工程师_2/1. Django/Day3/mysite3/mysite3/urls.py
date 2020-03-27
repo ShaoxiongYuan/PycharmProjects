@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^page2$', views.page2_view, name='page2'),
     # url(r'^page(\d+)', views.pagen_view, name='pn'),
     url(r'^page(?P<n>\d+)', views.pagen_view, name='pn'),
+    url(r'^static$', views.test_static)
 ]
