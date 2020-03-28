@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^static$', views.test_static),
     url(r'^music/', include('music.urls')),
     url(r'^sport/', include('sport.urls')),
-    url(r'^news/', include('news.urls'))
+    url(r'^news/', include('news.urls')),
+    url(r'^bookstore/', include('bookstore.urls'))
 ]

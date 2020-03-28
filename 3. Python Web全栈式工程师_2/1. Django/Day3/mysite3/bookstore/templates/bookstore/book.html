@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link rel="stylesheet" href="/static/bootstrap.css">
+    <style>
+        table {
+            margin-top: 10px;
+            max-width: 1000px;
+            text-align: center;
+            font-size: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn btn-outline-info">添加书籍</button>
+    <table class="table table-hover table-bordered table-condensed">
+        <tr>
+            <th>书名</th>
+            <th>出版社</th>
+            <th>定价</th>
+            <th>零售价</th>
+            <th>op</th>
+        </tr>
+
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.pub }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.market_price }}</td>
+            <td>
+                <a href="#">更新</a>
+                <a href="#">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
