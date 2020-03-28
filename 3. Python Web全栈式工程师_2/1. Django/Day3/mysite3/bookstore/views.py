@@ -1,19 +1,20 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 from .models import Book
 
 
 # Create your views here.
 def book(request):
-    books = Book.objects.all()
+    books = Book.objects.filter(is_active=True)
     return render(request, 'bookstore/book.html', locals())
 
 
 def update(request, id):
     if request.method == 'GET':
         try:
-            book = Book.objects.get(id=int(id))
+            book = Book.objects.get(id=int(id), is_active=True)
         except Exception as e:
             print(e)
             return HttpResponse("No book...")
@@ -36,15 +37,15 @@ def update(request, id):
 
 
 def delete(request, id):
-    if request.method == 'GET':
-        try:
-            book = Book.objects.get(id=int(id))
-        except Exception as e:
-            print(e)
-            return HttpResponse("No book...")
-        else:
-            book.delete()
-            return HttpResponseRedirect('/bookstore/book')
+    try:
+        book = Book.objects.get(id=int(id), is_active=True)
+    except Exception as e:
+        print(e)
+        return HttpResponse("No book...")
+    else:
+        book.is_active = False
+        book.save()
+        return HttpResponseRedirect(reverse('all_book'))
 
 
 def add(request):
