@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>page1</h3>
+<a href="/page2">进入page2</a>
+<a href="{% url 'page2' %}">进入page2（反向解析）</a>
+<a href="{% url 'pn' '100' %}">进入pagen（反向解析）</a>
+<a href="{% url 'pn' n='200' %}">进入pagen（反向解析）</a>
+</body>
+</html>
