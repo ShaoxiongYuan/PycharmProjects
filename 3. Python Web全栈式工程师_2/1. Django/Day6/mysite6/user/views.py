@@ -7,8 +7,7 @@ import hashlib
 # Create your views here.
 def reg_view(request):
     if request.method == 'GET':
-        return render(request, 'user/reg.html')
-
+        return render(request, 'user/register.html')
     elif request.method == 'POST':
         username = request.POST.get('username')
         password_1 = request.POST.get('password_1')
@@ -16,12 +15,12 @@ def reg_view(request):
         # TODO 参数检查
         if password_1 != password_2:
             error = 'The password is not the same~'
-            return render(request, 'user/reg.html', locals())
+            return render(request, 'user/register.html', locals())
 
         old_users = User.objects.filter(username=username)
         if old_users:
             error = 'The username already exists.'
-            return render(request, 'user/reg.html', locals())
+            return render(request, 'user/register.html', locals())
 
         m = hashlib.md5()  # 获取计算对象
         m.update(password_1.encode())  # 更新明文
@@ -32,10 +31,10 @@ def reg_view(request):
         except Exception as e:
             print(e)
             error = 'The username already exists.'
-            return render(request, 'user/reg.html', locals())
-
-        request.session['username'] = username
-        return HttpResponse('---reg ok---')
+            return render(request, 'user/register.html', locals())
+        else:
+            request.session['username'] = username
+            return HttpResponse('---reg ok---')
 
     return HttpResponse('--Your method is wrong')
 
@@ -48,7 +47,6 @@ def login_view(request):
             username = request.COOKIES['username']
             request.session['username'] = username
             return HttpResponse('--已登录')
-
         return render(request, 'user/login.html')
 
     elif request.method == 'POST':
@@ -74,4 +72,4 @@ def login_view(request):
             resp.set_cookie('username', username, 60 * 60 * 24 * 20)
         return resp
 
-    return HttpResponse('Your method is worng~')
+    return HttpResponse('Your method is wrong~')
