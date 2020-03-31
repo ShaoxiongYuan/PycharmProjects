@@ -44,3 +44,22 @@ def pagen_view(request, n):
 
 def test_static(request):
     return render(request, 'static.html')
+
+
+def test_cookies(request):
+    username = request.COOKIES.get('username', '哈哈哈')
+    print(username)
+    response = HttpResponse('哈哈哈')
+    response.set_cookie('username', 'steven', 300)
+    # response.set_cookie('user', 'steven')
+    return response
+
+
+def set_session(request):
+    request.session['uname'] = 'steven'
+    return HttpResponse('set session is OK.')
+
+
+def get_session(request):
+    name = request.session.get('uname')
+    return HttpResponse('get session: %s' % name)

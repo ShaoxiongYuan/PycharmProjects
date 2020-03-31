@@ -17,5 +17,8 @@ urlpatterns = [
     url(r'^music/', include('music.urls')),
     url(r'^sport/', include('sport.urls')),
     url(r'^news/', include('news.urls')),
-    url(r'^bookstore/', include('bookstore.urls'))
+    url(r'^bookstore/', include('bookstore.urls')),
+    url(r'^cookie$', views.test_cookies),
+    url(r'^set_session$', views.set_session),
+    url(r'^get_session$', views.get_session)
 ]
