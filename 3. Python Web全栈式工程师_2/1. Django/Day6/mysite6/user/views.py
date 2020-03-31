@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import *
 import hashlib
@@ -33,22 +33,20 @@ def reg_view(request):
             error = 'The username already exists.'
             return render(request, 'user/register.html', locals())
         else:
+            request.session['uid'] = user.id
             request.session['username'] = username
-            return HttpResponse('---reg ok---')
-
-    return HttpResponse('--Your method is wrong')
+            return HttpResponseRedirect('/user/index')
 
 
 def login_view(request):
     if request.method == 'GET':
         if 'username' in request.session:
-            return HttpResponse('---已登录')
+            return HttpResponseRedirect('/user/index')
         if 'username' in request.COOKIES:
             username = request.COOKIES['username']
             request.session['username'] = username
-            return HttpResponse('--已登录')
+            return HttpResponseRedirect('/user/index')
         return render(request, 'user/login.html')
-
     elif request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -66,10 +64,12 @@ def login_view(request):
             error = 'The username or password is wrong'
             return render(request, 'user/login.html', locals())
 
-        resp = HttpResponse('--login is ok--')
+        resp = HttpResponseRedirect('/user/index')
         request.session['username'] = username
         if 'long' in request.POST:
             resp.set_cookie('username', username, 60 * 60 * 24 * 20)
         return resp
 
-    return HttpResponse('Your method is wrong~')
+
+def index_view(request):
+    return render(request, 'user/index.html')
