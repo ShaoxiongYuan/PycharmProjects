@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Cache</title>
+</head>
+<body>
+{% load cache %}
+{% cache 60 test6 %}
+    <p>
+        我是缓存的{{ t1 }}
+    </p>
+{% endcache %}
+
+<p>
+    我不是缓存的{{ t1 }}
+</p>
+</body>
+</html>
