@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF</title>
+    <link rel="stylesheet" href="/static/bootstrap.css">
+</head>
+<body>
+<form action="/csrf" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">用户名: </label>
+        <input id="username" type="text" name="username">
+    </div>
+    <button class="btn btn-success">GO</button>
+</form>
+</body>
+</html>
