@@ -122,3 +122,9 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/files')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # 固定写法
+EMAIL_HOST = 'smtp.qq.com'  # 腾讯QQ邮箱 SMTP 服务器地址
+EMAIL_PORT = 25  # SMTP服务的端口号
+EMAIL_HOST_USER = '2379773801@qq.com'  # 发送邮件的QQ邮箱
+EMAIL_HOST_PASSWORD = 'zmlbxhhsrajfecag'
