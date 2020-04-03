@@ -1,0 +1,5 @@
+price = input("商品价格：")
+amount = input("购买数量：")
+paid = input("支付金额：")
+return_money = float(paid) - float(amount) * float(price)
+print("应找回" + str(return_money) + "元。")
