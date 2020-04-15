@@ -44,20 +44,23 @@ def users(request):
 
     token = make_token(username)
 
+    send_activation_email(username, email)
+
+    return JsonResponse({'code': 200, 'username': username, 'data': {'token': token.decode()}, 'carts_count': 0})
+
+
+def send_activation_email(username, email):
     try:
         code = "%s" % (random.randint(1000, 9999))
         code_str = code + '_' + username
         active_code = base64.urlsafe_b64encode(code_str.encode())
-        cache.set('email_active_%s' % (username), code, 60 * 60 * 24 * 3)
+        cache.set('email_active_%s' % username, code, 60 * 60 * 24 * 3)
         verify_url = 'http://127.0.0.1:7000/dadashop/templates/active.html?code=%s' % (active_code.decode())
         print(verify_url)
         send_active_email_async.delay(email, verify_url)
-
     except Exception as e:
         print('---active error---')
         print(e)
-
-    return JsonResponse({'code': 200, 'username': username, 'data': {'token': token.decode()}, 'carts_count': 0})
 
 
 def active_view(request):
@@ -233,16 +236,7 @@ class OauthWeiboView(View):
 
         token = make_token(username)
 
-        try:
-            randnum = "%s" % (random.randint(1000, 9999))
-            code_str = randnum + '_' + username
-            active_code = base64.urlsafe_b64encode(code_str.encode())
-            cache.set('email_active_%s' % username, randnum, 60 * 60 * 24 * 3)
-            verify_url = 'http://127.0.0.1:7000/dadashop/templates/active.html?code=%s' % (active_code.decode())
-            send_active_email_async.delay(email, verify_url)
-        except Exception as e:
-            print('---active error---')
-            print(e)
+        send_activation_email(username, email)
 
         return JsonResponse({'code': 200,
                              'username': username,

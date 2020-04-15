@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'user',
-    'dtoken'
+    'dtoken',
+    'goods'
 ]
 
 MIDDLEWARE = [
