@@ -143,6 +143,10 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 JWT_TOKEN_KEY = '1234567'
 
@@ -152,6 +156,22 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "goods": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor"
+        }
+    },
+    "goods_detail": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/6",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "COMPRESSOR": "django_redis.compressors.zlib.ZlibCompressor"
         }
     }
 }
@@ -167,3 +187,8 @@ EMAIL_HOST_PASSWORD = 'zmlbxhhsrajfecag'
 WEIBO_CLIENT_ID = '2223108356'
 WEIBO_CLIENT_SECRET = '7bcc4be1b953ab0e6cf1e3ce22ef5adb'
 WEIBO_REDIRECT_URI = 'http://127.0.0.1:7000/dadashop/templates/callback.html'
+
+if DEBUG:
+    PIC_URL = 'http://127.0.0.1:8000' + MEDIA_URL
+else:
+    pass

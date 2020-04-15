@@ -21,7 +21,6 @@ class Brand(BaseModel):
     """
     品牌
     """
-
     name = models.CharField(max_length=20, verbose_name='商品名称')
     logo = models.ImageField(verbose_name='Logo图片', upload_to='brand')
     first_letter = models.CharField(max_length=1, verbose_name='品牌首字母')
@@ -35,6 +34,9 @@ class Brand(BaseModel):
 
 
 class SPU(BaseModel):
+    """
+    SPU
+    """
     name = models.CharField(max_length=50, verbose_name='名称')
     sales = models.IntegerField(default=0, verbose_name='商品销量')
     comments = models.IntegerField(default=0, verbose_name='评价数量')
@@ -78,7 +80,6 @@ class SaleAttrValue(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        # return '%s - %s - %s' % (self.sale_attr_id, self.sku.name, self.sale_attr_value_name)
         return '%s - %s' % (self.spu_sale_attr, self.name)
 
 
