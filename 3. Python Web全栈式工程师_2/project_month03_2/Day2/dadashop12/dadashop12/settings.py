@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'user',
     'dtoken',
     'goods',
-    'carts'
+    'carts',
+    'order'
 ]
 
 MIDDLEWARE = [

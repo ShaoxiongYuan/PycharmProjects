@@ -25,7 +25,8 @@ urlpatterns = [
     url(r'^v1/users', include('user.urls')),
     url(r'^v1/tokens', include('dtoken.urls')),
     url(r'^v1/goods', include('goods.urls')),
-    url(r'^v1/carts', include('carts.urls'))
+    url(r'^v1/carts', include('carts.urls')),
+    url(r'^v1/orders', include('order.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
