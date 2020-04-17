@@ -13,6 +13,10 @@ CARTS_CACHE = caches['carts']
 
 
 class CartsView(View):
+    @login_check
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
     def get_cache_key(self, uid):
         return 'carts_%s' % uid
 
@@ -30,11 +34,65 @@ class CartsView(View):
         all_data[int(sku_id)] = data
         CARTS_CACHE.set(key, all_data)
 
-    @login_check
-    def get(self, request, username):
-        return JsonResponse({'code': 200})
+    def get_carts_list(self, uid):
+        # [{"id":"","name":"","count":"","selected":"","default_image_url":"","price":"","sku_sale_attr_name":[],"sku_sale_attr_val":[]},{"":""...}]
+        carts_data = self.get_carts_all_data(uid)
+        if not carts_data:
+            return []
 
-    @login_check
+        skus_list = []
+        skus = SKU.objects.filter(id__in=carts_data.keys())
+        for sku in skus:
+            sku_dict = {
+                'id': sku.id,
+                'name': sku.name,
+                'count': carts_data[sku.id][0],
+                'selected': carts_data[sku.id][1],
+                'default_image_url': str(sku.default_image_url),
+                'price': str(sku.price)
+            }
+
+            sku_sale_attr_name = []
+            sku_sale_attr_value = []
+            sale_attr_values = sku.sale_attr_value.all()
+            for attr_value in sale_attr_values:
+                sku_sale_attr_value.append(attr_value.name)
+                sku_sale_attr_name.append(attr_value.spu_sale_attr.name)
+            sku_dict['sku_sale_attr_name'] = sku_sale_attr_name
+            sku_dict['sku_sale_attr_val'] = sku_sale_attr_value
+
+            skus_list.append(sku_dict)
+        return skus_list
+
+    def merge_carts(self, uid, carts_info):
+        carts_data = self.get_carts_all_data(uid)
+        if not carts_info:
+            # 离线状态未使用购物车
+            return len(carts_data)
+
+        for c_dic in carts_info:
+            sku_id = int(c_dic['id'])
+            try:
+                sku_data = SKU.objects.get(id=sku_id, is_launched=True)
+            except Exception as e:
+                print(e)
+                continue
+
+            c_count = int(c_dic['count'])
+            if sku_id in carts_data:
+                sku_count = int(carts_data[sku_id][0])
+                final_count = min(max(c_count, sku_count), int(sku_data.stock))
+                carts_data[sku_id][0] = final_count
+            else:
+                carts_data[sku_id] = [min(sku_data.stock, c_count), 1]
+
+            self.set_carts_data(uid, sku_id, carts_data[sku_id])
+            return len(carts_data)
+
+    def get(self, request, username):
+        skus_list = self.get_carts_list(request.myuser.id)
+        return JsonResponse({'code': 200, 'data': skus_list, 'base_url': settings.PIC_URL})
+
     def post(self, request, username):
         json_str = request.body
         json_obj = json.loads(json_str)
@@ -73,3 +131,9 @@ class CartsView(View):
         sku_count = len(carts_data)
 
         return JsonResponse({'code': 200, 'data': {'carts_count': sku_count}, 'base_url': settings.PIC_URL})
+
+    def put(self, request, username):
+        pass
+
+    def delete(self, request, username):
+        pass

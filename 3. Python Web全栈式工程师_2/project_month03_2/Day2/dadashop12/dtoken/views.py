@@ -5,6 +5,8 @@ import time
 import jwt
 from django.conf import settings
 from django.http import JsonResponse
+
+from carts.views import CartsView
 from user.models import UserProfile
 
 
@@ -31,7 +33,13 @@ def tokens(request):
 
     token = make_token(username)
 
-    return JsonResponse({'code': 200, 'username': username, 'data': {'token': token.decode()}, 'cart_count': 0})
+    result = {'code': 200, 'username': username, 'data': {'token': token.decode()}, 'carts_count': 0}
+
+    carts_data = data.get('carts')
+    carts_obj = CartsView()
+    carts_len = carts_obj.merge_carts(user.id, carts_data)
+    result['carts_count'] = carts_len
+    return JsonResponse(result)
 
 
 def make_token(username, exp=3600 * 24):
