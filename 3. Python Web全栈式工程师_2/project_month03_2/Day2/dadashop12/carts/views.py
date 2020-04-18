@@ -89,6 +89,13 @@ class CartsView(View):
             self.set_carts_data(uid, sku_id, carts_data[sku_id])
             return len(carts_data)
 
+    def del_carts_data(self, uid, sku_id):
+        key = self.get_cache_key(uid)
+        carts_data = self.get_carts_all_data(uid)
+        if sku_id in carts_data:
+            del carts_data[sku_id]
+            CARTS_CACHE.set(key, carts_data)
+
     def get(self, request, username):
         skus_list = self.get_carts_list(request.myuser.id)
         return JsonResponse({'code': 200, 'data': skus_list, 'base_url': settings.PIC_URL})
