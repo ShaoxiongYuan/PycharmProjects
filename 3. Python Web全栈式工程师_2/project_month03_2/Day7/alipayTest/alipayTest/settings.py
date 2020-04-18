@@ -42,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -116,7 +116,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # 支付宝相关配置
-ALIPAY_KEY_DIRS = os.path.join(BASE_DIR, 'static/key_file')
+ALIPAY_KEY_DIRS = os.path.join(BASE_DIR, 'static/key_file/')
 ALIPAY_APP_ID = '2016102300747980'
 ALIPAY_RETURN_URL = 'http://127.0.0.1:8000/payment/result'
 ALIPAY_NOTIFY_URL = 'http://127.0.0.1:8000/payment/result'

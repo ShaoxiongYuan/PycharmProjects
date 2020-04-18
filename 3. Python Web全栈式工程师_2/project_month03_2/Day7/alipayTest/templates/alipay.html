@@ -10,7 +10,22 @@
 <body>
     <button id="btn-pay">点击支付</button>
     <script>
-        
+        var post_data = { "order_id": "202004181745123" }
+        $(function () {
+            $('#btn-pay').on('click', function () {
+                $.ajax({
+                    url: "http://127.0.0.1:8000/payment/jump",
+                    type: 'post',
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    data: JSON.stringify(post_data),
+                    success: function (data) {
+                        //console.log(data.pay_url)
+                        window.location = data.pay_url
+                    }
+                })
+            })
+        })
     </script>
 </body>
 
