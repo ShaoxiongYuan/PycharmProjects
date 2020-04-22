@@ -46,7 +46,6 @@ class NovelSpider:
         regex4 = r'<title>(.*?)</title>.*?<div class="content" itemprop="acticleBody">(.*?)</div>'
         res = self.parse_html(html, regex4)
         if res:
-            print(res)
             NovelSpider.save_data(res)
 
     @staticmethod
