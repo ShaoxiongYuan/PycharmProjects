@@ -6,7 +6,7 @@ import pymongo
 
 class LianjiaSpider:
     def __init__(self):
-        self.url = 'https://cq.lianjia.com/ershoufang/pg{}/'
+        self.url = 'https://gz.lianjia.com/ershoufang/pg{}/'
         self.headers = {
             'User-Agent': UserAgent().random
         }
@@ -14,12 +14,12 @@ class LianjiaSpider:
         self.all_list = []
         self.conn = pymongo.MongoClient(host='localhost', port=27017)
         self.db = self.conn['housedb']
-        self.myset = self.db['houseset']
+        self.myset = self.db['houseset_gz']
 
     def get_data(self, url):
         for i in range(3):
             try:
-                html = requests.get(url=url, headers=self.headers, timeout=3, verify=False).text
+                html = requests.get(url=url, headers=self.headers, timeout=3).text
                 self.parse_html(html)
                 break
             except Exception as e:
