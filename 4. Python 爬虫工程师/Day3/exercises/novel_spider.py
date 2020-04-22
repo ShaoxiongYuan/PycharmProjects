@@ -9,7 +9,7 @@ class NovelSpider:
 
     @staticmethod
     def get_html(url):
-        html = requests.get(url=url, headers={'User-Agent': UserAgent().random}).text
+        html = requests.get(url=url, headers={'User-Agent': UserAgent().random}).content.decode('utf-8')
         return html
 
     @staticmethod
@@ -42,6 +42,8 @@ class NovelSpider:
                 self.get_data_4(item)
 
     def get_data_4(self, url):
+        if url[0] == '/':
+            url += 'http://book.zongheng.com'
         html = self.get_html(url)
         regex4 = r'<title>(.*?)</title>.*?<div class="content" itemprop="acticleBody">(.*?)</div>'
         res = self.parse_html(html, regex4)
