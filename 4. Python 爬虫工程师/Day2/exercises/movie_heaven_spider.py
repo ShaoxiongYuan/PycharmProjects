@@ -42,7 +42,7 @@ class MovieSpider:
             if self.r.sadd('movie:spider', finger) == 1:
                 try:
                     self.get_info(two_url)
-                    # time.sleep(random.randint(1, 2))
+                    time.sleep(random.randint(1, 2))
                 except Exception as e:
                     print(e)
                     self.r.srem('movie:spider', finger)
@@ -54,8 +54,9 @@ class MovieSpider:
         regex2 = r'<font color=#07519a>(.*?)</font></h1></div>.*?<td style="WORD-WRAP: break-word".*?<a href="(.*?)">'
         res = self.parse_html(html, regex2)
         if res:
-            print(res)
-            self.save_data(res)
+            item = {'name': res[0][0].strip(), 'download_url': res[0][1].strip()}
+            print(item)
+            # self.save_data(res)
 
     def save_data(self, res):
         item = {'name': res[0][0].strip(), 'download_url': res[0][1].strip()}
@@ -68,7 +69,7 @@ class MovieSpider:
             url = self.url.format(i)
             self.get_data(url)
             print(f'第{i}页爬取完成')
-        self.myset.insert_many(self.all_list)
+        # self.myset.insert_many(self.all_list)
 
 
 if __name__ == '__main__':
