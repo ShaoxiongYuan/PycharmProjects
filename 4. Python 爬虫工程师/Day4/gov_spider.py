@@ -1,7 +1,6 @@
 import hashlib
 import re
 import sys
-
 import requests
 from lxml import etree
 import redis

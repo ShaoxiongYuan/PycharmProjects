@@ -5,7 +5,6 @@ import requests
 import time
 import random
 import hashlib
-import json
 
 
 class YDSpider:
@@ -39,8 +38,8 @@ class YDSpider:
         ts, salt, sign = self.get_ts_salt_sign(word)
         data = {
             "i": word,
-            "from": "AUTO",
-            "to": "AUTO",
+            "from": "zh-CHS",
+            "to": "ja",
             "smartresult": "dict",
             "client": "fanyideskweb",
             "salt": salt,
