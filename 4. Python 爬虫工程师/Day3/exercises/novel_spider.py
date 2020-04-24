@@ -58,7 +58,7 @@ class NovelSpider:
             filename = NovelSpider.get_filename(title, chapter)
             data = item[1].replace('<p>', '').replace('</p>', '\n').strip()
             print(data)
-            with open(filename, 'w') as f:
+            with open(filename, 'w', encoding='utf-8') as f:
                 f.write(data)
 
     @staticmethod

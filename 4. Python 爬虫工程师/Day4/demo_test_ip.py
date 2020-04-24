@@ -1,0 +1,48 @@
+"""
+1. 获取代理
+2. 依次测试
+"""
+import requests
+
+
+class ProxyPool:
+    def __init__(self):
+        self.url = 'http://dev.kdlapi.com/api/getproxy/?orderid=908769340200990&num=20&protocol=1&method=2&an_an=1&an_ha=1&sep=1'
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36'
+        }
+        self.f = open('proxy.txt', 'a')
+
+    def get_html(self):
+        html = requests.get(url=self.url, headers=self.headers).text
+        proxy_list = html.split('\r\n')
+        for proxy in proxy_list:
+            if self.check_proxy(proxy):
+                self.f.write(proxy + '\n')
+
+    def check_proxy(self, proxy):
+        test_url = 'https://httpbin.org/get'
+        proxies = {
+            'http': 'http://{}'.format(proxy),
+            'https': 'https://{}'.format(proxy)
+        }
+        try:
+            res = requests.get(url=test_url, proxies=proxies, headers=self.headers, timeout=2)
+            if res.status_code == 200:
+                print(proxy, '\033[031m可用\033[0m')
+                return True
+            else:
+                print(proxy, '无效')
+                return False
+        except Exception as e:
+            print(proxy, '无效')
+            return False
+
+    def run(self):
+        self.get_html()
+        self.f.close()
+
+
+if __name__ == '__main__':
+    spider = ProxyPool()
+    spider.run()
