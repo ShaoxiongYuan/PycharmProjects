@@ -1,3 +1,5 @@
+import json
+
 import pymongo
 import requests
 import re
@@ -14,6 +16,7 @@ class DoubanSpider:
         self.conn = pymongo.MongoClient(host='127.0.0.1', port=27017)
         self.db = self.conn['doubanmovie_db']
         self.all_list = []
+        self.filename = '{}.json'
 
     def get_html(self, url):
         html = requests.get(url=url, headers=self.headers)
@@ -37,9 +40,14 @@ class DoubanSpider:
             for item in res:
                 type = item[0].split('&')[1][5:]
                 self.get_data_2(type)
-                myset = self.db[item[1]]
-                myset.insert_many(self.all_list)
+                # myset = self.db[item[1]]
+                # myset.insert_many(self.all_list)
+                # self.all_list = []
+                filename = self.filename.format(item[1])
+                with open(filename, 'w', encoding='utf-8') as f:
+                    json.dump(self.all_list, f, ensure_ascii=False)
                 self.all_list = []
+
         else:
             self.get_data_2(res[num - 1][0].split('&')[1][5:])
 
@@ -74,9 +82,9 @@ class DoubanSpider:
     def run(self):
         res = self.get_movie_type()
         data = []
-        for index, type in enumerate(res):
-            data.append({index + 1: type})
-            print({index + 1: type})
+        for index, movie_type in enumerate(res):
+            data.append({index + 1: movie_type})
+            print({index + 1: movie_type})
         print('请输入电影类型对应编号，全部搜索请输30')
         choice = int(input('请输入编号：'))
         if choice == 30:
@@ -85,8 +93,11 @@ class DoubanSpider:
             for item in data:
                 if choice in item.keys():
                     self.get_data(choice)
-                    myset = self.db['%s' % item[choice]]
-                    myset.insert_many(self.all_list)
+                    # myset = self.db['%s' % item[choice]]
+                    # myset.insert_many(self.all_list)
+                    filename = self.filename.format(item[choice])
+                    with open(filename, 'w', encoding='utf-8') as f:
+                        json.dump(self.all_list, f, ensure_ascii=False)
 
 
 if __name__ == '__main__':

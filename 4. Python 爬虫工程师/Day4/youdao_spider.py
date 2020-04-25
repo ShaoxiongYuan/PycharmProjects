@@ -38,8 +38,8 @@ class YDSpider:
         ts, salt, sign = self.get_ts_salt_sign(word)
         data = {
             "i": word,
-            "from": "zh-CHS",
-            "to": "ja",
+            "from": "AUTO",
+            "to": "AUTO",
             "smartresult": "dict",
             "client": "fanyideskweb",
             "salt": salt,
