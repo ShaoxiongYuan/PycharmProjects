@@ -1,0 +1,18 @@
+[
+    {
+        "rownum": 1,
+        "storeName": "春天",
+        "addressDetail": "恩和路210号春天大厦一层",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "内蒙古",
+        "cityName": "乌兰察布市"
+    },
+    {
+        "rownum": 2,
+        "storeName": "集宁维多利",
+        "addressDetail": "恩和大街维多利广场一层肯德基",
+        "pro": "Wi-Fi,礼品卡,生日餐会",
+        "provinceName": "内蒙古",
+        "cityName": "乌兰察布市"
+    }
+]
