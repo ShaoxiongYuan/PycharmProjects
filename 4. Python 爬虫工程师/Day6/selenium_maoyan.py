@@ -1,8 +1,8 @@
 from selenium import webdriver
-import time
 
 url = 'https://maoyan.com/board/4'
 browser = webdriver.Chrome()
+browser.maximize_window()
 browser.get(url)
 
 
@@ -25,7 +25,6 @@ while True:
     get_data()
     try:
         browser.find_element_by_link_text('下一页').click()
-        time.sleep(2)
     except Exception as e:
         print('恭喜你!抓取结束')
         browser.quit()
