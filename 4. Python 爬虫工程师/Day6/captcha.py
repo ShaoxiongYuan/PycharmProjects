@@ -14,7 +14,6 @@ def get_Page(url, headers):
 def parse_Page(html, headers):
     html_lxml = etree.HTML(html)
     datas = html_lxml.xpath('.//div[@class="captcha_images_left"]|.//div[@class="captcha_images_right"]')
-    item = {}
     # 创建保存验证码文件夹
     file = 'D:/Captcha'
     if os.path.exists(file):
@@ -25,10 +24,8 @@ def parse_Page(html, headers):
     for data in datas:
         # 验证码名称
         name = data.xpath('.//h3')
-        # print(len(name))
         # 验证码链接
         src = data.xpath('.//div/img/@src')
-        # print(len(src))
         count = 0
         for i in range(len(name)):
             # 验证码图片文件名

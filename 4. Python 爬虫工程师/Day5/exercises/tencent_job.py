@@ -1,11 +1,12 @@
 import json
 from queue import Queue
-
+import redis
 import requests
 from threading import Thread, Lock
 import time
 from urllib import parse
 from fake_useragent import UserAgent
+import hashlib
 
 
 class TencentSpider:
@@ -17,6 +18,7 @@ class TencentSpider:
         self.q1 = Queue()
         self.q2 = Queue()
         self.all_data = []
+        self.r = redis.Redis(host='localhost', port=6379, db=0)
 
     def url_in(self):
         job = input('请输入职位：')
@@ -33,6 +35,11 @@ class TencentSpider:
         total = int(html['Data']['Count'])
         total = total // 10 if total % 10 == 0 else total // 10 + 1
         return total
+
+    def md5_url(self, url):
+        m = hashlib.md5()
+        m.update(url.encode())
+        return m.hexdigest()
 
     def get_html(self, url):
         headers = {'User-Agent': UserAgent().random}
@@ -59,27 +66,30 @@ class TencentSpider:
     def parse_two_page(self):
         while True:
             try:
-                self.lock_2.acquire()
+
                 url = self.q2.get(block=True, timeout=3)
-                self.lock_2.release()
             except Exception as e:
                 print(e)
-                self.lock_2.release()
                 break
             else:
-                html = self.get_html(url)
-                item = {
-                    'name': html['Data']['RecruitPostName'],
-                    'address': html['Data']['LocationName'],
-                    'type': html['Data']['CategoryName'],
-                    'time': html['Data']['LastUpdateTime'],
-                    'duty': html['Data']['Responsibility'].replace('\n', ' ').replace('\r', '').replace('\t', ''),
-                    'requirement': html['Data']['Requirement'].replace('\n', ' ').replace('\r', '').replace('\t', '')
-                }
-                print(item)
-                self.lock_2.acquire()
-                self.all_data.append(item)
-                self.lock_2.release()
+                finger = self.md5_url(url)
+                if self.r.sadd('job:spider', finger) == 1:
+                    html = self.get_html(url)
+                    item = {
+                        'name': html['Data']['RecruitPostName'],
+                        'address': html['Data']['LocationName'],
+                        'type': html['Data']['CategoryName'],
+                        'time': html['Data']['LastUpdateTime'],
+                        'duty': html['Data']['Responsibility'].replace('\n', ' ').replace('\r', '').replace('\t', ''),
+                        'requirement': html['Data']['Requirement'].replace('\n', ' ').replace('\r', '').replace('\t',
+                                                                                                                '')
+                    }
+                    print(item)
+                    self.lock_2.acquire()
+                    self.all_data.append(item)
+                    self.lock_2.release()
+                else:
+                    pass
 
     def run(self):
         keyword = self.url_in()
