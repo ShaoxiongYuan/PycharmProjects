@@ -48,7 +48,7 @@ class DoubanSpider:
     def run(self):
         self.url_in()
         jobs = []
-        for i in range(4):
+        for i in range(100):
             t = Thread(target=self.parse_html)
             jobs.append(t)
             t.start()
