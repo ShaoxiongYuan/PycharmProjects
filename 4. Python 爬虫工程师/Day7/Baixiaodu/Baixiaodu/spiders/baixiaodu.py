@@ -8,4 +8,6 @@ class BaixiaoduSpider(scrapy.Spider):
     start_urls = ['http://www.baidu.com/']
 
     def parse(self, response):
-        pass
+        result = response.xpath('/html/head/title/text()').extract_first()
+        print(result)
+        print('*' * 50)
