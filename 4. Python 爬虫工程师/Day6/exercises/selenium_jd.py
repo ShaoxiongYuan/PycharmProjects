@@ -17,10 +17,12 @@ def get_data():
     goods_list = browser.find_elements_by_xpath('//*[@id="J_goodsList"]/ul/li')
     for good in goods_list:
         item = {
-            'name': good.find_element_by_xpath('.//div[@class="p-name"]/a/em').text,
-            'price': good.find_element_by_xpath('.//div[@class="p-price"]').text,
-            'comment': good.find_element_by_xpath('.//div[@class="p-commit"]/strong').text,
-            'publication': good.find_element_by_xpath('.//div[@class="p-shopnum"]').text
+            'name': good.find_element_by_xpath(".//div[contains(@class,'p-name')]/a/em").text,
+            'price': good.find_element_by_xpath(
+                './/div[@class="p-price"]').text,
+            'comment': good.find_element_by_xpath(
+                './/div[@class="p-commit"]/strong').text,
+            'publication': good.find_element_by_xpath('.//div[contains(@class,"p-shop")]').text
         }
         print(item)
         print('*' * 50)
