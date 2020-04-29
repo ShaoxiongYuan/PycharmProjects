@@ -21,19 +21,20 @@ driver.switch_to.frame(node)
 time.sleep(1)
 
 # 找到歌手和歌名
-name_list = driver.find_elements_by_xpath('//tr/td[2]/div/div/div/span/a/b')
-singer_list = driver.find_elements_by_xpath('//tr/td[4]/div')
+tr_list = driver.find_elements_by_xpath('//tbody/tr')
 
-# 写入数据库和json
-for i in range(100):
+for i, tr in enumerate(tr_list):
     item = {
         '_id': i + 1,
-        'name': name_list[i].get_attribute('title').replace('\xa0', ''),
-        'singer': singer_list[i].get_attribute('title')
+        'name': tr.find_element_by_xpath('./td[2]/div/div/div/span/a/b').get_attribute('title').replace('\xa0', ''),
+        'singer': tr.find_element_by_xpath('./td[4]/div').get_attribute('title')
     }
     print(item)
     all_music.append(item)
 
-myset.insert_many(all_music)
+# 写入数据库和json
+# myset.insert_many(all_music)
 with open('netease_music.json', 'w', encoding='utf-8') as f:
     json.dump(all_music, f, ensure_ascii=False)
+
+driver.quit()
