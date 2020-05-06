@@ -23,7 +23,7 @@ ROBOTSTXT_OBEY = False
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
-REDIS_HOST = '176.224.2.131'
+REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
