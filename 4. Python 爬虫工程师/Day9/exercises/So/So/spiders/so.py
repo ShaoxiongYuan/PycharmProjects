@@ -18,6 +18,6 @@ class SoSpider(scrapy.Spider):
         html = json.loads(response.text)
         for pic in html['list']:
             item = SoItem()
-            item['img_title'] = pic['title']
+            item['img_title'] = pic['title'].strip('?')
             item['img_url'] = pic['qhimg_url']
             yield item
