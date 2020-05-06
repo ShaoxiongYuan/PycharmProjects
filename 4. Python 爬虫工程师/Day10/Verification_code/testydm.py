@@ -1,4 +1,7 @@
 from ydmapi import get_result
+import os
 
-result = get_result('captcha.jpg')
-print(result)
+for root, dirs, filenames in os.walk('./Captcha'):
+    for filename in filenames:
+        result = get_result('./Captcha/' + filename)
+        print(result)

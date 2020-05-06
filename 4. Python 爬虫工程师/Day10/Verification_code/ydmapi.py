@@ -1,12 +1,10 @@
-import http.client, mimetypes, urllib, json, time, requests
+import json
+import time
+import requests
 
 
 class YDMHttp:
     apiurl = 'http://api.yundama.com/api.php'
-    username = ''
-    password = ''
-    appid = ''
-    appkey = ''
 
     def __init__(self, username, password, appid, appkey):
         self.username = username
@@ -121,12 +119,6 @@ def get_result(filename):
     else:
         # 初始化
         yundama = YDMHttp(username, password, appid, appkey)
-
-        # 登陆云打码
-        uid = yundama.login()
-
-        # 查询余额
-        balance = yundama.balance()
 
         # 开始识别，图片路径，验证码类型ID，超时时间（秒），识别结果
         cid, result = yundama.decode(filename, codetype, timeout)
