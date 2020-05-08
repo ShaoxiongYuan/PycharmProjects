@@ -1,0 +1,93 @@
+# -*- coding: utf-8 -*-
+
+# Scrapy settings for Microsoft project
+#
+# For simplicity, this file contains only settings considered important or
+# commonly used. You can find more settings consulting the documentation:
+#
+#     https://docs.scrapy.org/en/latest/topics/settings.html
+#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
+#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+
+BOT_NAME = 'Microsoft'
+
+SPIDER_MODULES = ['Microsoft.spiders']
+NEWSPIDER_MODULE = 'Microsoft.spiders'
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+# USER_AGENT = 'Microsoft (+http://www.yourdomain.com)'
+
+# Obey robots.txt rules
+ROBOTSTXT_OBEY = False
+
+# Configure maximum concurrent requests performed by Scrapy (default: 16)
+# CONCURRENT_REQUESTS = 32
+
+# Configure a delay for requests for the same website (default: 0)
+# See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
+# See also autothrottle settings and docs
+# DOWNLOAD_DELAY = 3
+# The download delay setting will honor only one of:
+# CONCURRENT_REQUESTS_PER_DOMAIN = 16
+# CONCURRENT_REQUESTS_PER_IP = 16
+
+# Disable cookies (enabled by default)
+COOKIES_ENABLED = False
+
+# Disable Telnet Console (enabled by default)
+# TELNETCONSOLE_ENABLED = False
+
+# Override the default request headers:
+DEFAULT_REQUEST_HEADERS = {
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.7 Safari/537.36',
+    'Cookie': 'AuthSess=b469f049-ee12-42f1-8290-a2c666ac32f5; uhf_hide_epb=true; AADAuth2=CfDJ8EVnUWbzHuBEsMxfIu9F4TJETzRzMynLhAGXJK2EFJv69-jPcjTJX1qFf33iUE9_RrpbK9B3fJOGQgiJm3arFou7782m3Ia-rBlbOMgyRfG1wb4QBWX5PUP8DzDpxKwHdEY0PT8orCUWNXqrjd1nMPKC_k94L7RDm2T8XFyvtGXepQme6KnM0-leBcfUJLjiHoWi2EF9fo9LEvqP_-XzPHK4qjR_sU7_O_HGKyrLEozUxW81uZXmDpNtf7E4yelrEVagH5_cuqR6sEfLrIamKaQZssC6vSV-KX2zkla-5k5z2f-EIrMhNKJ3lG2_rWTerAPktN2FN7nX5pp2w2hGJJm9g3UyCMvN4qhjvKAr_xWembRMPcTvU5xWM-jVlwpkqRv3P2GxZtzrbOFTnGBXUgtqR56eHGfqcyBlhxpVJCaiJWwxVsBSZBM20EEXPfge_KQdVa4lKyRPBJdls_RnKUJVQoGzFKfCgEjxI1xOlyMwwjExYnXPorzdfFtAXmCs9dHK9JkXU70VuD7QVch4uonS5-88S1euGpYlViCEUMTixSXQwxhppT5QIYDxBomOvktGd15A-2anX8m9MGcaNmw7A9Zb81wGOp7BViMDH6SfA6BwOjPlCa5un4tW3jGELzrHb7ZVdbUQtT-O6HrGVP63CxLqIA-jkZFneCPzasHlLlCJY_oLmgwUQ3rVVj8nwQkxdpAtV-uCYJPdXoya3SvakvmNU9Q4yzIdzs-_yTTPeLBvVfqqWQRBgfEiWroVzBxH8XZpZnRWDaaBF1nVZe02AyzdRASNYESzCF6QNYzfPRKLDYzKK1SI9aQxfikXPYx0vbGc8w6YVnfioLm1pbIdXMgW3AFZboQYTN0fNBr1m8pG334KLo-_R3iy5yaUSzv30XH8akOoauJLKpczLVjnLCBLC-erZnPGvisG4vXl70uKuhqDFrvv6jJ0q6vssykPUDUtmBzLlFXwup04xnq6tri01BuwLBeKodhgO1gXLWgfSFbJ3tLy29yBcU2RceqX2IvyF5laS63n8veKEpdFrDsuieGORV-MdcLA9HiOIjf5OGcolA8HWanHmJvuZvrQ3d5xVm2SbyoOaTEe_pAXJuArmik6hPnxBr7s_-gisCAXee-OYYrNnpW-eCCpreVUwZpo23AfiyZ85JrNXqfe9jAFpR__rGVeC-r7BgzyBOo2-Bd-A4nsMYiXiIskM3NDY6YxGb5PjvPzrM7tPoKEcDKU2voBHKV32lqP50GklHgpsLpTJhwTNM4C4bHCZkctzBSF0SQ3m5DTg-Jj2qq0XaxzVpQLvZJKelJvGJ5ROJ2NxbB7sG_MyowkLS_N2-fU5tsikAv2FDueGYrwwPa49vlLxSg69NKZ2mnuPO6-G67jrEotn4fPbN9-DuWCRw3xWQxnkEiEimJWt986366JlpdMBGKoz-5Tpus4N7oOru_56cHYIwzfASvIkKHz7j_y8NXnCIs_0VX6KpybKdJRVPD_T2yVeg5N6e9ak_3pN7NrUcvc1jsjTX9hs-pp0oQ7rJ7F-G2_UFNaw-M1UJdU1xABSizPtG-gZliCp7ihILV2FaGgCJbsofR3F6su2TKyBRD5bpwITWvLWpjIGts3LPVFP5aFA1K_B0tJCfAK8cPM-e_KkNqahVnZraVvO4JrJ9zegHS0-YLwxA8gXf9oSKj4iW2K7KTIAI3iZAPb7v-QCt5XxghKnxHH-GcQ8JgNTverdmti7CfEQI48G0HurOdayl1bk0isusmwAigu1TkI6X9QgtrHSGLezVcJhq516vbmzzt4U9k6EPwJZzT1kAkCU2Syfdsg9pINqO1A5E73DznCtKVnv4BErnkRfJHZLkFJBaquhJ8GMJddwGKH6x3m7ZEgnJ_aco69SUmxuVsy16qG23bJOPOC1b0AkcgjS7UveoGxqe_si1AoK5wdKBG4AHJkJUxZofKpuLMsU7Ktt3_46wi2XSpi-K2dl8gXCVk8cL5Mi0EaZ5OeAFTGXMtw5trwZfmKBEm7pnyOT_v2D34A316uv2_riMk6o1ILV7F8URYbz3TJdn7DytW5ZNWp_X8f5uBoWryCC75ZSdHGnqWrN12M1tDmFicA_LuHj3XtK9XLvgZpDTqkSkgQHk2oz53hWi7hXr2Y-SXtXsgNLypqAvCriejnNGZkKe7CYpf43NOwitBMnLEbZokSgWy7PKAkKJcWOoHw_zIftYCEwHhJHGLCQ4jSlVq1DZtvt0iLQ6uU6-oyZXvYf0qzXd8yrjnZ8YLXJV3zCGkNC9BUL-EC8_utrIRdCGU_gMCq3S_PZtGzkJQwPOsgo6IMfPr8N7Gyehq__sPWSWS2HIwokHHdxIKKvIeZ1p_VFcP7P0e4_GIoYNa8ps9TsnftBoMKh9R8GVEjZhcAaGfLCVZ2-H0l2WITMynafZscpwPKw_OZkaZ7lvtN9WzKrhbh7qAcShGzx0IBOm0NMXSCPstaYd0QtojzB0LCZL0_LazvSKMWyA4b3Yf1IBOF9qqxlYtOnjavFQIeeOpbav4F3VgCA5HwAc4g_zkUN3McxM_-dgSUzrdC2cAEXNKgiRGFLZ9EyyAe5EksDckhsM3dujxxx96I3phhDEZceNvR-UVRjZuepL0vOSR_7aXJa3xaHdbaj6CeCYcUvHKrKNq6VhIpyySSvgsgp_AhQ9SQRW8NOPPD8N3vmmsE_8l0gCtHAWhPvHE4A-NOmOprEAy7dyf2D9k4kKzj83lqa_3_9wYG_w9kuxxViT1PuPZD5PpiQd2bg1l_pLaSH3AqUcIPY-rOgiRp6PQ9tvDPVmEbHx5M_v3OFq_bATae5P2VIUNOl977_kWz9LLRfsMPc9gfuLqxTDh9NyneHMvpOLg49LpViJ0hP4DqnfQmC_G-yhzamBAZ32n1XrT-CW9FyeoELlD53KsI1KnJ68Nfk7lLw72TN7OX89cC7xPEwzlWZtrZiXJZ6lcWMOtm2bLPRWJ76Cu3IR8M2vk4Aop2G6zV9yxy6OmQdEJvhCH3CBJFAfVZUm2mssiQV6RDmxUonhs4gQcwmqRx8gwgz9PRKgJ1tke1v1wEKRqIwtBrrILMjFlpnBC-hMuSmXJuHtd-RT0ENFRnV5vbpV2oAm0Rj7npspqF0Zl4UuBxS_eX4aOtvbhldw-pqN6B5aw7z9YCCFRWb1WWZU0uVw8dLL2gjcIwWQRXJjbKT8rsF7inXXZOdd0MurVl0sJ2D5vsEe36b4Wd_FRvqtEOALKF9zIUSxHGfJmPnPj6QpbpxBgUfC5C2dLGCuYKt17bb3EwH4yNN8Neaf9fGtRnVwfeY8CChb4hzg; muid=1de57004-437a-4113-a663-a6409f47639b; omkt=en-US; AADNonce=46c2f08c-e1e8-402c-8dcf-0524db08d470.637245230661543396; AADAuth=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkN0VHVoTUptRDVNN0RMZHpEMnYyeDNRS1NSWSIsImtpZCI6IkN0VHVoTUptRDVNN0RMZHpEMnYyeDNRS1NSWSJ9.eyJhdWQiOiI0YjIzMzY4OC0wMzFjLTQwNGItOWE4MC1hNGYzZjIzNTFmOTAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83Y2QyMmJhYS1iMWU1LTQxNmItYmE0Mi04OTg0NjBmYjhkY2MvIiwiaWF0IjoxNTg4OTI1OTY3LCJuYmYiOjE1ODg5MjU5NjcsImV4cCI6MTU4ODkyOTg2NywiYWlvIjoiNDJkZ1lMaHpRakhMc2Z0RzUrOWU4d01jc2dKVDFyN1JZMjBNTWUrcjdYd1V4YkhwZ1EwQSIsImFtciI6WyJwd2QiXSwiY19oYXNoIjoiVWZCT095RS1oV1Y2TWwtaWwtRlNZUSIsImlwYWRkciI6IjU4LjE3Ni4xMjUuMTIyIiwibmFtZSI6IkFBMTExODgiLCJub25jZSI6IjQ2YzJmMDhjLWUxZTgtNDAyYy04ZGNmLTA1MjRkYjA4ZDQ3MC42MzcyNDUyMzA2NjE1NDMzOTYiLCJvaWQiOiJkMTFiNDg3Yy1mMWZjLTRiNGQtODE3OC03ZTdmNTJmNTU3NGEiLCJwdWlkIjoiMTAwMzIwMDAzQzkxNkJGQyIsInN1YiI6InpQOWg4T0x0VnBzUF9mTWVvdXRBZ044Z3hwd19jSGRHZktOeG9pZGRGUFkiLCJ0aWQiOiI3Y2QyMmJhYS1iMWU1LTQxNmItYmE0Mi04OTg0NjBmYjhkY2MiLCJ1bmlxdWVfbmFtZSI6IkFBMTExODhAb2ZmaWNlMzY1LmZ1biIsInVwbiI6IkFBMTExODhAb2ZmaWNlMzY1LmZ1biIsInV0aSI6InBJdXFNb05IdzBPVTBJOHZoYXNWQUEiLCJ2ZXIiOiIxLjAiLCJ4bXNfbXBjaSI6MjU5MjAwLCJ4bXNfcGNpIjozNjAwfQ.DbRFhxz7mI4BZi7pliWBc7zOoLRtbLg8-xm1MuSxhe6Cg7V1AHf9_MqfUb8-CiAZpz5bgHbnTlyIYyN8Eq056rXl_5KkQpESktbk4c_sSNUopDyHnDzmpYaVAEqHLSAKowucvSpbzJdhKemKRSgd1TfjVPrOetE60kGq4_0Wf0DENb9l3xgdVrOWdhnfok5vdhCJIQ2a5QYuiJo3YL4UMZDQWDoYH8FXzGki7bW0Lj9zDCEbxrFHAFVayNuwikiW42D5aok6mHKj_WqPSIGNxCRFWRFtjd7QJfpE4F3igqSaoXAHo6Y42D7VaODSvzkAgkBQfPN2pr5Jf0N3grckCg; AADAuthCode=AQABAAIAAAAm-06blBE1TpVMil8KPQ41ArO3UddGvqMIQkgYIQWd425uoGSabdVRoBlmarZ_zxu-dGBaZiExhn8x7Q0fsATrw5HnII_EP61Y0lnBCOZihM5cvjHkiJPlrl1rOgdpXeAVwfGxbC2tBoI01qkwdEsw4c-IdVzbYwgS4cywBwQzN6msmlB9LtOD9HP-OKpFy8Ghaq2byiPBiYCJmTeiUg1HUCGmrXLDgdGe-iykV2Y0xfvP2QnjKLa1DjC_YX1RZeK2lm-TVjhVvMjsF1Pqk0xckZHmE1UMrImVYVcS_zVIKw800Tas_Kdm_P434FUZo9vtTh9_1TYaJTZeEjaH9U34IhmQOC2ItTaA5BYgI-upAyvqVUZqn3JgXco2VEttt7StoUa43XnuPBCmkgRdd4swKArtJFIFbbdMUpQ5wt919iRd34iFdyfQteltykNEd9X9QpIyCEcGOb3AiT_TckuhQDcdrpzUsbdyyAaLV4MldJtiup0n_oNirpHJSWorvRdN9fEpfNwh3AyST6oB1Qdm0Wq-qvluK7TUWZL-3L3970DssKgLyGekdW7A3QAG5yN5gqMW0iSDiRIv2IMEwWv11Up8y56HJf4HWzxM9U_asSAA; AADSID=73854dba-3f18-4eb1-a5a2-fc7de831b445; AADState=1; OfficeSubscriptionLicenses=%5B%7B%22Status%22%3A%22Success%22%2C%22ProductId%22%3A%2243de0ff5-c92c-492b-9116-175376d08c38%22%7D%5D'
+}
+
+# Enable or disable spider middlewares
+# See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+# SPIDER_MIDDLEWARES = {
+#    'Microsoft.middlewares.MicrosoftSpiderMiddleware': 543,
+# }
+
+# Enable or disable downloader middlewares
+# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
+# DOWNLOADER_MIDDLEWARES = {
+#    'Microsoft.middlewares.MicrosoftDownloaderMiddleware': 543,
+# }
+
+# Enable or disable extensions
+# See https://docs.scrapy.org/en/latest/topics/extensions.html
+# EXTENSIONS = {
+#    'scrapy.extensions.telnet.TelnetConsole': None,
+# }
+
+# Configure item pipelines
+# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+    'Microsoft.pipelines.MicrosoftPipeline': 300,
+}
+
+# Enable and configure the AutoThrottle extension (disabled by default)
+# See https://docs.scrapy.org/en/latest/topics/autothrottle.html
+# AUTOTHROTTLE_ENABLED = True
+# The initial download delay
+# AUTOTHROTTLE_START_DELAY = 5
+# The maximum download delay to be set in case of high latencies
+# AUTOTHROTTLE_MAX_DELAY = 60
+# The average number of requests Scrapy should be sending in parallel to
+# each remote server
+# AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
+# Enable showing throttling stats for every response received:
+# AUTOTHROTTLE_DEBUG = False
+
+# Enable and configure HTTP caching (disabled by default)
+# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
+# HTTPCACHE_ENABLED = True
+# HTTPCACHE_EXPIRATION_SECS = 0
+# HTTPCACHE_DIR = 'httpcache'
+# HTTPCACHE_IGNORE_HTTP_CODES = []
+# HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+FILES_STORE = 'F:/Resources/Microsoft Templates'
