@@ -17,16 +17,27 @@ class MicrosoftSpider(scrapy.Spider):
                 href = 'https://templates.office.com' + category.xpath('./a/@href').get()
             else:
                 href = category.xpath('./a/@href').get()
-            yield scrapy.Request(url=href, meta={'meta1': item}, callback=self.parse_two_page)
+            yield scrapy.Request(url=href, meta={'meta1': item, 'url': href}, callback=self.get_total)
+
+    def get_total(self, response):
+        url = response.meta['url']
+        meta2 = response.meta['meta1']
+        if response.xpath('//li/@data-label'):
+            pages_list = response.xpath('//li/@data-label')
+            for i in range(len(pages_list)):
+                d_url = url + '?page=' + str(i + 1)
+                yield scrapy.Request(url=d_url, meta={'meta2': meta2}, callback=self.parse_two_page, dont_filter=True)
+        else:
+            yield scrapy.Request(url=url, meta={'meta2': meta2}, callback=self.parse_two_page, dont_filter=True)
 
     def parse_two_page(self, response):
-        meta1 = response.meta['meta1']
+        meta2 = response.meta['meta2']
         info_list = response.xpath('//section')
         for info in info_list[:-1]:
             item = MicrosoftItem()
             item['info_title'] = info.xpath('./a/@data-bi-name').get()
             detail_url = 'https://templates.office.com' + info.xpath('./a/@href').get()
-            item['title'] = meta1['title']
+            item['title'] = meta2['title']
             yield scrapy.Request(url=detail_url, meta={'item': item}, callback=self.get_download_url)
 
     def get_download_url(self, response):
@@ -37,4 +48,5 @@ class MicrosoftSpider(scrapy.Spider):
         item['title'] = meta2['title']
 
         item['info_title'] = meta2['info_title']
+        item['info_title'].replace('?', '').strip()
         yield item
