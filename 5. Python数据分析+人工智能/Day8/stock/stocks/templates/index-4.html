@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html>
+<!--
+author:lvlu,yusheng chai
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <!-- <script src="./files/hm.js"></script> -->
+  <script type="text/javascript" src="./static/files/charting_library.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=8">
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-control" content="no-cache">
+  <meta http-equiv="Cache" content="no-cache">
+  <link rel="shortcut icon" href="http://wjwcoin.pro/favicon.ico">
+  <link rel="stylesheet" href="./static/css/ply.css">
+  <title>股票交易系统</title>
+  <style>
+    html,
+    body,
+    div,
+    ul,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    dl,
+    dt,
+    dd,
+    ol,
+    form,
+    input,
+    textarea,
+    th,
+    td,
+    select {
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      min-width: 300px;
+      background-color: rgb(47, 56, 83);
+    }
+
+    body {
+      height: 100%;
+      font-family: "Microsoft YaHei";
+      font-size: 14px;
+      color: white;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: normal;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    img {
+      border: none;
+      vertical-align: middle;
+    }
+
+    a {
+      text-decoration: none;
+      color: #232323;
+    }
+
+    table {
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    input,
+    textarea {
+      outline: none;
+      border: none;
+    }
+
+    textarea {
+      resize: none;
+      overflow: auto;
+    }
+
+    .clearfix {
+      zoom: 1;
+    }
+
+    .clearfix:after {
+      content: ".";
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      display: block;
+      clear: both;
+      overflow: hidden;
+    }
+
+    .fl {
+      float: left
+    }
+
+    .fr {
+      float: right
+    }
+
+    .tl {
+      text-align: left;
+    }
+
+    .tc {
+      text-align: center
+    }
+
+    .tr {
+      text-align: right;
+    }
+
+    .ellipse {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .inline {
+      display: inline-block;
+      *display: inline;
+      *zoom: 1;
+    }
+
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: textfield;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+      /* 滚动条宽度为0 */
+      height: 0;
+      /* 滚动条高度为0 */
+      display: none;
+      /* 滚动条隐藏 */
+    }
+
+    .tbodyScroll {
+      cursor: url("./wheel.png"), move;
+    }
+
+    pre {
+      color: #0006 !important;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 0.3s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+      opacity: 0;
+    }
+
+    .v-page-li {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .v-page-li-active {
+      background-color: rgba(0, 0, 0, .5) !important;
+    }
+
+    .v-dropdown {
+      border-radius: 4px !important;
+      overflow: hidden !important;
+    }
+
+    .nosupport {
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .nosupport>.content {
+      width: 50%;
+    }
+
+    .nosupport>.content>p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    #app {
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+
+    .seelpshow {
+      -webkit-animation: show 10s ease-in-out 0s 1 alternate forwards;
+      animation: show 10s ease-in-out 0s 1 alternate forwards
+    }
+
+    @-webkit-keyframes show {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      90% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes show {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* 平板之类的宽度 1024 以下设备 */
+
+    @media only screen and (max-width: 1024px) {
+      .pc {
+        display: none !important;
+      }
+
+      .mobile {
+        display: block;
+      }
+
+    }
+
+    /* PC客户端或大屏幕设备: 1028px 至更大 */
+
+    @media only screen and (min-width: 1025px) {
+      .pc {
+        display: block;
+      }
+
+      .mobile {
+        display: none !important;
+      }
+
+    }
+  </style>
+  <link href="./static/files/app.d92e5b8065c654f5827296846610c703.css" rel="stylesheet">
+  <style type="text/css">
+    #coinsale[data-v-47de179f] {
+      width: 100%;
+      height: 100%
+    }
+  </style>
+  <style type="text/css">
+    .coinSale .banner[data-v-5623fc9a] {
+      width: 100%;
+      height: 300px;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      position: relative
+    }
+
+    .coinSale .banner>img[data-v-5623fc9a] {
+      display: block;
+      height: 100%;
+      width: auto;
+      margin: 0 auto;
+      position: absolute
+    }
+  </style>
+  <style type="text/css">
+    .transfer[data-v-6efd4440] {
+      position: relative;
+      z-index: 1
+    }
+
+    .transfer>.wrapper[data-v-6efd4440] {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto
+    }
+
+    .transfer>.wrapper>.header[data-v-6efd4440] {
+      max-width: 1200px;
+      width: 100%;
+      background: #1d2339;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: -40px auto 0;
+      border-radius: 8px;
+      z-index: 10
+    }
+
+    .transfer>.wrapper>.header>.title[data-v-6efd4440] {
+      padding: 25px 32px;
+      color: #b1bbde;
+      font-size: 18px;
+      cursor: pointer
+    }
+
+    .transfer>.wrapper>.header .title.active[data-v-6efd4440] {
+      color: #2087ff;
+      position: relative
+    }
+
+    .transfer>.wrapper>.header .active[data-v-6efd4440]:after {
+      content: "";
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      width: 40px;
+      background: #2087ff;
+      height: 3px;
+      border-radius: 2px
+    }
+
+    @media screen and (max-width:600px) {
+      .transfer>.wrapper>.header>.title[data-v-6efd4440] {
+        padding: 20px 10px
+      }
+    }
+  </style>
+  <style type="text/css">
+    .coinList[data-v-2a1a3a21] {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .coinList>.alert[data-v-2a1a3a21] {
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 99
+    }
+
+    .coinList>.alert>.content[data-v-2a1a3a21] {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, .5)
+    }
+
+    .coinList>.alert>.content>.wrap[data-v-2a1a3a21] {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      padding: 10px 20px 20px;
+      background: linear-gradient(-90deg, #4e5979, #262d44);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, .3)
+    }
+
+    .coinList>.alert>.content>.wrap>.close[data-v-2a1a3a21] {
+      top: 6px;
+      left: 0;
+      cursor: pointer;
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end
+    }
+
+    .coinList>.alert>.content>.wrap>.close>.button[data-v-2a1a3a21] {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 20px 0 0 20px;
+      background-color: rgba(0, 0, 0, .5)
+    }
+
+    .coinList>.alert>.content>.wrap>.close>.button>svg[data-v-2a1a3a21] {
+      height: 14px;
+      width: 14px
+    }
+
+    .coinList>.alert>.content>.wrap>.title[data-v-2a1a3a21] {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center
+    }
+
+    .coinList>.alert>.content>.wrap>.title>.text[data-v-2a1a3a21] {
+      padding: 6px 0;
+      line-height: 20px;
+      font-size: 14px
+    }
+
+    .coinList>.alert>.content>.wrap>.title>.block[data-v-2a1a3a21] {
+      width: 40px;
+      height: 4px;
+      border-radius: 6px;
+      background-color: #4a90e2
+    }
+
+    .coinList>.alert>.content>.wrap>.details[data-v-2a1a3a21] {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center
+    }
+
+    .coinList>.alert>.content>.wrap>.details>.wrap[data-v-2a1a3a21] {
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .coinList>.alert>.content>.wrap>.introduce>.item[data-v-2a1a3a21] {
+      padding: 4px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .coinList>.alert>.content>.wrap>.introduce>.item>.label[data-v-2a1a3a21] {
+      margin-right: 10px
+    }
+
+    .coinList>.alert>.content>.wrap>.introduce>.item>.label>svg[data-v-2a1a3a21] {
+      height: 14px;
+      width: 14px
+    }
+
+    .coinList>.alert>.content>.wrap>.introduce>.item>.value[data-v-2a1a3a21] {
+      color: #b1bbde;
+      font-size: 12px
+    }
+
+    .coinList>.table[data-v-2a1a3a21] {
+      width: 100%;
+      max-width: 1200px
+    }
+
+    .coinList>.table>.header[data-v-2a1a3a21] {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 20px 0;
+      justify-content: space-between
+    }
+
+    .coinList>.table>.header>.filter[data-v-2a1a3a21] {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .coinList>.table>.header>.filter>.item[data-v-2a1a3a21] {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .coinList>.table>.header>.filter>.item>.text[data-v-2a1a3a21] {
+      padding: 4px 10px;
+      font-size: 14px;
+      color: hsla(0, 0%, 100%, .4);
+      font-weight: 400
+    }
+
+    .coinList>.table>.header>.filter>.item>.block[data-v-2a1a3a21] {
+      height: 7px;
+      width: 27px;
+      border-radius: 8px;
+      background-color: transparent
+    }
+
+    .coinList>.table>.header>.filter>.item.selected>.text[data-v-2a1a3a21] {
+      color: #2087ff
+    }
+
+    .coinList>.table>.header>.filter>.item.selected>.block[data-v-2a1a3a21] {
+      background-color: #2087ff
+    }
+
+    .coinList>.table>.body[data-v-2a1a3a21] {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start
+    }
+
+    .coinList>.table>.discountBuyList[data-v-2a1a3a21] {
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center
+    }
+
+    .coinList>.table>.discountBuyList>.title[data-v-2a1a3a21] {
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+      color: #b1bbde
+    }
+
+    .coinList>.table>.discountBuyList>.content[data-v-2a1a3a21] {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, .2);
+      box-sizing: border-box
+    }
+
+    .coinList>.table>.discountBuyList>.content>.table[data-v-2a1a3a21] {
+      width: 100%
+    }
+
+    .coinList>.table>.discountBuyList>.content>.table .width1[data-v-2a1a3a21],
+    .coinList>.table>.discountBuyList>.content>.table .width2[data-v-2a1a3a21],
+    .coinList>.table>.discountBuyList>.content>.table .width3[data-v-2a1a3a21] {
+      flex: 1
+    }
+
+    .coinList>.table>.discountBuyList>.content>.table>.header[data-v-2a1a3a21] {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 14px;
+      color: rgba(177, 187, 222, .5);
+      padding: 4px 0
+    }
+
+    .coinList>.table>.discountBuyList>.content>.table>.body>.item[data-v-2a1a3a21] {
+      padding: 6px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 14px;
+      line-height: 20px;
+      color: #b1bbde
+    }
+
+    .coinList>.table>.discountBuyList>.content>.table>.body>.item[data-v-2a1a3a21]:nth-child(odd) {
+      background-color: rgba(0, 0, 0, .1)
+    }
+
+    @media screen and (max-width:450px) {
+
+      .coinList>.table>.discountBuyList>.content[data-v-2a1a3a21],
+      .helpStore>.content[data-v-2a1a3a21] {
+        padding: 20px 10px
+      }
+    }
+  </style>
+  <style type="text/css">
+    .helpStore[data-v-6768ff66] {
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center
+    }
+
+    .helpStore>.title[data-v-6768ff66] {
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+      color: #b1bbde
+    }
+
+    .helpStore>.content[data-v-6768ff66] {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #1d2339;
+      box-sizing: border-box
+    }
+
+    .helpStore>.content>.item[data-v-6768ff66] {
+      padding: 10px
+    }
+
+    .helpStore>.content>.item>.Q[data-v-6768ff66] {
+      color: #b1bbde;
+      font-size: 13px
+    }
+
+    .helpStore>.content>.item>.A[data-v-6768ff66] {
+      margin-top: 4px;
+      color: #b1bbde;
+      font-size: 13px
+    }
+  </style>
+  <style type="text/css">
+    .coin[data-v-1f0ee7c6] {
+      margin: 15px;
+      width: 270px;
+      min-width: 270px;
+      background: linear-gradient(-90deg, #4e5979, #262d44);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, .1);
+      overflow: hidden;
+      border-radius: 4px
+    }
+
+    .coin>.content[data-v-1f0ee7c6] {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .coin>.content>.header[data-v-1f0ee7c6] {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 14px
+    }
+
+    .coin>.content>.header>.info[data-v-1f0ee7c6] {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .coin>.content>.header>.info>.icon>img[data-v-1f0ee7c6] {
+      height: 42px;
+      width: 42px
+    }
+
+    .coin>.content>.header>.wareroom[data-v-1f0ee7c6] {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .coin>.content>.header>.wareroom>.name[data-v-1f0ee7c6] {
+      padding: 6px 0;
+      color: #fff;
+      font-size: 14px;
+      line-height: 20px
+    }
+
+    .coin>.content>.header>.wareroom>.totalAmount[data-v-1f0ee7c6] {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+      margin-right: 42px
+    }
+
+    .coin>.content>.header>.wareroom>.totalAmount>.label[data-v-1f0ee7c6] {
+      padding: 6px 0;
+      color: #b1bbde;
+      font-size: 13px;
+      line-height: 20px
+    }
+
+    .coin>.content>.header>.wareroom>.totalAmount>.value[data-v-1f0ee7c6] {
+      color: #b1bbde;
+      font-size: 13px;
+      line-height: 20px
+    }
+
+    .coin>.content>.header>.wareroom>.surplus[data-v-1f0ee7c6] {
+      width: 100%;
+      padding: 0 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start
+    }
+
+    .coin>.content>.header>.wareroom>.surplus>.pillar[data-v-1f0ee7c6] {
+      flex: 1;
+      height: 12px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #00dfff
+    }
+
+    .coin>.content>.header>.wareroom>.surplus>.pillar>.entity[data-v-1f0ee7c6] {
+      height: 12px;
+      background-color: #00dfff
+    }
+
+    .coin>.content>.header>.wareroom>.surplus>.percent[data-v-1f0ee7c6] {
+      flex: 0 0 42px;
+      flex-direction: column;
+      align-items: center;
+      color: #00dfff;
+      font-size: 14px;
+      line-height: 12px;
+      text-align: right
+    }
+
+    .coin>.content>.header>.sale[data-v-1f0ee7c6] {
+      cursor: pointer;
+      margin: -16px -14px 0 -72px;
+      padding: 0 0 40px 50px;
+      height: 100px;
+      width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0) 49%, red 50%, #ff005a)
+    }
+
+    .coin>.content>.header>.sale>.icon>svg[data-v-1f0ee7c6] {
+      color: #4e5979;
+      height: 14px;
+      width: 14px
+    }
+
+    .coin>.content>.header>.sale>.rate[data-v-1f0ee7c6] {
+      color: #4c5777
+    }
+
+    .coin>.content>.header>.red[data-v-1f0ee7c6] {
+      background: linear-gradient(45deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0) 49%, red 50%, #ff005a)
+    }
+
+    .coin>.content>.header>.yellow[data-v-1f0ee7c6] {
+      background: linear-gradient(45deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0) 49%, #f89e30 50%, #f89e30)
+    }
+
+    .coin>.content>.header>.green[data-v-1f0ee7c6] {
+      background: linear-gradient(45deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0) 49%, #00e9ff 50%, #00e9ff)
+    }
+
+    .coin>.content>.labels[data-v-1f0ee7c6] {
+      height: 60px;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .coin>.content>.labels>.label[data-v-1f0ee7c6] {
+      color: #00dfff;
+      padding: 4px;
+      font-size: 14px
+    }
+
+    .coin>.content>.time[data-v-1f0ee7c6] {
+      padding: 14px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center
+    }
+
+    .coin>.content>.time>.label[data-v-1f0ee7c6] {
+      color: #fff;
+      padding: 4px;
+      font-size: 14px
+    }
+
+    .coin>.content>.time>.value[data-v-1f0ee7c6] {
+      color: hsla(0, 0%, 100%, .8);
+      padding: 6px;
+      font-size: 12px
+    }
+
+    .coin>.content>.buyButton[data-v-1f0ee7c6] {
+      cursor: pointer;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      outline: none;
+      text-align: center;
+      background-color: #f5a623;
+      color: rgba(0, 0, 0, .6);
+      font-size: 14px
+    }
+
+    .coin>.content>.buyButton[data-v-1f0ee7c6]:disabled {
+      background-color: #1d2339;
+      color: hsla(0, 0%, 100%, .6)
+    }
+  </style>
+  <style type="text/css">
+    .details[data-v-4ecbe1a6] {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .details>.alert[data-v-4ecbe1a6] {
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 99
+    }
+
+    .details>.alert>.content[data-v-4ecbe1a6] {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, .5)
+    }
+
+    .details>.alert>.content>.wrap[data-v-4ecbe1a6] {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      padding: 20px 30px 30px;
+      background: linear-gradient(-90deg, #4e5979, #262d44);
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, .3)
+    }
+
+    .details>.alert>.content>.wrap>.close[data-v-4ecbe1a6] {
+      top: 6px;
+      left: 0;
+      cursor: pointer;
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end
+    }
+
+    .details>.alert>.content>.wrap>.close>.button[data-v-4ecbe1a6] {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 20px 0 0 20px;
+      background-color: rgba(0, 0, 0, .5)
+    }
+
+    .details>.alert>.content>.wrap>.close>.button>svg[data-v-4ecbe1a6] {
+      height: 14px;
+      width: 14px
+    }
+
+    .details>.alert>.content>.wrap>.title[data-v-4ecbe1a6] {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center
+    }
+
+    .details>.alert>.content>.wrap>.title>.text[data-v-4ecbe1a6] {
+      padding: 10px 0;
+      line-height: 20px;
+      font-size: 14px
+    }
+
+    .details>.alert>.content>.wrap>.title>.block[data-v-4ecbe1a6] {
+      width: 40px;
+      height: 2px;
+      border-radius: 6px;
+      background-color: #4a90e2
+    }
+
+    .details>.alert>.content>.wrap>.details[data-v-4ecbe1a6] {
+      padding: 10px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center
+    }
+
+    .details>.alert>.content>.wrap>.details>.top[data-v-4ecbe1a6] {
+      padding: 10px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.left[data-v-4ecbe1a6] {
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.left>.left .icon>img[data-v-4ecbe1a6] {
+      height: 40px;
+      width: 40px
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.left>.right[data-v-4ecbe1a6] {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.left>.right>.lables[data-v-4ecbe1a6] {
+      font-size: 12px;
+      padding: 0 4px 0 0;
+      color: #00dfff;
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.left>.right>.lables>div[data-v-4ecbe1a6] {
+      cursor: pointer;
+      margin-right: 4px
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.right[data-v-4ecbe1a6] {
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.right>.item>.value[data-v-4ecbe1a6] {
+      width: 50px;
+      color: #b1bbde;
+      font-size: 12px;
+      text-align: right
+    }
+
+    .details>.alert>.content>.wrap>.details>.top>.right>.item>.lable[data-v-4ecbe1a6] {
+      text-align: right;
+      color: #b1bbde;
+      font-size: 12px
+    }
+
+    .details>.alert>.content>.wrap>.details>.middle[data-v-4ecbe1a6] {
+      padding: 10px 0 4px;
+      width: 100%
+    }
+
+    .details>.alert>.content>.wrap>.details>.middle>.surplus[data-v-4ecbe1a6] {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.details>.middle>.surplus>.pillar[data-v-4ecbe1a6] {
+      flex: 1;
+      height: 12px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #00dfff
+    }
+
+    .details>.alert>.content>.wrap>.details>.middle>.surplus>.pillar>.entity[data-v-4ecbe1a6] {
+      height: 12px;
+      background-color: #00dfff
+    }
+
+    .details>.alert>.content>.wrap>.details>.middle>.surplus>.lable[data-v-4ecbe1a6] {
+      color: #00dfff;
+      text-align: center;
+      width: 60px
+    }
+
+    .details>.alert>.content>.wrap>.details>.bottom[data-v-4ecbe1a6] {
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.details>.bottom>.label[data-v-4ecbe1a6] {
+      color: #b1bbde;
+      font-size: 12px;
+      margin-right: 2px
+    }
+
+    .details>.alert>.content>.wrap>.details>.bottom>.value[data-v-4ecbe1a6] {
+      font-size: 12px;
+      color: #00dfff;
+      margin-right: 20px
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel[data-v-4ecbe1a6] {
+      padding: 20px 0;
+      text-align: center
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.input[data-v-4ecbe1a6] {
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.input>.lable[data-v-4ecbe1a6] {
+      color: #b1bbde;
+      font-size: 14px;
+      text-align: left;
+      width: 80px
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.input>.wrap[data-v-4ecbe1a6] {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 6px;
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, .4)
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.input>.wrap>input[data-v-4ecbe1a6] {
+      height: 30px;
+      font-size: 14px;
+      color: #fff;
+      width: 100%;
+      background-color: transparent
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.prompt[data-v-4ecbe1a6] {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.prompt>.wrap[data-v-4ecbe1a6] {
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.prompt>.wrap>.label[data-v-4ecbe1a6] {
+      color: #b1bbde;
+      margin-right: 10px
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.prompt>.wrap>.value[data-v-4ecbe1a6] {
+      color: #b1bbde;
+      font-size: 14px
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.prompt>.wrap>.unit[data-v-4ecbe1a6] {
+      margin-left: 4px;
+      font-weight: 700;
+      color: #b1bbde;
+      font-size: 14px
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.button[data-v-4ecbe1a6] {
+      cursor: pointer;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4a90e2;
+      font-size: 14px;
+      color: #fff;
+      border-radius: 4px;
+      outline: none;
+      border: none
+    }
+
+    .details>.alert>.content>.wrap>.buyPanel>.button[data-v-4ecbe1a6]:disabled {
+      background-color: #636363
+    }
+
+    .details>.alert>.content>.wrap>.introduce[data-v-4ecbe1a6] {
+      padding: 10px
+    }
+
+    .details>.alert>.content>.wrap>.introduce>.item[data-v-4ecbe1a6] {
+      padding: 4px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center
+    }
+
+    .details>.alert>.content>.wrap>.introduce>.item>.label[data-v-4ecbe1a6] {
+      margin-right: 10px
+    }
+
+    .details>.alert>.content>.wrap>.introduce>.item>.label>svg[data-v-4ecbe1a6] {
+      color: #b1bbde;
+      height: 12px;
+      width: 12px
+    }
+
+    .details>.alert>.content>.wrap>.introduce>.item>.value[data-v-4ecbe1a6] {
+      color: #b1bbde;
+      font-size: 12px
+    }
+  </style>
+  <style type="text/css">
+    .myTransfer[data-v-69527c99] {
+      max-width: 1200px;
+      margin: 32px auto 0;
+      width: 100%
+    }
+
+    .myTransfer>.buyProduct[data-v-69527c99] {
+      width: 100%
+    }
+
+    .myTransfer>.buyProduct>.table .cycle[data-v-69527c99],
+    .myTransfer>.buyProduct>.table .num[data-v-69527c99],
+    .myTransfer>.buyProduct>.table .status[data-v-69527c99],
+    .myTransfer>.buyProduct>.table .time[data-v-69527c99],
+    .myTransfer>.buyProduct>.table .userName[data-v-69527c99] {
+      flex: 2
+    }
+
+    .myTransfer>.buyProduct>.table .gain[data-v-69527c99],
+    .myTransfer>.buyProduct>.table .price[data-v-69527c99] {
+      flex: 3
+    }
+
+    .myTransfer>.buyProduct>.table .operation[data-v-69527c99] {
+      flex: 2;
+      text-align: right !important;
+      cursor: pointer
+    }
+
+    .myTransfer>.buyProduct>.table .operation>.label[data-v-69527c99] {
+      margin: 0 0 0 auto
+    }
+
+    .myTransfer>.buyProduct>.table .userName[data-v-69527c99] {
+      flex: 2;
+      text-align: left !important
+    }
+
+    .myTransfer>.buyProduct>.table .userName>.label[data-v-69527c99] {
+      margin: 0 auto 0 0
+    }
+
+    .myTransfer>.buyProduct>.table>.theader[data-v-69527c99] {
+      background: #1d2339;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 10px
+    }
+
+    .myTransfer>.buyProduct>.table>.theader>.td[data-v-69527c99] {
+      font-size: 14px;
+      color: #b1bbde;
+      opacity: .5;
+      text-align: center;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer
+    }
+
+    .myTransfer>.buyProduct>.table>.theader>.td>.label[data-v-69527c99] {
+      white-space: nowrap
+    }
+
+    .myTransfer>.buyProduct>.table>.theader>.td>svg[data-v-69527c99] {
+      display: inline-block;
+      width: 12px;
+      height: 14px;
+      color: #b1bbde
+    }
+
+    .myTransfer>.buyProduct>.table>.tbody[data-v-69527c99] {
+      background: #1d2339;
+      border-radius: 8px;
+      padding: 0 10px;
+      margin-top: 20px;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box
+    }
+
+    .myTransfer>.buyProduct>.table>.tbody>.transferred>.td[data-v-69527c99] {
+      color: #b1bbde
+    }
+  </style>
+  <style type="text/css">
+    .loading[data-v-5470a09a] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
+      opacity: .8
+    }
+
+    .loading>.content[data-v-5470a09a] {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center
+    }
+
+    .loading>.content>.icon[data-v-5470a09a] {
+      display: inline-block;
+      width: 74px;
+      height: 74px;
+      font-size: 60px;
+      color: #fff;
+      vertical-align: top;
+      -webkit-transition: color .3s, border .3s;
+      transition: color .3s, border .3s
+    }
+
+    .loading>.content>.icon .loader[data-v-5470a09a] {
+      position: relative
+    }
+
+    .loading>.content>.icon .loader[data-v-5470a09a]:after,
+    .loading>.content>.icon .loader[data-v-5470a09a]:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+      border: .1em solid transparent;
+      border-bottom-color: currentcolor;
+      top: 0;
+      left: 0;
+      -webkit-animation: 1s loader-data-v-5470a09a linear infinite;
+      animation: 1s loader-data-v-5470a09a linear infinite
+    }
+
+    .loading>.content>.icon .loader[data-v-5470a09a]:before {
+      width: 1em;
+      height: 1em
+    }
+
+    .loading>.content>.icon .loader[data-v-5470a09a]:after {
+      width: .8em;
+      height: .8em;
+      top: .1em;
+      left: .1em;
+      -webkit-animation-direction: reverse;
+      animation-direction: reverse
+    }
+
+    @-webkit-keyframes loader-data-v-5470a09a {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+      }
+
+      to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+      }
+    }
+
+    @keyframes loader-data-v-5470a09a {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+      }
+
+      to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+      }
+    }
+  </style>
+  <style type="text/css">
+    .nodata[data-v-4f657795] {
+      width: 100%;
+      min-height: 400px;
+      display: -ms-flexbox;
+      display: flex;
+      flex-direction: column;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -ms-flex-align: center;
+      align-items: center;
+      position: relative
+    }
+
+    .nodata>.content[data-v-4f657795],
+    .nodata>.refresh[data-v-4f657795] {
+      font-size: 14px;
+      color: #b1bbde;
+      z-index: 2
+    }
+
+    .nodata>.refresh[data-v-4f657795] {
+      cursor: pointer;
+      margin: 10px 0;
+      padding: 6px 20px;
+      background-color: rgba(0, 0, 0, .3);
+      border: none;
+      outline: none;
+      transition: .3s
+    }
+
+    .nodata .loading[data-v-4f657795] {
+      position: absolute;
+      z-index: 0;
+      margin-top: -30px
+    }
+  </style>
+  <style type="text/css">
+    .mySale[data-v-b7c2734c] {
+      width: 100%;
+      margin: 32px auto 0;
+      max-width: 1200px
+    }
+
+    .mySale>.buyProduct[data-v-b7c2734c] {
+      width: 100%
+    }
+
+    .mySale>.buyProduct>.table .cycle[data-v-b7c2734c],
+    .mySale>.buyProduct>.table .goodsName[data-v-b7c2734c],
+    .mySale>.buyProduct>.table .num[data-v-b7c2734c],
+    .mySale>.buyProduct>.table .operation[data-v-b7c2734c] {
+      flex: 2
+    }
+
+    .mySale>.buyProduct>.table .discount[data-v-b7c2734c],
+    .mySale>.buyProduct>.table .status[data-v-b7c2734c] {
+      flex: 1
+    }
+
+    .mySale>.buyProduct>.table .payment[data-v-b7c2734c],
+    .mySale>.buyProduct>.table .price[data-v-b7c2734c],
+    .mySale>.buyProduct>.table .time[data-v-b7c2734c] {
+      flex: 3
+    }
+
+    .mySale>.buyProduct>.table .goodsName[data-v-b7c2734c] {
+      text-align: left !important
+    }
+
+    .mySale>.buyProduct>.table .goodsName>.label[data-v-b7c2734c] {
+      margin: 0 auto 0 0
+    }
+
+    .mySale>.buyProduct>.table .operation[data-v-b7c2734c] {
+      text-align: right !important
+    }
+
+    .mySale>.buyProduct>.table .operation>.label[data-v-b7c2734c] {
+      margin: 0 0 0 auto
+    }
+
+    .mySale>.buyProduct>.table>.theader[data-v-b7c2734c] {
+      background: #1d2339;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 10px
+    }
+
+    .mySale>.buyProduct>.table>.theader>.td[data-v-b7c2734c] {
+      font-size: 14px;
+      color: #b1bbde;
+      opacity: .5;
+      text-align: center;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer
+    }
+
+    .mySale>.buyProduct>.table>.theader>.td>.label[data-v-b7c2734c] {
+      white-space: nowrap
+    }
+
+    .mySale>.buyProduct>.table>.theader>.td>svg[data-v-b7c2734c] {
+      display: inline-block;
+      width: 12px;
+      height: 14px;
+      color: #b1bbde
+    }
+
+    .mySale>.buyProduct>.table>.tbody[data-v-b7c2734c] {
+      background: #1d2339;
+      border-radius: 8px;
+      padding: 0 10px;
+      margin-top: 20px;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box
+    }
+
+    .mySale>.buyProduct>.pagination[data-v-b7c2734c] {
+      margin-top: 20px
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="app">
+    <input type="password" name="notremember" style="display: none;">
+    <input type="text" name="notremember" style="display: none;">
+    <div id="header">
+
+    </div>
+
+    <div data-v-284788ea="" class="container pcroot">
+      <div data-v-09ee202c="" data-v-284788ea="" class="hotpage">
+        <!---->
+        <div data-v-09ee202c="" class="waypoint">
+          <div data-v-47de179f="" class="coinsale">
+            <div data-v-5623fc9a="" data-v-47de179f="" class="coinSale">
+              <div data-v-5623fc9a="" class="banner">
+                <a href="#" class="banner-show">
+                  <img data-v-5623fc9a="" src="./static/image/1.jpg" alt="">
+                </a>
+                <a href="#">
+                  <img data-v-5623fc9a="" src="./static/image/2.jpg" alt="">
+                </a>
+                <a href="#">
+                  <img data-v-5623fc9a="" src="./static/image/3.jpg" alt="">
+                </a>
+              </div>
+              <div data-v-6efd4440="" data-v-5623fc9a="" class="transfer">
+                <div data-v-6efd4440="" class="wrapper">
+                  <div data-v-6efd4440="" class="header transfer_list">
+                    <div data-v-6efd4440="" class="title transfer_index">首页</div>
+                    <div data-v-6efd4440="" class="title transfer_area">转让专区</div>
+                    <div data-v-6efd4440="" class="title active my_sale">个人中心</div>
+                  </div>
+                  <!-- 内容部分 -->
+                  <div data-v-842fb034="" class="safety pcroot">
+                    <div data-v-842fb034="" class="content">
+                      <div data-v-842fb034="" class="container pccontainer">
+                        <div data-v-842fb034="" class="left pc">
+                          <div data-v-842fb034="" class="menu active">
+                            <div data-v-842fb034="" class="icon"><img data-v-842fb034="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAdCAYAAABfeMd1AAAAAXNSR0IArs4c6QAAAsRJREFUSA3dlstrU0EUxmeS2xgfQbGKUhEFxVdFitWFFRU3LgR31gcixVJdCWLxLxCXoiCC4MKVqEgR3Sjuo6ig4FLU0gpxoRU39UG90/F3JvemubfTxMYLggNfzpzXd+bMnZlWW2sLKgx3K607VD6vVXZjEt5RFQRlbY25raxdS5Gb8P/KroYqwnUS3FEU+U43mzMkr1HBu8+G4dMcXczFOlbzZDv5wg4Vc9ly+tn+fRH2dC9YLOuT7wbWR/OdzJen7aL7RrNO1pC0MErsQDpi5GrgiiPFvgzMPPj6LKq6qpmjWvPA283pfdWsk9bYU1n/UxGtP9FdV6pDr8oed7LHV/iOQ8hB9II3MDYa08VlHJO36zS2i5zR5xhGVS53Smv9E4IeZcx5fFOPptbb0W+Ad8QfQeZ5VHcht4A95F1mAXeZt4MifN3E9TJ3d6AT51HwhKLXnM2YM+jPwDEHYz4j5cFzg0XkiX2JrZ95CWwQB3J/lHOYuVyB5MC4gkQhO4QcBLckArsQylmP74lLxHYBXE2yTNcSp4t2K2xXH21eJ3Qb+CEp2A3iPUh+O2tFfwtmP1iddPGale+Is+nuBLaK69LarcwvgQ/EyP7//YAoB/lxSMeRFmki+QbfQTB1OFopB0EJwjLEI8g+9HUgABvRB7B/RD5El79Lsx8kSgdlMMR8gY8B+yL8j6SQz9/URqJs0TBEpUbB+NtdR9YeaBTn9VHkBej3OlNGipwl9nHK3FhldfIafENukkikd89jO7JHumnMmvKStISVIWwbKEEwjkzcK1fcmK/Yl4JafIpKTUuqC4iP5SS2ObQyH+mLF7t0KXEy4ryqxq8vqebMahLUE7El8hq7fxZ4gavPuDEPiGlzccbcly2sz2EeECsvcxjF3CMm5HU+h14BqxKtsa8r1cSE9z44gj//sapQGCZc3rx5vwEMNO4SYWvHQgAAAABJRU5ErkJggg=="></div>
+                            <div data-v-842fb034="" class="lable">安全概述</div>
+                          </div>
+                          <div data-v-842fb034="" class="menu active recharge">
+                            <div data-v-842fb034="" class="icon"><img data-v-842fb034="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAA79JREFUSA2Vl0tIFVEYx++1l1lSWUIktQnKhPIVJkapbQJLNLXHpqXRIsW40KaVUItAqOhdy0oIidJFq+j2wFTQsNfCqCwxtUW0iIiet9//OjPMnXtmHA/8OOd83/8735w5j7k3GglREolEBrIKqIdSWGVBFZmCSeiDe9AbjUb/UAeWaJCXhJn4WyEG49ANT+ATTIDKSsiDKqiBNdABF3mAH9SzKyRtgjHognVho9EWwC2YgNqwcRHEUTgJ72CLNxBbFtRCzGI39UKDrhz7KJwCLZV/QaCketo4LPcqse2DKRiCKxZqT8Jegz4H+yGvPa2PSDONwzyvE5sSPYcig68E+0u45PWpj70Gzph8cmpN9XpNM92PXUkXGIOnB8/Er+RNXg22JaAHn5/iw6AgbSS/NdXrTZtpyiDTyTVzvfa0Nfdqk32Ex6DL5MSujTRo8plsaJ/BLh9fM742+TJoaMfpnB6XwVB0lEInRjsEfsfvNb5miCjpVhjnsL+Rwac4Fw0PqrV29gHtFTDsE5diJsdTDJpsuRLXgW4kv6IHKnU5pX1F8FWhNtx1+TfTHnH1vc0bGBq0m+NQ7fXafXy6MLRhil22Ivqt0AKFLnspfWl11RoLvj1wW4lHwG9NksH498ILmOk46U00GjNaRvzFMKTE32BxkFg+NJdB59SZuR2DTTNV0gu2za9Gswy+2IkX+QnddgI0c71KHRmt8TWrLVvgTO1x0GXDV93N2jw72XGjtjOoRq/LYQeshwQo/kHYTyDxa9H3aMaPoJJO6IJeD+wQOhAhcdVwX8dpAKrAWBBpVx+FbtBG/I3wrxtsvyyfNG2QZRxs2lhFNagn2Aa9JiF2HRmt301ogHyY69XKBhugETpBMUe8OvWx90GFGnNAH4FNtpC2XuM5kMix236/Gq3eoMYshH44C+5bT3Y9VFInYQyu2wPSPg1Kmm3bZqrR6gMQt3WKhQHocNn05mJ2X4kzQZ/F7aCn+ghLHcEMDbRKqhjtWKdoDNC4G6ESRiH1EsJQB2/hMbQ40a4Gdm0e/ZJ0Cn1jUluAX5vtIbyHetueUuM4Ad/BeNdiL4PPkExOHZhUg6PJAe369pRk7g5OfbIOum3eNn47+Xnaaa/XrcefC9orWltnk7k1s2oziJJrSVLW1D0IvkrQ0rXD7JMSdBhK3IMGtdEWwB34AOY1ZYC0y8AwqI6UfmvrxuqEYRiz0F2dZ6FfMg2QCzpCB7i/f1IbS+hXQOIyRtCP9nzQ/6PVoPhJmIBB6IF+Ev6jDiz/ATa2uKnMt9d1AAAAAElFTkSuQmCC"></div>
+                            <div data-v-842fb034="" class="lable">账户充值</div>
+                          </div>
+{#                          <div data-v-842fb034="" class="menu active recharge">#}
+{#                            <div data-v-842fb034="" class="icon"><img data-v-842fb034="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAA79JREFUSA2Vl0tIFVEYx++1l1lSWUIktQnKhPIVJkapbQJLNLXHpqXRIsW40KaVUItAqOhdy0oIidJFq+j2wFTQsNfCqCwxtUW0iIiet9//OjPMnXtmHA/8OOd83/8735w5j7k3GglREolEBrIKqIdSWGVBFZmCSeiDe9AbjUb/UAeWaJCXhJn4WyEG49ANT+ATTIDKSsiDKqiBNdABF3mAH9SzKyRtgjHognVho9EWwC2YgNqwcRHEUTgJ72CLNxBbFtRCzGI39UKDrhz7KJwCLZV/QaCketo4LPcqse2DKRiCKxZqT8Jegz4H+yGvPa2PSDONwzyvE5sSPYcig68E+0u45PWpj70Gzph8cmpN9XpNM92PXUkXGIOnB8/Er+RNXg22JaAHn5/iw6AgbSS/NdXrTZtpyiDTyTVzvfa0Nfdqk32Ex6DL5MSujTRo8plsaJ/BLh9fM742+TJoaMfpnB6XwVB0lEInRjsEfsfvNb5miCjpVhjnsL+Rwac4Fw0PqrV29gHtFTDsE5diJsdTDJpsuRLXgW4kv6IHKnU5pX1F8FWhNtx1+TfTHnH1vc0bGBq0m+NQ7fXafXy6MLRhil22Ivqt0AKFLnspfWl11RoLvj1wW4lHwG9NksH498ILmOk46U00GjNaRvzFMKTE32BxkFg+NJdB59SZuR2DTTNV0gu2za9Gswy+2IkX+QnddgI0c71KHRmt8TWrLVvgTO1x0GXDV93N2jw72XGjtjOoRq/LYQeshwQo/kHYTyDxa9H3aMaPoJJO6IJeD+wQOhAhcdVwX8dpAKrAWBBpVx+FbtBG/I3wrxtsvyyfNG2QZRxs2lhFNagn2Aa9JiF2HRmt301ogHyY69XKBhugETpBMUe8OvWx90GFGnNAH4FNtpC2XuM5kMix236/Gq3eoMYshH44C+5bT3Y9VFInYQyu2wPSPg1Kmm3bZqrR6gMQt3WKhQHocNn05mJ2X4kzQZ/F7aCn+ghLHcEMDbRKqhjtWKdoDNC4G6ESRiH1EsJQB2/hMbQ40a4Gdm0e/ZJ0Cn1jUluAX5vtIbyHetueUuM4Ad/BeNdiL4PPkExOHZhUg6PJAe369pRk7g5OfbIOum3eNn47+Xnaaa/XrcefC9orWltnk7k1s2oziJJrSVLW1D0IvkrQ0rXD7JMSdBhK3IMGtdEWwB34AOY1ZYC0y8AwqI6UfmvrxuqEYRiz0F2dZ6FfMg2QCzpCB7i/f1IbS+hXQOIyRtCP9nzQ/6PVoPhJmIBB6IF+Ev6jDiz/ATa2uKnMt9d1AAAAAElFTkSuQmCC"></div>#}
+{#                            <div data-v-842fb034="" class="lable">账户充值</div>#}
+{#                          </div>#}
+                          <!-- <div data-v-842fb034="" class="menu">
+                            <div data-v-842fb034="" class="icon"><img data-v-842fb034="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAfCAYAAADwbH0HAAAAAXNSR0IArs4c6QAAA69JREFUSA21l9tLVFEUh5tIA8OsxKDLg5lgWZTmSxcsIYvyJaILFPUQIhX+A0UlQuREBVF0oSAJqhcJ06IMwoqCoouFVkZR0YN5yyi7qlnT9xvP0bPPnBkcnRZ8s/Zea+21zt5nn33O+EYggUAgGZUN49WPobSTq87n83135/RRdCHGG3AHnkMAhio+BhZDJ1TDXJgG2RRvQQ8Ihe/BgQHL0FvkWQZfYYqyoDWxy7DfnXUkhhyodDvUZ8AEGOPlC2PT7XrI7D7Ij9bqXYQ56jtFheOh22mkWBG8w/YJNIN6WO6MCdMOyUVcF4x2x6uwIRQ4gcEPZZAKs6ACqvFtR8dEjMIkzifrFlgM52EJ9LBk+9Ab4BAxqehhi1GYbGvgAoUa0TWggmmg+1WF0q4vUH+4MsqVIJN+JbNKQudBFgXr0baosGIiSSLjZzsCMmj3OPrBprvwW6zpFOtk8DPaZ9Db6D+2BqajL1ntcCoXh8baoo1bZHds7V7qazg2UUzPYT5cgb+gR2sRaj7osIkkukXa3TYJXPi5kAEklOj5CwrtKngNSyEOEmAjdMBeO85L498NV718ITYCJc7C8fTLoAu6oRc+w9aQwS4DMZ6FseeCudwYJP2F7VzYdAHzIBPct8QOMzRxIYU1FhpBk5hqDwibkPui5/cJNELwPtuDotTriJ8Juuc77bHGruaKFuBwPgp2XCTdzoVVewWQT2+rPaCjV+d2ITY/8U1GYRyrQLs5Gmkj2LMwdh1IWt7ToAklgGZdbBTmSnZgjIlYsy0h2RHQsywphev4yozCGI7hWAnRSCsXrGfcLcqdCi+gAergPcTBRKMwhlNwG6KRDq9gLuY3EzmMr9RCYerX4nvqLtyKw23TAMlHBjT1NQf9e5RILfdB0HmdBqshpIjexWvl8JB6bFke9kimH5ZzBRf9khXQ7v4pmzE7nHrmYiIU0Q7W0kpq6GvG42AX7TdGYUXEUPSE5IM+LIKzROvA0tFZ/j8L671dwSqeRfcLs/1GpzzkyMShszWxP3LojXaGpngMl63NKEzBQoza2V9o6yOgFhrADzlQAskeybxMzRgnezhkazEKY9CnjV5/eaBZ34fjkA7aLE2gTTIYaSFokkegbM26x3rz6M2hD7oH0pbctRtoHSwSp63PYv4qzx/LFGnGr1T4EWgJTzoGWWOjUklEb4Zya5RmnELeArTz/1gG/Vv6bzOdhh9mgHvpMQ1auom8CSWs3C/yjqWtj0Rpp/TSWf8PiqawjbGmZ6oAAAAASUVORK5CYII="></div>
+                            <div data-v-842fb034="" class="lable">登录日志</div>
+                          </div> -->
+                        </div>
+                        <!-- <div data-v-842fb034="" class="navigation mobile">
+                        </div> -->
+                        <div data-v-842fb034="" class="right">
+                          <div data-v-40bde70b="" data-v-842fb034="" class="overview">
+                            <div data-v-5d3dfed0="" data-v-40bde70b="" class="titlebar">
+                              <div data-v-5d3dfed0="" class="pc">
+                                <div data-v-5d3dfed0="" class="rwap overview selected">
+                                  <div data-v-5d3dfed0="" class="title">安全概述</div>
+                                </div>
+                              </div>
+                            </div>
+                            <div data-v-40bde70b="" class="container">
+                              <div data-v-40bde70b="" class="securitysettings">
+                                <!-- 登录密码 -->
+                                <div data-v-40bde70b="" class="setting">
+                                  <div data-v-40bde70b="" class="icon"><img data-v-40bde70b="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAgCAYAAAABtRhCAAAACXBIWXMAAAsSAAALEgHS3X78AAABzUlEQVRIx7VX23GDMBDcePwfpYLQgSmBVBA6MOmADuIOgisIJeAO7AqCOyAdyBVsfk7OjQbbJxtuRgNC0q3utRIgCWOrSHYkB/5LT7IlWVj1WCaVEUgA8tG3PcnsUcBGKWxJ5tG4E8vDhvzIHDNgZVUiwK3MH6SfBOiUy/KEOO9lzSYVcHNr4YWWKa8kAfayMEsEhGQyL2XuAuOyAvALYEC69PLMxwYXVxbeA6YBXSrgveKvDc4B2APYAejGBp9I6n4GoATwJTFsJ9hAp9yMsVKYQ7pABsHCWqwCgINYNjxomRNvraW/A1DqYqXQGSZuhdJfgGSt2B4ztRCuZqHqpTG4qZQEoLQBwMawLiRfvrTWD4AKwLe8HxUjfUp2VxYSsdZhpsA+hLZyAG8ATpIYpUWRFTAo20a1uZcMxw0LkwGdKuJL8XFTAgYprljvpwQMVtTRseNUlnZTAg4Sv2cAP6I8sNFKsdNNWSa4s1Z1966+b421eFcMG3FjqMMX2YifCzAmCStQPgZYJB6yx4T5+TkXFJv7hDuoS7jROXUzr+ILrJcjyk10SmTqyjmQdOEAzoSmXhPcdDCw00reTxKyPja9GfkrekS8/HOc3f8H5njtw46yrZsAAAAASUVORK5CYII="></div>
+                                  <div data-v-40bde70b="" class="content">
+                                    <div data-v-40bde70b="" class="header">
+                                      <div data-v-40bde70b="" class="label">登录密码</div>
+                                      <div data-v-40bde70b="" class="value"></div>
+                                    </div>
+                                    <div data-v-40bde70b="" class="directions">登录密码可用于登录网站</div>
+                                  </div>
+                                  <div data-v-40bde70b="" class="operating change_pwd">
+                                    <div data-v-40bde70b="" class="button">修改</div>
+                                  </div>
+                                </div>
+                                <!-- 绑定手机 -->
+                                <div data-v-40bde70b="" class="setting">
+                                  <div data-v-40bde70b="" class="icon"><img data-v-40bde70b="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAkCAYAAACaJFpUAAAACXBIWXMAAAsSAAALEgHS3X78AAABPUlEQVRIx+2XzXGDMBCFPzLcQyoIJZAOSAVJKog7MB0kJZAOKMElkA7sDnAHSgWby5NHBzAWPzlkeDMaQMzq8XYXaTcxM4QMKFgeR8BdnswMM6ttXdTiIQU+gT1wBmp90VLIgUrrA1SJmbngpbtiXMjtfWiv2GUS8Qg8IMmtlzww8hGX7UbsfcjK9EbXdMDbQFI5oBmxv3gujYjHQWMW7vhjbIQb4Ua4EW6EG+E/ICx0CLe6lrGEMSd+LqL7YO4FeIqp9GIU7kT2AzwDJ1/6rR3DWkqbQPkqLu10/RDJe1BcraKwAb5178lON5SIkxWirHxVth6nlI3phBjOqk9jeos56HxvkSoGe2VeHSRHDFzPv+j7zUpkX4Bbuj88mFmpNZu+/jBZoAP2doV2nrPC4+e70Gsh4RLIRDa41f0CCsN1bpmZy/kAAAAASUVORK5CYII="></div>
+                                  <div data-v-40bde70b="" class="content">
+                                    <div data-v-40bde70b="" class="header">
+                                      <div data-v-40bde70b="" class="label">绑定银行卡</div>
+                                      <div data-v-40bde70b="" class="value"></div>
+                                    </div>
+                                    <div data-v-40bde70b="" class="directions">绑定银行卡号</div>
+                                  </div>
+                                  <div data-v-40bde70b="" class="operating binding">
+                                    <div data-v-40bde70b="" class="button">绑定</div>
+                                  </div>
+                                </div>
+                                <!-- 绑定邮箱 -->
+                                <div data-v-40bde70b="" class="setting">
+                                  <div data-v-40bde70b="" class="icon"><img data-v-40bde70b="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAWCAYAAADTlvzyAAAAAXNSR0IArs4c6QAAAiVJREFUSA21lU1LVGEYhs+xmTEnZ/rSReCqv9HOhZv8B/6NloHrkAiJkHIjhAhBQSgYQak1jeUn4bZFQeJOSIooxNfrPjzv6Z3jcWbMmQeueT+e573vc+Y8ZyZyzt2AefgN3YpfCL+AwZiP+SiKRsHBWziETkY/YrdMcDbCMLyz56yLnXJDqwI1UBzBrgwVS7CgCfESSuc1RaMKH0AxDe9h3xu+YlECmSlk3vu/ppyV2SooHoMe3Qr8M5Q4G0XQw1UswsWzmnLmMnwExRTEpn3S0BIFip6pmngNfe2aUnsF1kDxCBKzpoaB6VxyzLk3jOVWptRchXU78zBbz37+HfpCCi7AUxNYZrzkc9mRnMw2rXYym9eaXHNDK+qhcMaE1GWVrBh712DLah5k835NvrWhmap7v5lgnbEaiFxnvW25+34/b6SmtSFFYQN9N2F1oDpxAD7b3kSeSbhHXXNDCkIzvad9oM5TfIGvycy5e16YdRnGNPo9P7L3DpL3cIdJwxWyzpql7yO5cfgJP+COF9TIegQUy9DQZKxTw/RdsUOnmnlxDquZGs7Z2bDJGkxTQy/SrllYnze3i5lhVKSmzNNneJfFbWh5Z3kGeXtonbjT0FB/G/oJ8z9napD0meUJtrOHRtZ0g72kaf4wkamiI2b+gtALTaW/VyBZg2HQP/4BPCHB0LHoQekv6D+2HiF+Ez5BN0PfYA2G0tZmoSvpVrg4jpOv7RhsXSldtiA19AAAAABJRU5ErkJggg=="></div>
+                                  <div data-v-40bde70b="" class="content">
+                                    <div data-v-40bde70b="" class="header">
+                                      <div data-v-40bde70b="" class="label">绑定邮箱</div>
+                                      <div data-v-40bde70b="" class="value"></div>
+                                    </div>
+                                    <div data-v-40bde70b="" class="directions">绑定邮箱绑以提升安全等级</div>
+                                  </div>
+                                  <div data-v-40bde70b="" class="operating">
+                                    <div data-v-40bde70b="" class="button">修改</div>
+                                  </div>
+                                </div>
+                                <!-- 支付密码 -->
+                                <div data-v-40bde70b="" class="setting">
+                                  <div data-v-40bde70b="" class="icon"><img data-v-40bde70b="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAACXBIWXMAAAsSAAALEgHS3X78AAABR0lEQVRIx72W3VHDMBCEP3v8jlJB0kFMB6YCXEJKcAt0QDpwCVAB7gDTgenAHSwvJxB5iCX/7czNaDyWVrqfvcskATigASrS0QGvwBj1tyQkdVqGzs6ZtExSCXwa/xfwlvC6Gjjb+hHoY15Y2S0HSS72pmbO9snOmdyTB9xDdBz+MNq+aOTsjcClY+CeNTFKaiWVPmkq4GOn9x2Kmw/XxCyNgbM6PQLNrUvZyC6+EsKk6Td0pc/kY7HCYSezeyj9olgYmxZ43qsOm1SypYRVoL8HILtjT2sqTZMiibtLW2EN9GoJsAuhd8uSbE0mXILWpGuqVv+NGPWM5lvPaR3hiPFuI0MKauAS4Vb3O4oE4t1tKN6eQ/nc4M9NrJDwvFFplMG535kkZ+3jIZCqcUXCkzVfgJcw40Zti16Sy2zU9zepN4rl4N36A2+13JmRJ7O7AAAAAElFTkSuQmCC"></div>
+                                  <div data-v-40bde70b="" class="content">
+                                    <div data-v-40bde70b="" class="header">
+                                      <div data-v-40bde70b="" class="label">支付密码</div>
+                                      <div data-v-40bde70b="" class="value"></div>
+                                    </div>
+                                    <div data-v-40bde70b="" class="directions">支付密码</div>
+                                  </div>
+                                  <div data-v-40bde70b="" class="operating">
+                                    <div data-v-40bde70b="" class="button">修改</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+
+
+    <!--注册框-->
+    <div style="display:none;" data-v-1fe04b29="" class="mdialog stock_register">
+      <div data-v-1fe04b29="" class="content">
+        <div data-v-d799dc4a="" data-v-1fe04b29="" class="lognup">
+          <div data-v-d799dc4a="" class="content">
+            <div data-v-d799dc4a="" class="window lognup">
+              <div data-v-d799dc4a="" class="title">
+                <div data-v-d799dc4a="" class="active">
+                  <div data-v-d799dc4a="" class="value">注册</div>
+                </div>
+              </div>
+              <div data-v-d799dc4a="" class="forms">
+                <div data-v-d799dc4a="" class="wrap phone stock_registerName">
+                  <input data-v-d799dc4a="" autocomplete="off" placeholder="请输入账号">
+                </div>
+                <span data-v-d799dc4a="" class="pc"></span>
+                <div data-v-d799dc4a="" class="wrap pswd stock_registerPwd">
+                  <input data-v-d799dc4a="" autocomplete="off" maxlength="16" type="password" name="notremember"
+                    placeholder="请输入登录密码" class="el-popover__reference" aria-describedby="el-popover-6278" tabindex="0">
+                </div>
+                <span data-v-d799dc4a="" class="pc"></span>
+                <div data-v-d799dc4a="" class="wrap payPswd stock_registerAgain">
+                  <input data-v-d799dc4a="" autocomplete="off" maxlength="16" type="password" name="notremember"
+                    placeholder="请确认登录密码" class="el-popover__reference" aria-describedby="el-popover-7898" tabindex="0">
+                </div>
+                <span data-v-d799dc4a=""></span>
+                <div data-v-d799dc4a="" class="wrap submit stock_submitRegister">
+                  <button data-v-d799dc4a="">注册</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-v-1fe04b29="" class="close">
+          <svg data-v-1fe04b29="" width="600px" height="600px" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <desc data-v-1fe04b29="">Created with Sketch.</desc>
+            <defs data-v-1fe04b29=""></defs>
+            <g data-v-1fe04b29="" id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path data-v-1fe04b29="" d="M270,255 L270,30 C270,13.4314575 283.431458,0 300,0 C316.568542,0 330,13.4314575 330,30 L330,255 C330,263.284271 336.715729,270 345,270 L570,270 C586.568542,270 600,283.431458 600,300 C600,316.568542 586.568542,330 570,330 L345,330 C336.715729,330 330,336.715729 330,345 L330,570 C330,586.568542 316.568542,600 300,600 C283.431458,600 270,586.568542 270,570 L270,345 C270,336.715729 263.284271,330 255,330 L30,330 C13.4314575,330 0,316.568542 0,300 C0,283.431458 13.4314575,270 30,270 L255,270 C263.284271,270 270,263.284271 270,255 Z"
+                id="Rectangle-5" fill="currentColor"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!-- 登录框 -->
+    <div style="display:none;" data-v-1fe04b29="" class="mdialog stock_login">
+      <div data-v-1fe04b29="" class="content">
+        <div data-v-001f7bba="" data-v-1fe04b29="" class="lognin">
+          <div data-v-001f7bba="" class="content">
+            <div data-v-001f7bba="" class="window lognin">
+              <div data-v-001f7bba="" class="title">
+                <div data-v-001f7bba="" class="active">
+                  <div data-v-001f7bba="" class="value">登录</div>
+                </div>
+              </div>
+              <div data-v-001f7bba="" class="forms">
+                <div data-v-001f7bba="" class="wrap account stock_loginName">
+                  <input data-v-001f7bba="" autocomplete="off" placeholder="请输入账户名">
+                </div>
+                <div data-v-001f7bba="" class="wrap passwoed stock_loginPwd">
+                  <input data-v-001f7bba="" autocomplete="off" type="password" name="notremember" placeholder="请输入登录密码">
+                </div>
+                <div data-v-001f7bba="" class="wrap submit stock_submitLogin">
+                  <button data-v-001f7bba="">登录</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-v-1fe04b29="" class="close">
+          <svg data-v-1fe04b29="" width="600px" height="600px" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <desc data-v-1fe04b29="">Created with Sketch.</desc>
+            <defs data-v-1fe04b29=""></defs>
+            <g data-v-1fe04b29="" id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path data-v-1fe04b29="" d="M270,255 L270,30 C270,13.4314575 283.431458,0 300,0 C316.568542,0 330,13.4314575 330,30 L330,255 C330,263.284271 336.715729,270 345,270 L570,270 C586.568542,270 600,283.431458 600,300 C600,316.568542 586.568542,330 570,330 L345,330 C336.715729,330 330,336.715729 330,345 L330,570 C330,586.568542 316.568542,600 300,600 C283.431458,600 270,586.568542 270,570 L270,345 C270,336.715729 263.284271,330 255,330 L30,330 C13.4314575,330 0,316.568542 0,300 C0,283.431458 13.4314575,270 30,270 L255,270 C263.284271,270 270,263.284271 270,255 Z"
+                id="Rectangle-5" fill="currentColor"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!-- 修改密码框 -->
+    <div style="display:none;" data-v-1fe04b29="" class="mdialog stock_changePwd">
+      <div data-v-1fe04b29="" class="content">
+        <div data-v-35f473fc="" data-v-1fe04b29="" class="changepass">
+          <div data-v-35f473fc="" class="content">
+            <div data-v-35f473fc="" class="window ">
+              <div data-v-35f473fc="" class="title">
+                <div data-v-35f473fc="" class="active">
+                  <div data-v-35f473fc="" class="value">修改密码</div>
+                </div>
+              </div>
+              <div data-v-35f473fc="" class="forms"><span data-v-35f473fc=""></span>
+                <div data-v-a20c187e="" data-v-35f473fc="" class="minput el-popover__reference" name="notremember"
+                  aria-describedby="el-popover-4556" tabindex="0">
+                  <div data-v-a20c187e="" class="content">
+                    <input data-v-a20c187e="" class="pwd_old" autocomplete="off" placeholder="请输入旧登录密码" type="password">
+                  </div>
+                </div>
+                <span data-v-35f473fc=""></span>
+                <div data-v-a20c187e="" data-v-35f473fc="" class="minput el-popover__reference" name="notremember"
+                  aria-describedby="el-popover-7887" tabindex="0">
+                  <div data-v-a20c187e="" class="content">
+                    <input data-v-a20c187e="" class="pwd_new" autocomplete="off" placeholder="请输入新登录密码" type="password">
+                  </div>
+                </div>
+                <div data-v-a20c187e="" data-v-35f473fc="" class="minput el-popover__reference" name="notremember"
+                  aria-describedby="el-popover-7887" tabindex="0">
+                  <div data-v-a20c187e="" class="content">
+                    <input data-v-a20c187e="" class="pwd_newAgain" autocomplete="off" placeholder="再次输入新登录密码" type="password">
+                  </div>
+                </div>
+                <!-- <div data-v-05151292="" data-v-35f473fc="" class="smsverify">
+                  <div data-v-05151292="" class="content">
+                    <div data-v-05151292="" class="verification">
+                      <div data-v-05151292="" class="sms">
+                        <input data-v-05151292="" autocomplete="off"  placeholder="短信验证码"> 
+                        <button data-v-05151292="" class="get">获取</button></div>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+              <div data-v-35f473fc="" class="wrap submit changePwd_ok">
+                <button data-v-35f473fc="">提交</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-v-1fe04b29="" class="close">
+          <svg data-v-1fe04b29="" width="600px" height="600px" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <desc data-v-1fe04b29="">Created with Sketch.</desc>
+            <defs data-v-1fe04b29=""></defs>
+            <g data-v-1fe04b29="" id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path data-v-1fe04b29="" d="M270,255 L270,30 C270,13.4314575 283.431458,0 300,0 C316.568542,0 330,13.4314575 330,30 L330,255 C330,263.284271 336.715729,270 345,270 L570,270 C586.568542,270 600,283.431458 600,300 C600,316.568542 586.568542,330 570,330 L345,330 C336.715729,330 330,336.715729 330,345 L330,570 C330,586.568542 316.568542,600 300,600 C283.431458,600 270,586.568542 270,570 L270,345 C270,336.715729 263.284271,330 255,330 L30,330 C13.4314575,330 0,316.568542 0,300 C0,283.431458 13.4314575,270 30,270 L255,270 C263.284271,270 270,263.284271 270,255 Z"
+                id="Rectangle-5" fill="currentColor">
+              </path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- -->
+    <!-- 充值框 -->
+    <div style="display:none;" data-v-4ecbe1a6="" data-v-1f0ee7c6="" class="mdialog details stock_recharge">
+      <div data-v-4ecbe1a6="" class="alert">
+        <div data-v-4ecbe1a6="" class="content">
+          <div data-v-4ecbe1a6="" class="wrap">
+            <div data-v-4ecbe1a6="" class="close">
+              <div data-v-4ecbe1a6="" class="button">
+                <svg data-v-4ecbe1a6="" width="885px" height="885px" viewBox="0 0 885 885" version="1.1">
+                  <g data-v-4ecbe1a6="" id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g data-v-4ecbe1a6="" id="close" fill="#FFFFFF" fill-rule="nonzero">
+                      <path data-v-4ecbe1a6="" d="M442.663332,0.289776 C198.385816,0.289776 0.359694,198.315898 0.359694,442.593414 C0.359694,686.87093 198.385816,884.897052 442.663332,884.897052 C686.940848,884.897052 884.96697,686.87093 884.96697,442.593414 C884.96697,198.315898 686.940848,0.289776 442.663332,0.289776 Z M634.118805,634.048887 C619.72498,648.442712 596.32913,648.384384 582.107221,634.163497 L451.677637,503.733912 L321.248052,634.162474 C306.916649,648.493877 283.730577,648.542996 269.236468,634.047864 C254.842643,619.654039 254.899948,596.258189 269.121858,582.03628 L399.551443,451.606695 L269.121857,321.178133 C254.790454,306.84673 254.741335,283.660658 269.236467,269.166549 C283.630292,254.772724 307.026142,254.831052 321.248051,269.051939 L451.677636,399.481524 L582.107221,269.051939 C596.438624,254.720536 619.624696,254.671417 634.118805,269.166549 C648.51263,283.560374 648.455325,306.956224 634.233415,321.178133 L503.803831,451.607718 L634.233416,582.037303 C648.563796,596.367683 648.612914,619.553755 634.118805,634.048887 Z"
+                        id="Shape"></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div data-v-4ecbe1a6="" class="title">
+              <div data-v-4ecbe1a6="" class="text">
+                账户充值
+              </div>
+              <div data-v-4ecbe1a6="" class="block"></div>
+            </div>
+            <div data-v-4ecbe1a6="" class="buyPanel">
+              <div data-v-4ecbe1a6="" class="input">
+                <div data-v-4ecbe1a6="" class="lable">充值数量</div>
+                <div data-v-4ecbe1a6="" class="wrap">
+                  <input data-v-4ecbe1a6="" class="recharge_number" type="number" placeholder="请输入充值数量">
+                  <div data-v-4ecbe1a6="" class="unit">￥</div>
+                </div>
+              </div>
+              <div data-v-4ecbe1a6="" class="input">
+                <div data-v-4ecbe1a6="" class="lable">交易密码</div>
+                <div data-v-4ecbe1a6="" class="wrap">
+                  <input data-v-4ecbe1a6="" class="transaction_password" type="password" placeholder="请输入支付密码">
+                </div>
+              </div>
+              <button data-v-4ecbe1a6="" class="button recharge_ok">
+                确认充值
+              </button>
+            </div>
+            <div data-v-4ecbe1a6="" class="introduce"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!--绑定银行卡 -->
+    <div style="display:none;" data-v-1fe04b29="" class="mdialog stock_binding">
+      <div data-v-1fe04b29="" class="content">
+        <div data-v-16dd9d0d="" data-v-1fe04b29="" class="bindbankcard" vitamins="[object Object]">
+          <div data-v-16dd9d0d="" class="content">
+            <div data-v-16dd9d0d="" class="window lognin">
+              <div data-v-16dd9d0d="" class="title">
+                <div data-v-16dd9d0d="" class="active">
+                  <div data-v-16dd9d0d="" class="value">绑定银行卡</div>
+                </div>
+              </div>
+              <div data-v-16dd9d0d="" class="bankcard ">
+                <div data-v-16dd9d0d="" class="content card">
+                  <div data-v-16dd9d0d="" class="minput" style="padding:0 0 10px 0;margin:0;">
+                    <div data-v-16dd9d0d="" class="content">
+                      <!-- <input data-v-16dd9d0d="" type="text" name="notremember" 
+                      autocomplete="off" placeholder="请输入开户行"> -->
+                      <select name="notremember" style="outline: none;width:100%;height:40px;border:1px solid #eee;color:rgb(0,0,0,.7);"
+                        id="">
+                        <option value="0" style="height:30px;font-size: 15px;">中国银行</option>
+                        <option value="1" style="height:30px;font-size: 15px;">工商银行</option>
+                        <option value="2" style="height:30px;font-size: 15px;">建设银行</option>
+                        <option value="3" style="height:30px;font-size: 15px;">农业银行</option>
+                        <option value="4" style="height:30px;font-size: 15px;">交通银行</option>
+                        <option value="5" style="height:30px;font-size: 15px;">招商银行</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div data-v-16dd9d0d="" class="minput">
+                    <div data-v-16dd9d0d="" class="content">
+
+                      <input data-v-16dd9d0d="" type="text" name="notremember" autocomplete="off" placeholder="请输入持卡人姓名"
+                        class="card_master"></div>
+                  </div>
+                  <div data-v-16dd9d0d="" class="minput">
+                    <div data-v-16dd9d0d="" class="content">
+                      <input data-v-16dd9d0d="" type="number" name="notremember" autocomplete="off" placeholder="请输入卡号"
+                        class="card_num"></div>
+                  </div>
+                  <div data-v-16dd9d0d="" class="minput">
+                    <div data-v-16dd9d0d="" class="content">
+                      <input data-v-16dd9d0d="" type="password" autocomplete="off" placeholder="请设置支付密码" class="pay_password"></div>
+                  </div>
+                  <div data-v-16dd9d0d="" class="wrap submit">
+                    <button data-v-16dd9d0d="" class="binding_ok">提交</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-v-1fe04b29="" class="close">
+          <svg data-v-1fe04b29="" width="600px" height="600px" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <desc data-v-1fe04b29="">Created with Sketch.</desc>
+            <defs data-v-1fe04b29=""></defs>
+            <g data-v-1fe04b29="" id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <path data-v-1fe04b29="" d="M270,255 L270,30 C270,13.4314575 283.431458,0 300,0 C316.568542,0 330,13.4314575 330,30 L330,255 C330,263.284271 336.715729,270 345,270 L570,270 C586.568542,270 600,283.431458 600,300 C600,316.568542 586.568542,330 570,330 L345,330 C336.715729,330 330,336.715729 330,345 L330,570 C330,586.568542 316.568542,600 300,600 C283.431458,600 270,586.568542 270,570 L270,345 C270,336.715729 263.284271,330 255,330 L30,330 C13.4314575,330 0,316.568542 0,300 C0,283.431458 13.4314575,270 30,270 L255,270 C263.284271,270 270,263.284271 270,255 Z"
+                id="Rectangle-5" fill="currentColor"></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+
+
+  </div>
+  <!-- <script type="text/javascript" src="./files/manifest.2ae2e69a05c33dfc65f8.js"></script> -->
+  <!-- <script type="text/javascript" src="./files/vendor.821b5ac67a34d9e436bf.js"></script> -->
+  <script type="text/javascript" src="./static/js/jquery-3.2.0.js"></script>
+  <script type="text/javascript" src="./static/js/Ply.min.js"></script>
+  <script type="text/javascript" src="./static/js/index.js"></script>
+  <script type="text/javascript" src="./static/js/index-4.js"></script>
+</body>
+
+</html>
