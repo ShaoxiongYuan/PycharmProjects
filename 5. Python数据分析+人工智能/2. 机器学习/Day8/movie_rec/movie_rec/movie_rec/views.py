@@ -3,6 +3,7 @@ import json
 from models import recommender
 import sys
 
+
 def common(request, id):
     try:
         model = recommender.ItemBasedCFModel()
@@ -24,9 +25,10 @@ def common(request, id):
         r = json.dumps(d)
         return HttpResponse(r)
 
+
 def persona(request, id):
     try:
-        movies_rec = movie_recommender.PersonaRecommendModel()
+        movies_rec = recommender.PersonaRecommendModel()
         movies_id = movies_rec.recommend_by_userid(id)
         status = 200
         data = []

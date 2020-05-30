@@ -8,20 +8,22 @@ import os
 
 MOVIE_DATA_PATH = 'models/data/m_all_info.csv'
 MOVIE_DATA_COLUMNS = ['movie_id', 'title', 'director', 'scriptwriter', 'actors', 'genres',
-                          'place', 'languages', 'time', 'duration', 'other_names', '_']
-RATING_DATA_PATH = 'models/data/u_score.csv' 
+                      'place', 'languages', 'time', 'duration', 'other_names', '_']
+RATING_DATA_PATH = 'models/data/u_score.csv'
 RATING_DATA_CLOLUMNS = ['movie_id', 'user_id', 'rating']
 
 ITEM_ITEM_SIMMAT_PATH = 'models/data/ITEM_ITEM_SIMMAT.csv'
 USER_USER_SIMMAT_PATH = 'models/data/USER_USER_SIMMAT.csv'
 
+
 def init_movie_data():
     """加载所有电影数据"""
     data = pd.read_csv(MOVIE_DATA_PATH, names=MOVIE_DATA_COLUMNS,
-        sep=r',\s*', engine='python', encoding='utf-8')
+                       sep=r',\s*', engine='python', encoding='utf-8')
     data.drop_duplicates(subset=['movie_id'], keep='first', inplace=True)
     print('Movie Data loaded:', data.shape)
     return data
+
 
 def init_rating_data():
     """加载电影评分数据"""
@@ -44,6 +46,7 @@ def init_user_item_mat():
         user_item_mat[row['movie_id']][row['user_id']] = row['rating']
     print('User_item_mat loaded:', user_item_mat.shape)
     return user_item_mat
+
 
 movie_data = init_movie_data()
 rating_data = init_rating_data()

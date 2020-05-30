@@ -4,6 +4,7 @@ import requests
 import json
 import pandas as pd
 
+
 def index(request):
     # loginid = {}
     # loginid['id'] = id
@@ -30,7 +31,7 @@ def rec_list(request, id):
         dic = {}
         for i in range(13):
             if i == 12:
-                dic['f'+str(12)] = 'img/%s.jpg' % movieinfo[0][j]
+                dic['f' + str(12)] = 'img/%s.jpg' % movieinfo[0][j]
             else:
                 dic[i] = str(movieinfo[i][j])
         print(dic)
