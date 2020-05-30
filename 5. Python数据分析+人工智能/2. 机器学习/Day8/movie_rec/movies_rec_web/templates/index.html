@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+	<title>Tedu Python</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+	<!--[if IE 6]>
+		<link rel="stylesheet" href="/static/css/ie6.css" type="text/css" media="all" />
+	<![endif]-->
+	<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-func.js"></script>
+</head>
+<body>
+<!-- Shell -->
+<div id="shell">
+	<!-- Header -->
+	<div id="header">
+		<h1 id="logo"><a href="#">电影猎人</a></h1>
+		<div class="social">
+			<span> </span>
+			<ul>
+			    <li><a class="twitter" href="#"> </a></li>
+			    <li><a class="facebook" href="#"> </a></li>
+			</ul>
+		</div>
+		
+		<!-- Navigation -->
+		<div id="navigation">
+			<ul>
+			    <li><a class="active" href="#">主页</a></li>
+			    <li><a href="#">新闻</a></li>
+			    <li><a href="#">即将推出</a></li>
+			    <li><a href="#">联系我们</a></li>
+			    <li><a href="#">建议</a></li>
+			</ul>
+		</div>
+		<!-- end Navigation -->
+		
+		<!-- Sub-menu -->
+		<div id="sub-navigation">
+			<ul>
+			    <li><a href="#">显示所有</a></li>
+			    <li><a href="#">评分最高</a></li>
+			    <li><a href="#">评分最多</a></li>
+			</ul>
+			<div id="search">
+				<form action="home_submit" method="get" accept-charset="utf-8">
+					<label for="search-field">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>					
+					<input type="text" value="" 
+						placeholder="Enter search here" id="search-field" 
+						title="Enter search userid" class="blink search-field"  />
+					<input id='search-btn' type="button" value="搜索!" class="search-button" />
+				</form>
+				<!--var mid = document.getElementById("search-field").value;-->
+				<!--print(mid)-->
+			</div>
+		</div>
+		<!-- end Sub-Menu -->
+		
+	</div>
+	<!-- end Header -->
+	<div class="inner_copyright">Collect from <a href="http://www.cssmoban.com/" target="_blank" title="网站模板">网站模板</a></div>
+	<!-- Main -->
+	<div id="main">
+		<!-- Content -->
+		<div id="content">
+
+			<!-- Box -->
+			<div id='boxdiv' class="box">
+				<div class="head">
+					<h2>电影推荐</h2>
+					<p class="text-right"><a href="#">See all</a></p>
+				</div>
+				
+
+				<div class="cl">&nbsp;</div>
+			</div>
+			<!-- end Box -->
+		</div>
+	</div>
+	<!-- end Main -->
+</div>
+	<!-- end Main -->
+<!-- end Shell -->
+<script type="text/javascript">
+	function loadRecoMovies(){
+		id = $("#search-field").val()
+		id = id ? id : '0'
+		url='/rec_list/'+id
+		$.get(url, function(data){
+			$('#boxdiv .cl').empty()
+			$.each(data, function(n, i, o){
+				$('#boxdiv .cl').append('<!-- Movie -->'+
+				'<div class="movie">'+
+				'	<div class="movie-image">'+
+				'		<a href="#"><span class="play"><span class="name">ANGELS &amp; DEMONS</span></span><img src="/static/'+i.f12+'" alt="movie" /></a>'+
+				'	</div>'+
+				'	<div class="rating">'+
+				'		<p>'+i[1]+'</p>'+
+				'	</div>'+
+				'</div>'+
+				'<!-- end Movie -->')
+			})
+		}, 'json')
+	}
+
+	$(document).ready(function(){
+		loadRecoMovies()
+		//绑定事件监听
+		$("#search-btn").click(function(){
+			loadRecoMovies()
+		})
+	})
+</script>
+</body>
+</html>
