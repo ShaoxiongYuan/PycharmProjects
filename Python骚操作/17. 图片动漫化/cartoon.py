@@ -22,6 +22,6 @@ def get_pig(file_in, file_on):
         f.write(imgdata)
 
 
-file_in = '1.jpg'
-file_on = 'first.jpg'
+file_in = '2.jpg'
+file_on = 'second.jpg'
 get_pig(file_in, file_on)
