@@ -1,0 +1,36 @@
+{
+    "all_class_images": 1306,
+    "all_class_sum": 5,
+    "class_detail": [
+        {
+            "class_label": 0,
+            "class_name": "apple",
+            "class_test_images": 29,
+            "class_trainer_images": 259
+        },
+        {
+            "class_label": 1,
+            "class_name": "banana",
+            "class_test_images": 28,
+            "class_trainer_images": 247
+        },
+        {
+            "class_label": 2,
+            "class_name": "grape",
+            "class_test_images": 22,
+            "class_trainer_images": 194
+        },
+        {
+            "class_label": 3,
+            "class_name": "orange",
+            "class_test_images": 28,
+            "class_trainer_images": 248
+        },
+        {
+            "class_label": 4,
+            "class_name": "pear",
+            "class_test_images": 26,
+            "class_trainer_images": 225
+        }
+    ]
+}
