@@ -67,6 +67,7 @@ with tf.Session() as sess:
     im = im.reshape(-1, 28)
     pylab.imshow(im)
     pylab.show()
+
     im = batch_xs[1]  # 第2个测试样本数据
     im = im.reshape(-1, 28)
     pylab.imshow(im)
