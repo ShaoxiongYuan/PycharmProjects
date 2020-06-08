@@ -22,8 +22,8 @@ class FashionMnist():
         :return: 返回经过初始化的变量
         """
         # 产生截尾正态分布数据
-        inital = tf.truncated_normal(shape, stddev=0.1)
-        return tf.Variable(inital)
+        initial = tf.truncated_normal(shape, stddev=0.1)
+        return tf.Variable(initial)
 
     def init_bias_variable(self, shape):
         """
@@ -31,8 +31,8 @@ class FashionMnist():
         :param shape:形状
         :return:返回经过初始化的变量
         """
-        inital = tf.constant(1.0, shape=shape)
-        return tf.Variable(inital)
+        initial = tf.constant(1.0, shape=shape)
+        return tf.Variable(initial)
 
     def conv2d(self, x, w):
         """
