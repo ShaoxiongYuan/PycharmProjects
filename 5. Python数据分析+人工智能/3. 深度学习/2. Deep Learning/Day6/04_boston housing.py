@@ -1,12 +1,10 @@
 import paddle
 import paddle.fluid as fluid
 import numpy as np
-import math
 import os
 import matplotlib.pyplot as plt
 
 # step1: 数据准备
-# paddle提供了uci_housing训练集、测试集，直接读取并返回数据
 BUF_SIZE = 500
 BATCH_SIZE = 20
 
@@ -23,6 +21,7 @@ train_reader = paddle.batch(random_reader, batch_size=BATCH_SIZE)  # 训练数�
 # 定义输入、输出，类型均为张量
 x = fluid.layers.data(name="x", shape=[13], dtype="float32")
 y = fluid.layers.data(name="y", shape=[1], dtype="float32")
+
 # 定义个简单的线性网络，连接输出层、输出层
 y_predict = fluid.layers.fc(input=x,  # 输入数据
                             size=1,  # 输出值个数
@@ -35,7 +34,7 @@ avg_cost = fluid.layers.mean(cost)  # 求损失值平均数
 optimizer = fluid.optimizer.SGDOptimizer(learning_rate=0.001)  # 使用随机梯度下降优化器
 opts = optimizer.minimize(avg_cost)  # 优化器最小化损失值
 # 创建新的program用于测试计算
-test_program = fluid.default_main_program().clone(for_test=True)
+# test_program = fluid.default_main_program().clone(for_test=True)
 
 # step3: 模型训练、模型评估
 place = fluid.CPUPlace()

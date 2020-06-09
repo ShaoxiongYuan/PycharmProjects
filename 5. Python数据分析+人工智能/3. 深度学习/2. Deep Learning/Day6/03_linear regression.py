@@ -39,7 +39,7 @@ tmp = tmp * 2
 tmp.sort(axis=0)
 print(tmp)
 x_test = np.array(tmp).astype("float32")
-params = {"x": x_test, "y": x_test}
+params = {'x': x_test, 'y': x_test}
 y_out = exe.run(feed=params, fetch_list=[y_predict.name])
 y_test = y_out[0]
 
