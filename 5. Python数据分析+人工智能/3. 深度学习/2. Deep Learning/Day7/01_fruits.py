@@ -172,7 +172,7 @@ times = 0
 batches = []
 
 # 开始训练
-for pass_id in range(200):
+for pass_id in range(5):
     train_cost = 0
     for batch_id, data in enumerate(batch_train_reader()):
         times += 1
