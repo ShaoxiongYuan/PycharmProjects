@@ -11,8 +11,8 @@ import os
 
 name_dict = {'apple': 0, 'banana': 1, 'grape': 2, 'orange': 3, 'pear': 4}
 data_root_path = '../data/fruits/'
-test_file_path = data_root_path + 'test.txt'
-train_file_path = data_root_path + 'train.txt'
+test_file_path = data_root_path + 'test_cnn.txt'
+train_file_path = data_root_path + 'train_cnn.txt'
 name_data_list = {}  # 记录每个类别有哪些图片
 
 
@@ -221,7 +221,7 @@ place = fluid.CPUPlace()
 infer_exe = fluid.Executor(place)
 
 infer_imgs = []
-test_img = 'apple_1.png'
+test_img = '../data/fruits/apple_1.png'
 infer_imgs.append(load_image(test_img))
 infer_imgs = np.array(infer_imgs)
 
