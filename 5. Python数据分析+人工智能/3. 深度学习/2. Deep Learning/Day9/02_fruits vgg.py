@@ -177,8 +177,7 @@ for pass_id in range(5):
                                         feed=feeder.feed(data),  # 喂入一个batch数据
                                         fetch_list=[avg_cost, accuracy])  # 获取结果
         if batch_id % 20 == 0:
-            print("pass_id:%d, bat_id:%d, cost:%f, acc:%f" %
-                  (pass_id, batch_id, train_cost[0], train_acc[0]))
+            print("pass_id:%d, bat_id:%d, cost:%f, acc:%f" % (pass_id, batch_id, train_cost[0], train_acc[0]))
             accs.append(train_acc[0])  # 记录准确率
             costs.append(train_cost[0])  # 记录损失值
             batches.append(times)  # 记录训练批次数
@@ -223,8 +222,7 @@ infer_imgs.append(load_img(test_img))  # 加载图片，并且将图片数据添
 infer_imgs = np.array(infer_imgs)  # 转换成数组
 
 # 加载模型
-infer_program, feed_target_names, fetch_targets = \
-    fluid.io.load_inference_model(model_save_dir, infer_exe)
+infer_program, feed_target_names, fetch_targets = fluid.io.load_inference_model(model_save_dir, infer_exe)
 # 执行预测
 results = infer_exe.run(infer_program,  # 执行预测program
                         feed={feed_target_names[0]: infer_imgs},  # 传入待预测图像数据
