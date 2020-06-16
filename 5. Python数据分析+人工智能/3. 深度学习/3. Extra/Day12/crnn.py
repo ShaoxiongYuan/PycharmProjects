@@ -9,7 +9,7 @@ import random
 import shutil
 
 train_ratio = 9 / 10  # 训练集大小
-all_file_dir = "data/data6927/word-recognition"  # 数据文件路径
+all_file_dir = "../data/word-recognition"  # 数据文件路径
 image_path_pre = os.path.join(all_file_dir, "imageSet")  # 路径
 
 # 创建训练集路径
@@ -64,7 +64,7 @@ import logging
 logger = None
 train_params = {
     "input_size": [1, 48, 512],  # 输入数据维度
-    "data_dir": "data/data6927/word-recognition",  # 数据集路径
+    "data_dir": "../data/word-recognition",  # 数据集路径
     "train_dir": "trainImageSet",  # 训练数据目录
     "eval_dir": "evalImageSet",  # 评估数据目录
     "train_list": "train.txt",  # 训练集文件
@@ -75,11 +75,11 @@ train_params = {
     "image_count": -1,
     "continue_train": False,
     "pretrained": True,  # 预训练
-    "pretrained_model_dir": "./pretrained-model",  # 预训练模型目录
+    "pretrained_model_dir": "../data/pretrained-model",  # 预训练模型目录
     "save_model_dir": "./crnn-model",  # 模型保存目录
     "num_epochs": 400,  # 训练轮次
     "train_batch_size": 256,  # 训练批次大小
-    "use_gpu": True,  # 是否使用gpu
+    "use_gpu": False,  # 是否使用gpu
     "ignore_thresh": 0.7,  # 阈值
     "mean_color": 127.5,  #
     "mode": "train",  # 模式
@@ -161,7 +161,7 @@ class CRNN:
         return tmp
 
     def net(self, images, rnn_hidden_size=200, regularizer=None,
-            gradient_clip=None, is_test=False, use_cudnn=True):
+            gradient_clip=None, is_test=False, use_cudnn=False):
         # 卷积池化
         conv_features = self.ocr_convs(images, regularizer=regularizer, gradient_clip=gradient_clip,
                                        is_test=is_test, use_cudnn=use_cudnn)
@@ -653,7 +653,7 @@ from paddle.fluid import core
 
 # 读取 label_list.txt 文件获取类别数量
 class_dim = -1
-all_file_dir = "data/data6927/word-recognition"
+all_file_dir = "../data/word-recognition"
 with codecs.open(os.path.join(all_file_dir, "label_list.txt")) as label_list:
     class_dim = len(label_list.readlines())
 target_size = [1, 48, 512]
@@ -746,18 +746,14 @@ class CRNN(object):
             use_cudnn=use_cudnn)
         return tmp
 
-    def net(self, images, rnn_hidden_size=200, regularizer=None,
-            gradient_clip=None, is_test=False, use_cudnn=True):
-        conv_features = self.ocr_convs(
-            images,
-            regularizer=regularizer,
-            gradient_clip=gradient_clip,
-            is_test=is_test,
-            use_cudnn=use_cudnn)
-        sliced_feature = fluid.layers.im2sequence(
-            input=conv_features,
-            stride=[1, 1],
-            filter_size=[conv_features.shape[2], 1])
+    def net(self, images, rnn_hidden_size=200, regularizer=None, gradient_clip=None,
+            is_test=False, use_cudnn=False):
+        conv_features = self.ocr_convs(images, regularizer=regularizer,
+                                       gradient_clip=gradient_clip,
+                                       is_test=is_test, use_cudnn=use_cudnn)
+
+        sliced_feature = fluid.layers.im2sequence(input=conv_features, stride=[1, 1],
+                                                  filter_size=[conv_features.shape[2], 1])
 
         para_attr = fluid.ParamAttr(
             regularizer=regularizer,
@@ -854,7 +850,7 @@ import matplotlib.pyplot as plt
 
 target_size = [1, 48, 512]
 mean_rgb = 127.5
-data_dir = 'data/data6927/word-recognition'
+data_dir = '../data/word-recognition'
 eval_file = "eval.txt"
 label_list = "label_list.txt"
 use_gpu = True

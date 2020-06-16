@@ -8,32 +8,21 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import os
-import shutil
 
 os.environ["FLAGS_fraction_of_gpu_memory_to_use"] = '0.82'
 
-import uuid
-import numpy as np
-import time
-import six
-import math
 import random
-import paddle
-import paddle.fluid as fluid
 import logging
-import xml.etree.ElementTree
-import codecs
 import json
 
-from paddle.fluid.initializer import MSRA
 from paddle.fluid.param_attr import ParamAttr
 from paddle.fluid.regularizer import L2Decay
-from PIL import Image, ImageEnhance, ImageDraw
+from PIL import ImageEnhance
 
 logger = None  # 日志对象
 
 train_params = {
-    "data_dir": "data/data6045",  # 数据目录
+    "data_dir": "../data/lslm",  # 数据目录
     "train_list": "train.txt",  # 训练集文件
     "eval_list": "eval.txt",  # 评估数据集
     "class_dim": -1,
@@ -42,7 +31,7 @@ train_params = {
     "image_count": -1,
     "continue_train": True,  # 是否加载前一次的训练参数，接着训练
     "pretrained": False,  # 是否预训练
-    "pretrained_model_dir": "./pretrained-model",
+    "pretrained_model_dir": "../data/lslm/pretrained-model",
     "save_model_dir": "./yolo-model",  # 增量模型保存目录
     "model_prefix": "yolo-v3",  # 模型前缀
     "freeze_dir": "freeze_model",  # 模型固化目录(真正执行预测的模型)
@@ -50,7 +39,7 @@ train_params = {
     "max_box_num": 20,  # 一幅图上最多有多少个目标
     "num_epochs": 1,  # 训练轮次
     "train_batch_size": 32,  # 对于完整yolov3，每一批的训练样本不能太多，内存会炸掉；如果使用tiny，可以适当大一些
-    "use_gpu": True,  # 是否使用GPU
+    "use_gpu": False,  # 是否使用GPU
     "yolo_cfg": {  # YOLO模型参数
         "input_size": [3, 448, 448],  # 原版的边长大小为608，为了提高训练速度和预测速度，此处压缩为448
         "anchors": [7, 10, 12, 22, 24, 17, 22, 45, 46, 33, 43, 88, 85, 66, 115, 146, 275, 240],  # 锚点??
@@ -200,7 +189,7 @@ class YOLOv3Tiny(object):
                 stride,  # 步幅
                 padding,  # 填充
                 num_groups=1,  # 组数量
-                use_cudnn=True):  # 是否使用cudnn对cuda加速
+                use_cudnn=False):  # 是否使用cudnn对cuda加速
         # 卷积操作
         param_attr = ParamAttr(initializer=fluid.initializer.Normal(0.0, 0.02))  # 初始化参数
         conv = fluid.layers.conv2d(input=input,
@@ -947,7 +936,6 @@ def freeze_model():
                                   ['image', 'image_shape'],
                                   pred, exe, freeze_program)
 
-
     print("freeze end")
 
 
@@ -1069,7 +1057,7 @@ def infer(image_path):
 
 
 if __name__ == '__main__':
-    image_name = sys.argv[1]
-    image_path = image_name
-    image_path = "data/data6045/lslm-test/2.jpg"
+    # image_name = sys.argv[1]
+    # image_path = image_name
+    image_path = "../data/lslm-test/2.jpg"
     infer(image_path)
