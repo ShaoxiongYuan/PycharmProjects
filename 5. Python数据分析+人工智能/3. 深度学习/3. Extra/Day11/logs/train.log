@@ -1,0 +1,154 @@
+2020-06-16 20:41:18,456 - <ipython-input-2-65d3e6ff24bf>[line:800] - INFO: Start train YOLOv3, train params: {'data_dir': 'data/data6045', 'train_list': 'train.txt', 'eval_list': 'eval.txt', 'class_dim': 2, 'label_dict': {'bolt': 0, 'nut': 1}, 'num_dict': {0: 'bolt', 1: 'nut'}, 'image_count': 410, 'continue_train': True, 'pretrained': False, 'pretrained_model_dir': './pretrained-model', 'save_model_dir': './yolo-model', 'model_prefix': 'yolo-v3', 'freeze_dir': 'freeze_model', 'use_tiny': True, 'max_box_num': 20, 'num_epochs': 50, 'train_batch_size': 32, 'use_gpu': True, 'yolo_cfg': {'input_size': [3, 448, 448], 'anchors': [7, 10, 12, 22, 24, 17, 22, 45, 46, 33, 43, 88, 85, 66, 115, 146, 275, 240], 'anchor_mask': [[6, 7, 8], [3, 4, 5], [0, 1, 2]]}, 'yolo_tiny_cfg': {'input_size': [3, 256, 256], 'anchors': [6, 8, 13, 15, 22, 34, 48, 50, 81, 100, 205, 191], 'anchor_mask': [[3, 4, 5], [0, 1, 2]]}, 'ignore_thresh': 0.7, 'mean_rgb': [127.5, 127.5, 127.5], 'mode': 'train', 'multi_data_reader_count': 4, 'apply_distort': True, 'nms_top_k': 300, 'nms_pos_k': 300, 'valid_thresh': 0.01, 'nms_thresh': 0.45, 'image_distort_strategy': {'expand_prob': 0.5, 'expand_max_ratio': 4, 'hue_prob': 0.5, 'hue_delta': 18, 'contrast_prob': 0.5, 'contrast_delta': 0.5, 'saturation_prob': 0.5, 'saturation_delta': 0.5, 'brightness_prob': 0.5, 'brightness_delta': 0.125}, 'sgd_strategy': {'learning_rate': 0.002, 'lr_epochs': [30, 50, 65], 'lr_decay': [1, 0.5, 0.25, 0.1]}, 'early_stop': {'sample_frequency': 50, 'successive_limit': 3, 'min_loss': 2.5, 'min_curr_map': 0.84}}
+2020-06-16 20:41:18,458 - <ipython-input-2-65d3e6ff24bf>[line:815] - INFO: Build network and program
+2020-06-16 20:41:18,550 - <ipython-input-2-65d3e6ff24bf>[line:711] - INFO: origin learning rate: 0.002 boundaries: [360, 600, 780]  values: [0.002, 0.001, 0.0005, 0.0002]
+2020-06-16 20:41:22,622 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:0, start read image.
+2020-06-16 20:41:31,853 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 0, trainbatch 0, loss 690.387939453125, time 1.59 sec
+2020-06-16 20:43:09,132 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 0 train result, current pass mean loss: 366.6093940734863
+2020-06-16 20:43:09,132 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:1, start read image.
+2020-06-16 20:43:17,443 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 1, trainbatch 0, loss 140.00189208984375, time 0.07 sec
+2020-06-16 20:44:55,399 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 1 train result, current pass mean loss: 113.70502535502116
+2020-06-16 20:44:55,399 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:2, start read image.
+2020-06-16 20:45:03,445 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 2, trainbatch 0, loss 77.13558959960938, time 0.06 sec
+2020-06-16 20:46:40,845 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 2 train result, current pass mean loss: 74.83065923055013
+2020-06-16 20:46:40,846 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:3, start read image.
+2020-06-16 20:46:50,440 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 3, trainbatch 0, loss 51.73301315307617, time 0.06 sec
+2020-06-16 20:48:37,054 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 3 train result, current pass mean loss: 61.60427697499593
+2020-06-16 20:48:37,054 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:4, start read image.
+2020-06-16 20:48:46,039 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 4, trainbatch 0, loss 51.44090270996094, time 0.06 sec
+2020-06-16 20:50:25,035 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 4 train result, current pass mean loss: 54.40655326843262
+2020-06-16 20:50:25,036 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:5, start read image.
+2020-06-16 20:50:34,960 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 5, trainbatch 0, loss 48.303871154785156, time 0.06 sec
+2020-06-16 20:52:10,684 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 5 train result, current pass mean loss: 52.459864934285484
+2020-06-16 20:52:10,684 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:6, start read image.
+2020-06-16 20:52:17,997 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 6, trainbatch 0, loss 49.78290557861328, time 0.06 sec
+2020-06-16 20:53:50,442 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 6 train result, current pass mean loss: 50.959876696268715
+2020-06-16 20:53:50,443 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:7, start read image.
+2020-06-16 20:53:57,069 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 7, trainbatch 0, loss 45.28890609741211, time 0.08 sec
+2020-06-16 20:55:36,029 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 7 train result, current pass mean loss: 48.7476011912028
+2020-06-16 20:55:36,030 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:8, start read image.
+2020-06-16 20:55:46,318 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 8, trainbatch 0, loss 45.45555114746094, time 0.06 sec
+2020-06-16 20:57:32,750 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 8 train result, current pass mean loss: 47.75565656026205
+2020-06-16 20:57:32,751 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:9, start read image.
+2020-06-16 20:57:39,562 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 9, trainbatch 0, loss 39.0416145324707, time 0.07 sec
+2020-06-16 20:59:20,444 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 9 train result, current pass mean loss: 46.41966183980306
+2020-06-16 20:59:20,445 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:10, start read image.
+2020-06-16 20:59:28,172 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 10, trainbatch 0, loss 38.791107177734375, time 0.06 sec
+2020-06-16 21:01:05,379 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 10 train result, current pass mean loss: 46.06450684865316
+2020-06-16 21:01:05,379 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:11, start read image.
+2020-06-16 21:01:13,373 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 11, trainbatch 0, loss 48.46790313720703, time 0.06 sec
+2020-06-16 21:02:55,285 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 11 train result, current pass mean loss: 47.62600326538086
+2020-06-16 21:02:55,286 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:12, start read image.
+2020-06-16 21:03:04,404 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 12, trainbatch 0, loss 36.021949768066406, time 0.06 sec
+2020-06-16 21:04:38,155 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 12 train result, current pass mean loss: 43.70398743947347
+2020-06-16 21:04:38,156 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:13, start read image.
+2020-06-16 21:04:46,034 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 13, trainbatch 0, loss 42.58872985839844, time 0.07 sec
+2020-06-16 21:06:15,480 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 13 train result, current pass mean loss: 46.13351917266846
+2020-06-16 21:06:15,480 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:14, start read image.
+2020-06-16 21:06:24,331 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 14, trainbatch 0, loss 39.89265441894531, time 0.07 sec
+2020-06-16 21:08:06,665 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 14 train result, current pass mean loss: 44.49177805582682
+2020-06-16 21:08:06,666 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:15, start read image.
+2020-06-16 21:08:13,786 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 15, trainbatch 0, loss 37.79404830932617, time 0.06 sec
+2020-06-16 21:09:51,308 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 15 train result, current pass mean loss: 43.24064636230469
+2020-06-16 21:09:51,308 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:16, start read image.
+2020-06-16 21:09:57,644 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 16, trainbatch 0, loss 40.594539642333984, time 0.06 sec
+2020-06-16 21:11:33,980 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 16 train result, current pass mean loss: 43.16956170399984
+2020-06-16 21:11:33,981 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:17, start read image.
+2020-06-16 21:11:44,704 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 17, trainbatch 0, loss 36.473846435546875, time 0.07 sec
+2020-06-16 21:13:17,975 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 17 train result, current pass mean loss: 42.77647177378336
+2020-06-16 21:13:17,976 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:18, start read image.
+2020-06-16 21:13:25,604 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 18, trainbatch 0, loss 48.04975128173828, time 0.06 sec
+2020-06-16 21:15:06,323 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 18 train result, current pass mean loss: 42.42712434132894
+2020-06-16 21:15:06,324 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:19, start read image.
+2020-06-16 21:15:13,611 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 19, trainbatch 0, loss 37.565513610839844, time 0.07 sec
+2020-06-16 21:16:52,707 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 19 train result, current pass mean loss: 42.96219380696615
+2020-06-16 21:16:52,707 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:20, start read image.
+2020-06-16 21:16:59,918 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 20, trainbatch 0, loss 39.19153594970703, time 0.06 sec
+2020-06-16 21:18:41,445 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 20 train result, current pass mean loss: 41.298645655314125
+2020-06-16 21:18:41,446 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:21, start read image.
+2020-06-16 21:18:50,309 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 21, trainbatch 0, loss 35.23741912841797, time 0.06 sec
+2020-06-16 21:20:38,357 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 21 train result, current pass mean loss: 39.917458057403564
+2020-06-16 21:20:38,358 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:22, start read image.
+2020-06-16 21:20:44,428 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 22, trainbatch 0, loss 36.897216796875, time 0.06 sec
+2020-06-16 21:22:20,357 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 22 train result, current pass mean loss: 39.73553339640299
+2020-06-16 21:22:20,358 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:23, start read image.
+2020-06-16 21:22:28,090 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 23, trainbatch 0, loss 37.4665412902832, time 0.07 sec
+2020-06-16 21:24:11,936 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 23 train result, current pass mean loss: 40.37073230743408
+2020-06-16 21:24:11,936 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:24, start read image.
+2020-06-16 21:24:23,327 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 24, trainbatch 0, loss 39.09095764160156, time 0.06 sec
+2020-06-16 21:25:57,085 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 24 train result, current pass mean loss: 39.08046913146973
+2020-06-16 21:25:57,086 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:25, start read image.
+2020-06-16 21:26:04,472 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 25, trainbatch 0, loss 34.14231872558594, time 0.08 sec
+2020-06-16 21:27:46,059 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 25 train result, current pass mean loss: 39.183478037516274
+2020-06-16 21:27:46,060 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:26, start read image.
+2020-06-16 21:27:53,393 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 26, trainbatch 0, loss 36.13037109375, time 0.06 sec
+2020-06-16 21:29:36,995 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 26 train result, current pass mean loss: 38.921664555867515
+2020-06-16 21:29:36,995 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:27, start read image.
+2020-06-16 21:29:47,178 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 27, trainbatch 0, loss 30.677108764648438, time 0.07 sec
+2020-06-16 21:31:23,756 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 27 train result, current pass mean loss: 35.955066521962486
+2020-06-16 21:31:23,756 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:28, start read image.
+2020-06-16 21:31:30,154 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 28, trainbatch 0, loss 34.77339553833008, time 0.07 sec
+2020-06-16 21:33:05,227 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 28 train result, current pass mean loss: 37.88497813542684
+2020-06-16 21:33:05,227 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:29, start read image.
+2020-06-16 21:33:13,094 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 29, trainbatch 0, loss 33.07004165649414, time 0.06 sec
+2020-06-16 21:34:46,010 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 29 train result, current pass mean loss: 35.49131552378336
+2020-06-16 21:34:46,010 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:30, start read image.
+2020-06-16 21:34:53,894 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 30, trainbatch 0, loss 32.76003646850586, time 0.06 sec
+2020-06-16 21:36:31,609 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 30 train result, current pass mean loss: 37.14251152674357
+2020-06-16 21:36:31,610 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:31, start read image.
+2020-06-16 21:36:40,782 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 31, trainbatch 0, loss 30.512723922729492, time 0.07 sec
+2020-06-16 21:38:17,848 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 31 train result, current pass mean loss: 37.43889554341634
+2020-06-16 21:38:17,849 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:32, start read image.
+2020-06-16 21:38:25,908 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 32, trainbatch 0, loss 31.178613662719727, time 0.06 sec
+2020-06-16 21:39:59,635 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 32 train result, current pass mean loss: 36.74651368459066
+2020-06-16 21:39:59,635 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:33, start read image.
+2020-06-16 21:40:09,091 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 33, trainbatch 0, loss 41.71448516845703, time 0.06 sec
+2020-06-16 21:41:40,920 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 33 train result, current pass mean loss: 37.552624543507896
+2020-06-16 21:41:40,921 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:34, start read image.
+2020-06-16 21:41:50,946 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 34, trainbatch 0, loss 35.59196472167969, time 0.07 sec
+2020-06-16 21:43:34,229 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 34 train result, current pass mean loss: 36.33813603719076
+2020-06-16 21:43:34,229 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:35, start read image.
+2020-06-16 21:43:41,751 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 35, trainbatch 0, loss 37.62360382080078, time 0.07 sec
+2020-06-16 21:45:23,681 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 35 train result, current pass mean loss: 36.98319403330485
+2020-06-16 21:45:23,682 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:36, start read image.
+2020-06-16 21:45:31,395 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 36, trainbatch 0, loss 30.79753875732422, time 0.08 sec
+2020-06-16 21:47:17,225 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 36 train result, current pass mean loss: 36.622081915537514
+2020-06-16 21:47:17,226 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:37, start read image.
+2020-06-16 21:47:26,271 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 37, trainbatch 0, loss 36.148380279541016, time 0.08 sec
+2020-06-16 21:49:01,471 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 37 train result, current pass mean loss: 36.34553019205729
+2020-06-16 21:49:01,472 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:38, start read image.
+2020-06-16 21:49:09,311 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 38, trainbatch 0, loss 31.526927947998047, time 0.06 sec
+2020-06-16 21:50:46,710 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 38 train result, current pass mean loss: 36.35521284739176
+2020-06-16 21:50:46,710 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:39, start read image.
+2020-06-16 21:50:56,153 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 39, trainbatch 0, loss 33.494972229003906, time 0.06 sec
+2020-06-16 21:52:40,265 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 39 train result, current pass mean loss: 37.193550268809
+2020-06-16 21:52:40,266 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:40, start read image.
+2020-06-16 21:52:50,167 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 40, trainbatch 0, loss 29.542566299438477, time 0.07 sec
+2020-06-16 21:54:32,150 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 40 train result, current pass mean loss: 35.442094008127846
+2020-06-16 21:54:32,150 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:41, start read image.
+2020-06-16 21:54:40,854 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 41, trainbatch 0, loss 30.32315444946289, time 0.06 sec
+2020-06-16 21:56:27,045 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 41 train result, current pass mean loss: 34.907105127970375
+2020-06-16 21:56:27,045 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:42, start read image.
+2020-06-16 21:56:34,783 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 42, trainbatch 0, loss 32.28002166748047, time 0.06 sec
+2020-06-16 21:58:15,274 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 42 train result, current pass mean loss: 34.86604483922323
+2020-06-16 21:58:15,274 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:43, start read image.
+2020-06-16 21:58:22,331 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 43, trainbatch 0, loss 34.534912109375, time 0.07 sec
+2020-06-16 21:59:54,318 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 43 train result, current pass mean loss: 35.704848766326904
+2020-06-16 21:59:54,319 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:44, start read image.
+2020-06-16 22:00:03,125 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 44, trainbatch 0, loss 34.540557861328125, time 0.06 sec
+2020-06-16 22:01:40,787 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 44 train result, current pass mean loss: 35.5610785484314
+2020-06-16 22:01:40,788 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:45, start read image.
+2020-06-16 22:01:49,556 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 45, trainbatch 0, loss 32.595359802246094, time 0.06 sec
+2020-06-16 22:03:30,064 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 45 train result, current pass mean loss: 35.23866287867228
+2020-06-16 22:03:30,065 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:46, start read image.
+2020-06-16 22:03:42,614 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 46, trainbatch 0, loss 34.462890625, time 0.07 sec
+2020-06-16 22:05:20,130 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 46 train result, current pass mean loss: 34.9287215868632
+2020-06-16 22:05:20,130 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:47, start read image.
+2020-06-16 22:05:30,830 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 47, trainbatch 0, loss 28.67029571533203, time 0.06 sec
+2020-06-16 22:07:06,295 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 47 train result, current pass mean loss: 33.82880655924479
+2020-06-16 22:07:06,296 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:48, start read image.
+2020-06-16 22:07:13,651 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 48, trainbatch 0, loss 38.04042053222656, time 0.07 sec
+2020-06-16 22:08:55,432 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 48 train result, current pass mean loss: 34.70932547251383
+2020-06-16 22:08:55,432 - <ipython-input-2-65d3e6ff24bf>[line:848] - INFO: Current pass:49, start read image.
+2020-06-16 22:09:03,086 - <ipython-input-2-65d3e6ff24bf>[line:865] - INFO: pass 49, trainbatch 0, loss 31.60092544555664, time 0.06 sec
+2020-06-16 22:10:37,259 - <ipython-input-2-65d3e6ff24bf>[line:869] - INFO: pass 49 train result, current pass mean loss: 34.979092597961426
+2020-06-16 22:10:37,259 - <ipython-input-2-65d3e6ff24bf>[line:877] - INFO: trainning till last epoch, end trainning.
