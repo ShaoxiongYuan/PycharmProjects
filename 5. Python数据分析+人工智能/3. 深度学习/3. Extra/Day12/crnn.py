@@ -1,12 +1,23 @@
-# -*- coding: UTF-8 -*-
+"""
+OCR CRNN模型
+"""
 # 预处理数据，将其转化为标准格式。同时将数据拆分成两份，以便训练和计算预估准确率
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-import codecs
-import os
-import random
 import shutil
+import os
+import numpy as np
+import random
+import time
+import codecs
+import math
+import paddle
+import paddle.fluid as fluid
+from PIL import Image, ImageEnhance
+import matplotlib.pyplot as plt
+import logging
+import six
 
 train_ratio = 9 / 10  # 训练集大小
 all_file_dir = "../data/word-recognition"  # 数据文件路径
@@ -59,7 +70,6 @@ with codecs.open(os.path.join(all_file_dir, "label_list.txt"), "w") as label_lis
 """
 训练常基于crnn-ctc的网络，文字行识别
 """
-import logging
 
 logger = None
 train_params = {
@@ -74,11 +84,11 @@ train_params = {
     "label_dict": {},  # 标签字典
     "image_count": -1,
     "continue_train": False,
-    "pretrained": True,  # 预训练
-    "pretrained_model_dir": "../data/pretrained-model",  # 预训练模型目录
+    "pretrained": False,  # 预训练
+    "pretrained_model_dir": "../data/word-recognition/pretrained-model",  # 预训练模型目录
     "save_model_dir": "./crnn-model",  # 模型保存目录
-    "num_epochs": 400,  # 训练轮次
-    "train_batch_size": 256,  # 训练批次大小
+    "num_epochs": 50,  # 训练轮次
+    "train_batch_size": 10,  # 训练批次大小
     "use_gpu": False,  # 是否使用gpu
     "ignore_thresh": 0.7,  # 阈值
     "mean_color": 127.5,  #
@@ -646,11 +656,6 @@ def train():
 if __name__ == '__main__':
     train()
 
-import os
-import six
-import codecs
-from paddle.fluid import core
-
 # 读取 label_list.txt 文件获取类别数量
 class_dim = -1
 all_file_dir = "../data/word-recognition"
@@ -713,49 +718,27 @@ class CRNN(object):
             gradient_clip=gradient_clip,
             initializer=fluid.initializer.Normal(0.0, 0.01))
         tmp = input
-        tmp = self.conv_bn_pool(
-            tmp,
-            2, [16, 16],
-            param=w1,
-            bias=b,
-            param_0=w0,
-            is_test=is_test,
-            use_cudnn=use_cudnn)
 
-        tmp = self.conv_bn_pool(
-            tmp,
-            2, [32, 32],
-            param=w1,
-            bias=b,
-            is_test=is_test,
-            use_cudnn=use_cudnn)
-        tmp = self.conv_bn_pool(
-            tmp,
-            2, [64, 64],
-            param=w1,
-            bias=b,
-            is_test=is_test,
-            use_cudnn=use_cudnn)
-        tmp = self.conv_bn_pool(
-            tmp,
-            2, [128, 128],
-            param=w1,
-            bias=b,
-            is_test=is_test,
-            pooling=False,
-            use_cudnn=use_cudnn)
+        tmp = self.conv_bn_pool(tmp, 2, [16, 16], param=w1, bias=b, param_0=w0, is_test=is_test,
+                                use_cudnn=use_cudnn)
+
+        tmp = self.conv_bn_pool(tmp, 2, [32, 32], param=w1, bias=b, is_test=is_test, use_cudnn=use_cudnn)
+
+        tmp = self.conv_bn_pool(tmp, 2, [64, 64], param=w1, bias=b, is_test=is_test, use_cudnn=use_cudnn)
+
+        tmp = self.conv_bn_pool(tmp, 2, [128, 128], param=w1, bias=b, is_test=is_test, pooling=False,
+                                use_cudnn=use_cudnn)
         return tmp
 
     def net(self, images, rnn_hidden_size=200, regularizer=None, gradient_clip=None,
             is_test=False, use_cudnn=False):
-        conv_features = self.ocr_convs(images, regularizer=regularizer,
-                                       gradient_clip=gradient_clip,
+        conv_features = self.ocr_convs(images, regularizer=regularizer, gradient_clip=gradient_clip,
                                        is_test=is_test, use_cudnn=use_cudnn)
 
         sliced_feature = fluid.layers.im2sequence(input=conv_features, stride=[1, 1],
                                                   filter_size=[conv_features.shape[2], 1])
 
-        para_attr = fluid.ParamAttr(
+        param_attr = fluid.ParamAttr(
             regularizer=regularizer,
             gradient_clip=gradient_clip,
             initializer=fluid.initializer.Normal(0.0, 0.02))
@@ -770,24 +753,24 @@ class CRNN(object):
 
         fc_1 = fluid.layers.fc(input=sliced_feature,
                                size=rnn_hidden_size * 3,
-                               param_attr=para_attr,
+                               param_attr=param_attr,
                                bias_attr=bias_attr_nobias)
         fc_2 = fluid.layers.fc(input=sliced_feature,
                                size=rnn_hidden_size * 3,
-                               param_attr=para_attr,
+                               param_attr=param_attr,
                                bias_attr=bias_attr_nobias)
 
         gru_forward = fluid.layers.dynamic_gru(
             input=fc_1,
             size=rnn_hidden_size,
-            param_attr=para_attr,
+            param_attr=param_attr,
             bias_attr=bias_attr,
             candidate_activation='relu')
         gru_backward = fluid.layers.dynamic_gru(
             input=fc_2,
             size=rnn_hidden_size,
             is_reverse=True,
-            param_attr=para_attr,
+            param_attr=param_attr,
             bias_attr=bias_attr,
             candidate_activation='relu')
 
@@ -837,17 +820,6 @@ def freeze_model():
 if __name__ == '__main__':
     freeze_model()
 
-import os
-import numpy as np
-import random
-import time
-import codecs
-import math
-import paddle
-import paddle.fluid as fluid
-from PIL import Image, ImageEnhance
-import matplotlib.pyplot as plt
-
 target_size = [1, 48, 512]
 mean_rgb = 127.5
 data_dir = '../data/word-recognition'
@@ -861,8 +833,8 @@ place = fluid.CPUPlace()
 exe = fluid.Executor(place)
 
 # 加载模型
-[inference_program, feed_target_names, fetch_targets] = \
-    fluid.io.load_inference_model(dirname=save_freeze_dir, executor=exe)
+inference_program, feed_target_names, fetch_targets = fluid.io.load_inference_model(dirname=save_freeze_dir,
+                                                                                    executor=exe)
 
 
 # print(fetch_targets)
@@ -937,10 +909,8 @@ def infer(image_path):
     """
     tensor_img = read_image(image_path)
 
-    label = exe.run(inference_program,
-                    feed={feed_target_names[0]: tensor_img},
-                    fetch_list=fetch_targets,
-                    return_numpy=False)
+    label = exe.run(inference_program, feed={feed_target_names[0]: tensor_img},
+                    fetch_list=fetch_targets, return_numpy=False)
     label = np.array(label[0])
     ret = ""
     if label[0] != -1:
@@ -953,9 +923,9 @@ def eval_all():
     评估所有
     :return:
     """
-    eval_file_path = os.path.join(data_dir, eval_file)  # 评估文件路径
-    total_count = 0
-    right_count = 0
+    # eval_file_path = os.path.join(data_dir, eval_file)  # 评估文件路径
+    # total_count = 0
+    # right_count = 0
 
     # with codecs.open(eval_file_path, encoding='utf-8') as flist:
     #     lines = [line.strip() for line in flist]
