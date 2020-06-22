@@ -5,6 +5,7 @@ import time
 import csv
 import re
 
+
 # 搜索商品，获取商品页码
 def search_product(key_word):
     # 定位输入框
@@ -18,8 +19,9 @@ def search_product(key_word):
     # 定位这个“页码”，获取“共100页这个文本”
     page_info = browser.find_element_by_xpath('//div[@class="total"]').text
     # 需要注意的是：findall()返回的是一个列表，虽然此时只有一个元素它也是一个列表。
-    page = re.findall("(\d+)",page_info)[0]
+    page = re.findall("(\d+)", page_info)[0]
     return page
+
 
 # 获取数据
 def get_data():
@@ -36,10 +38,11 @@ def get_data():
         shop = item.find_element_by_xpath('.//div[@class="shop"]/a').text
         # 发货地
         address = item.find_element_by_xpath('.//div[@class="location"]').text
-        #print(pro_desc, pro_price, buy_num, shop, address)
+        # print(pro_desc, pro_price, buy_num, shop, address)
         with open('{}.csv'.format(key_word), mode='a', newline='', encoding='utf-8-sig') as f:
             csv_writer = csv.writer(f, delimiter=',')
             csv_writer.writerow([pro_desc, pro_price, buy_num, shop, address])
+
 
 def main():
     browser.get('https://www.taobao.com/')
@@ -50,11 +53,12 @@ def main():
     while int(page) != page_num:
         print("*" * 100)
         print("正在爬取第{}页".format(page_num + 1))
-        browser.get('https://s.taobao.com/search?q={}&s={}'.format(key_word, page_num*44))
+        browser.get('https://s.taobao.com/search?q={}&s={}'.format(key_word, page_num * 44))
         browser.implicitly_wait(15)
         get_data()
         page_num += 1
     print("数据爬取完毕！")
+
 
 if __name__ == '__main__':
     key_word = "粽子"
