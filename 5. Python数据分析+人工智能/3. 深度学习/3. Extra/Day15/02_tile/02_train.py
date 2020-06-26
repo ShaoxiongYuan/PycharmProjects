@@ -1,4 +1,3 @@
-# 人脸(水果)识别示例：训练
 import paddle
 import paddle.fluid as fluid
 import os
@@ -44,7 +43,6 @@ def train_r(train_list, buffered_size=BUF_SIZE):
                 img_path, lab = line.strip().split("\t")
                 if not os.path.exists(img_path):  # 图片可能空白太多被移走
                     continue
-                # print(img_path, ":", int(lab))
                 yield img_path, int(lab)
 
     return paddle.reader.xmap_readers(train_mapper, reader, cpu_count(), buffered_size)
@@ -66,11 +64,10 @@ def test_mapper(sample):
 def test_r(test_list, buffered_size=BUF_SIZE):
     def reader():
         with open(test_list, "r") as f:
-            # 将train.list里面的标签和图片放到一个list列表中，中间用\t隔开
             lines = [line.strip() for line in f]
             for line in lines:
                 img_path, lab = line.strip().split("\t")
-                if not os.path.exists(img_path):  # 图片可能空白太多被移走
+                if not os.path.exists(img_path):
                     print("图片不存在:", img_path)
                     continue
                 yield img_path, int(lab)
@@ -103,14 +100,13 @@ init_log_config()  # 初始化日期工具
 print("开始执行:", time.time())
 
 trainer_reader = train_r(train_list=train_file_path)
-train_batch_reader = paddle.batch(paddle.reader.shuffle(reader=trainer_reader, buf_size=BUF_SIZE),  # buf_size=300
+train_batch_reader = paddle.batch(paddle.reader.shuffle(reader=trainer_reader, buf_size=BUF_SIZE),
                                   batch_size=BATCH_SIZE)
 
 tester_reader = test_r(test_list=test_file_path)
 test_batch_reader = paddle.batch(tester_reader, batch_size=BATCH_SIZE)
 
-image = fluid.layers.data(name="image", shape=[3, train_img_size, train_img_size],
-                          dtype="float32")  # [3, 400, 400]表示三通道RGB图像
+image = fluid.layers.data(name="image", shape=[3, train_img_size, train_img_size], dtype="float32")
 label = fluid.layers.data(name="label", shape=[1], dtype="int64")
 print("image_shape:", image.shape)
 
@@ -119,12 +115,12 @@ print("image_shape:", image.shape)
 # 输入层 --> 卷积/池化/dropout --> 卷积/池化/dropout --> 卷积/池化/dropout --> 全连接 --> dropout --> 输出层
 def convolution_neural_network(image, type_size):
     # 第一个卷积-池化层
-    conv_pool_1 = fluid.nets.simple_img_conv_pool(input=image,  # 输入image
-                                                  filter_size=3,  # 滤波器大小
-                                                  num_filters=32,  # filter数量，与输出通道相同
-                                                  pool_size=2,  # 池化层大小2*2
-                                                  pool_stride=2,  # 池化层步长
-                                                  act="relu")  # 激活函数
+    conv_pool_1 = fluid.nets.simple_img_conv_pool(input=image,
+                                                  filter_size=3,
+                                                  num_filters=32,
+                                                  pool_size=2,
+                                                  pool_stride=2,
+                                                  act="relu")
 
     # Dropout主要作用是减少过拟合，随机让某些权重不更新
     drop = fluid.layers.dropout(x=conv_pool_1, dropout_prob=0.5)
@@ -160,15 +156,15 @@ def convolution_neural_network(image, type_size):
 # 搭建VGG网络
 def vgg_bn_drop(image, type_size):
     def conv_block(ipt, num_filter, groups, dropouts):
-        return fluid.nets.img_conv_group(input=ipt,  # 具有[N，C，H，W]格式的输入图像
+        return fluid.nets.img_conv_group(input=ipt,
                                          pool_size=2,
                                          pool_stride=2,
-                                         conv_num_filter=[num_filter] * groups,  # 过滤器个数
-                                         conv_filter_size=3,  # 过滤器大小
+                                         conv_num_filter=[num_filter] * groups,
+                                         conv_filter_size=3,
                                          conv_act='relu',
-                                         conv_with_batchnorm=True,  # 表示在 Conv2d Layer 之后是否使用 BatchNorm
-                                         conv_batchnorm_drop_rate=dropouts,  # 表示 BatchNorm 之后的 Dropout Layer 的丢弃概率
-                                         pool_type='max')  # 最大池化
+                                         conv_with_batchnorm=True,
+                                         conv_batchnorm_drop_rate=dropouts,
+                                         pool_type='max')
 
     conv1 = conv_block(image, 64, 2, [0.0, 0])
     conv2 = conv_block(conv1, 128, 2, [0.0, 0])
