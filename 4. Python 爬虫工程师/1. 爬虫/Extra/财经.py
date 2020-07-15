@@ -53,5 +53,3 @@ class CaijingSpider:
 if __name__ == '__main__':
     spider = CaijingSpider()
     spider.run()
-
-html = """<div class=TRS_Editor>(.*)。.*?责任编辑："""

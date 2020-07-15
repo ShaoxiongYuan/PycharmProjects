@@ -1,11 +1,8 @@
 import requests
 import re
-import time
-import random
-import pymysql
 
 
-class MaoyanSpider:
+class PHSpider:
     def __init__(self):
         self.url = 'https://www.pornhub.com/'
         self.headers = {
@@ -35,5 +32,5 @@ class MaoyanSpider:
 
 
 if __name__ == '__main__':
-    spider = MaoyanSpider()
+    spider = PHSpider()
     spider.run()
