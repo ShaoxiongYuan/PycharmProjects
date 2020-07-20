@@ -1,3 +1,4 @@
+import time
 import requests
 import re
 
@@ -8,6 +9,7 @@ class SoftwareSpider:
         self.headers = {
             'User-Agent': 'Mozilla/5.0'
         }
+        self.f = open('software.txt', 'a', encoding='utf-8')
 
     def get_html(self, url):
         html = requests.get(url=url, headers=self.headers).text
@@ -20,18 +22,34 @@ class SoftwareSpider:
 
     def get_data(self, url):
         html = self.get_html(url)
-        pattern = r'<a href="(.*?)" rel="bookmark">(.*?)</a></h3>'
+        pattern = r'<h3 class="entry-title"><a href="(.*?)" rel="bookmark">(.*?)</a></h3>'
         res = self.parse_html(html, pattern)
         for item in res:
-            with open('software.txt', 'a', encoding='utf=8') as f:
-                f.write(item[1] + '\n')
-                print(item[1])
+            print(item[1])
+            self.get_data_2(item[0], item[1])
+
+    def get_data_2(self, url, item):
+        html = self.get_html(url)
+        try:
+            pattern = r'<p><strong><a.*?href="(.*?)" target="_blank".*?</a></strong>'
+            res = self.parse_html(html, pattern)
+            self.f.write(item + '\nDownload Link: ' + res[0] + '\n' + '*' * 50 + '\n')
+        except IndexError:
+            try:
+                pattern = r'<p><a.*?href="(.*?)" target="_blank".*?</strong></a>'
+                res = self.parse_html(html, pattern)
+                self.f.write(item + '\nDownload Link: ' + res[0] + '\n' + '*' * 50 + '\n')
+            except IndexError:
+                pass
+        time.sleep(1)
 
     def run(self):
-        for i in range(1, 324):
+        for i in range(1, 325):
             self.get_data(self.url.format(i))
             print('*' * 50)
             print('第%d页爬取完毕。' % i)
+            time.sleep(1)
+        self.f.close()
 
 
 if __name__ == '__main__':
