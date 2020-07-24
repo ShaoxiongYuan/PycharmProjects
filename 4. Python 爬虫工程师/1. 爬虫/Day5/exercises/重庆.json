@@ -1,0 +1,618 @@
+[
+    {
+        "rownum": 1,
+        "storeName": "民权",
+        "addressDetail": "重庆民权路1号",
+        "pro": "24小时,Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 2,
+        "storeName": "金观音",
+        "addressDetail": "建新西路2号特2金观音广场一楼",
+        "pro": "礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 3,
+        "storeName": "华宇",
+        "addressDetail": "小龙坎新街29号",
+        "pro": "Wi-Fi,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 4,
+        "storeName": "易家坝",
+        "addressDetail": "广场路19号城市广场（博宇大厦）1F&2F",
+        "pro": "24小时,Wi-Fi,店内参观,礼品卡,生日餐会,手机点餐",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 5,
+        "storeName": "大礼堂",
+        "addressDetail": "人民路135-175号",
+        "pro": "Wi-Fi,点唱机,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 6,
+        "storeName": "斌鑫世纪城",
+        "addressDetail": "杨家坪商业步行街斌鑫世纪城F101-F201（18523837639）",
+        "pro": "24小时,Wi-Fi,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 7,
+        "storeName": "九龙广场",
+        "addressDetail": "九龙广场九龙坡购物广场一楼68789848",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 8,
+        "storeName": "三角碑",
+        "addressDetail": "小龙坎新街49号王府井百货1、2层",
+        "pro": "24小时,Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 9,
+        "storeName": "元旦",
+        "addressDetail": "南坪惠工路13号元旦百货1楼",
+        "pro": "24小时,Wi-Fi,点唱机,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 10,
+        "storeName": "缙麓",
+        "addressDetail": "重庆北碚区天生新村63号缙麓商都A栋1-2层",
+        "pro": "24小时,Wi-Fi,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 11,
+        "storeName": "国瑞",
+        "addressDetail": "大渡口松青路1029号国瑞城一层",
+        "pro": "24小时,Wi-Fi,点唱机,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 12,
+        "storeName": "西城天街",
+        "addressDetail": "杨家坪珠江路48号西城天街购物广场LG13-2",
+        "pro": "Wi-Fi,店内参观,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 13,
+        "storeName": "观音桥",
+        "addressDetail": "渝北二村一支路6号新世界百货一楼",
+        "pro": "24小时,Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 14,
+        "storeName": "易诚",
+        "addressDetail": "凤天路29号肯德基易诚餐厅",
+        "pro": "Wi-Fi,点唱机,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 15,
+        "storeName": "东和",
+        "addressDetail": "观音桥北城天街上段33号，东和城B2栋二层",
+        "pro": "店内参观",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 16,
+        "storeName": "地王",
+        "addressDetail": "民族路166号地王广场2F",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 17,
+        "storeName": "袁家岗",
+        "addressDetail": "九龙坡袁家岗奥体路1号",
+        "pro": "24小时,Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 18,
+        "storeName": "万达广场",
+        "addressDetail": "南坪万达商业广场一层",
+        "pro": "24小时,Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 19,
+        "storeName": "上海城",
+        "addressDetail": "南坪西路上海城一层",
+        "pro": "24小时,Wi-Fi,点唱机,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 20,
+        "storeName": "万州",
+        "addressDetail": "太白路99号三峡福斯德广场地下一层",
+        "pro": "Wi-Fi,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 21,
+        "storeName": "石桥铺",
+        "addressDetail": "石桥铺科园一路大西洋国际大厦二楼",
+        "pro": "Wi-Fi,店内参观,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 22,
+        "storeName": "重庆机场",
+        "addressDetail": "重庆机场T2航站楼一楼国内到达1号门",
+        "pro": "24小时,点唱机,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 23,
+        "storeName": "永川",
+        "addressDetail": "渝西大道沃尔玛旁",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 24,
+        "storeName": "龙头寺汽车站",
+        "addressDetail": "泰山大道中段龙头寺汽车站",
+        "pro": "Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 25,
+        "storeName": "得意世界",
+        "addressDetail": "较场口87号B区一楼1号一层",
+        "pro": "Wi-Fi,店内参观,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 26,
+        "storeName": "雄风",
+        "addressDetail": "重庆北碚区嘉陵风情街33号1-1号一层",
+        "pro": "24小时,Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 27,
+        "storeName": "黔江",
+        "addressDetail": "解放路大十字购物广场一、二层",
+        "pro": "24小时,Wi-Fi,点唱机,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 28,
+        "storeName": "较场口",
+        "addressDetail": "民权路89号、89号附1号日月光中心B1层",
+        "pro": "Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 29,
+        "storeName": "北城天街",
+        "addressDetail": "洋河路6、8号北城天街4号LG层",
+        "pro": "Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 30,
+        "storeName": "李家沱",
+        "addressDetail": "Tel 023-86537317 李家沱林荫村18号1-1都和广场一、二层",
+        "pro": "Wi-Fi,点唱机,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 31,
+        "storeName": "星湖路",
+        "addressDetail": "高新园星湖路3号劲力五星城二期负一层",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 32,
+        "storeName": "綦江",
+        "addressDetail": "九龙大道47号凯旋名城裙楼一、二层",
+        "pro": "Wi-Fi,点唱机,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 33,
+        "storeName": "金开大道餐厅",
+        "addressDetail": "渝北区金开大道68号协信星光天地一层肯德基",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 34,
+        "storeName": "时代天街（电话023-88599358）",
+        "addressDetail": "石油路大坪正街174号  时代天街A馆",
+        "pro": "Wi-Fi,点唱机,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 35,
+        "storeName": "万州万达",
+        "addressDetail": "万州区北滨大道万达广场一号门1002商铺",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 36,
+        "storeName": "合川海润",
+        "addressDetail": "交通街东侧（原体育场）大润发超市一层",
+        "pro": "Wi-Fi,点唱机,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 37,
+        "storeName": "渝能DT",
+        "addressDetail": "学府大道51号“渝能国际”",
+        "pro": "店内参观",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 38,
+        "storeName": "茂业",
+        "addressDetail": "建新北路16号G-1层",
+        "pro": "Wi-Fi,店内参观,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 39,
+        "storeName": "鱼洞 ",
+        "addressDetail": "重庆鱼洞新市街80号商社汇1-2层",
+        "pro": "Wi-Fi,点唱机,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 40,
+        "storeName": "长寿桃花新城",
+        "addressDetail": "桃源东路4号1幢1-85A，2-54号一、二层",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 41,
+        "storeName": "大足印象",
+        "addressDetail": "龙岗办事处龙中路89号一层、二层",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 42,
+        "storeName": "重庆万象城餐厅",
+        "addressDetail": "重庆谢家湾正街55号华润中心万象城A座LG层和L1层",
+        "pro": "Wi-Fi,店内参观,礼品卡,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 43,
+        "storeName": "东和餐厅",
+        "addressDetail": "江北区北城天街33号5幢1-2层",
+        "pro": "Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 44,
+        "storeName": "重庆火车北站南广场",
+        "addressDetail": "火车北站南广场负一层27号",
+        "pro": "Wi-Fi,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 45,
+        "storeName": "巴南万达",
+        "addressDetail": "龙海大道297号万达广场1A007号商铺",
+        "pro": "Wi-Fi,店内参观,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 46,
+        "storeName": "大学城熙街",
+        "addressDetail": "景苑路8号附15号（四川美术学院彩云梯斜对面）",
+        "pro": "Wi-Fi,点唱机,店内参观,礼品卡",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 47,
+        "storeName": "北广场",
+        "addressDetail": "火车北站商业夹层JB02号",
+        "pro": "Wi-Fi,点唱机",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 48,
+        "storeName": "永川万达",
+        "addressDetail": "星光大道789号",
+        "pro": "Wi-Fi,点唱机,店内参观",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 49,
+        "storeName": "酉阳",
+        "addressDetail": "酉阳县桃花源中路碧津广场佳惠华盛堂",
+        "pro": "Wi-Fi,店内参观,精选店,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 50,
+        "storeName": "融信",
+        "addressDetail": "渝碚路50号",
+        "pro": "Wi-Fi",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 51,
+        "storeName": "红星",
+        "addressDetail": "重庆两江新区金开大道1003号爱情海购物公园负一层肯德基",
+        "pro": "Wi-Fi,点唱机,店内参观,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 52,
+        "storeName": "奉节餐厅",
+        "addressDetail": "奉节县鱼复街道迎宾社区海成天街2区",
+        "pro": "Wi-Fi,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 53,
+        "storeName": "北城天街外卖点",
+        "addressDetail": "洋河路10号北城天街5层UME电影院",
+        "pro": null,
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 54,
+        "storeName": "机场T3A",
+        "addressDetail": "渝北区重庆机场T3A航站楼出发层1号门",
+        "pro": "24小时,点唱机,机场店",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 55,
+        "storeName": "北广场外卖点",
+        "addressDetail": "重庆北站渝万场GA07-1号",
+        "pro": null,
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 56,
+        "storeName": "泽科弹子石",
+        "addressDetail": "弹子石环道群慧路泽科弹子石中心",
+        "pro": "24小时,Wi-Fi,点唱机,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 57,
+        "storeName": "盘龙广场",
+        "addressDetail": "盘龙奥园广场1层1025-a号商铺",
+        "pro": "Wi-Fi,店内参观,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 58,
+        "storeName": "兴华中路",
+        "addressDetail": "荔枝办事处兴华中路25号",
+        "pro": "Wi-Fi,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 59,
+        "storeName": "通惠大道",
+        "addressDetail": "文龙街道通惠大道18号",
+        "pro": "Wi-Fi,点唱机,精选店,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 60,
+        "storeName": "大洋百货甜品站",
+        "addressDetail": "杨家坪西郊路3号第二层C-31号商铺",
+        "pro": null,
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 61,
+        "storeName": "沙坪坝万达(电话023-65169969）",
+        "addressDetail": "沙坪坝经纬大道1108号万达广场B1038号商铺",
+        "pro": "Wi-Fi,点唱机",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 62,
+        "storeName": "铜梁万达",
+        "addressDetail": "东城街道办事处中兴东路788号",
+        "pro": "Wi-Fi,点唱机",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 63,
+        "storeName": "兴科大道",
+        "addressDetail": "宝圣湖街道兴科大道322号蘭亭.新都汇一层2-1-1A",
+        "pro": "Wi-Fi,点唱机,店内参观",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 64,
+        "storeName": "红宇大道",
+        "addressDetail": "红宇大道中央大街",
+        "pro": "Wi-Fi,点唱机",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 65,
+        "storeName": "大渡口万达",
+        "addressDetail": "建桥大道108号",
+        "pro": "Wi-Fi,点唱机,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 66,
+        "storeName": "涪陵万达",
+        "addressDetail": "东滨大道8号涪陵万达广场1F层1025商铺",
+        "pro": "Wi-Fi,店内参观",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 67,
+        "storeName": "重庆来福士",
+        "addressDetail": "接圣街8号",
+        "pro": "Wi-Fi,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 68,
+        "storeName": "天鹿大道",
+        "addressDetail": "巴南区巴南区南泉街道福鹿大道1999号",
+        "pro": "Wi-Fi,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 69,
+        "storeName": "磁器口023-65172501",
+        "addressDetail": "沙滨路109号附12号至附17号商铺",
+        "pro": "Wi-Fi,精选店",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 70,
+        "storeName": "垫江协信星光",
+        "addressDetail": "桂溪街道明月二路469号",
+        "pro": "Wi-Fi,店内参观,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 71,
+        "storeName": "长嘉汇",
+        "addressDetail": "泰昌路68号弹子石老街",
+        "pro": "Wi-Fi,点唱机,店内参观,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 72,
+        "storeName": "南川万达023-71400388",
+        "addressDetail": "南川万达广场2号门(023-71400388)",
+        "pro": "Wi-Fi,点唱机",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 73,
+        "storeName": "红石路餐厅",
+        "addressDetail": "红石路311号附40号",
+        "pro": "Wi-Fi,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 74,
+        "storeName": "时代金街",
+        "addressDetail": "号开县汉丰开州步行街1159号、1161号、1163号、1163号附1",
+        "pro": "Wi-Fi,点唱机,店内参观,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 75,
+        "storeName": "久桓大道",
+        "addressDetail": "三合街道龙新路19号、21号部分",
+        "pro": "Wi-Fi,店内参观",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 76,
+        "storeName": "北碚万达",
+        "addressDetail": "冯时行路300号万达广场1A025A",
+        "pro": "Wi-Fi,店内参观,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    },
+    {
+        "rownum": 77,
+        "storeName": "沙坪坝融创文旅城",
+        "addressDetail": "西林大道84号融创文旅城1F肯德基餐厅（1035和1036号商铺）",
+        "pro": "Wi-Fi,生日餐会",
+        "provinceName": "重庆市",
+        "cityName": "重庆市"
+    }
+]

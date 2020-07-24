@@ -66,7 +66,6 @@ class TencentSpider:
     def parse_two_page(self):
         while True:
             try:
-
                 url = self.q2.get(block=True, timeout=3)
             except Exception as e:
                 print(e)

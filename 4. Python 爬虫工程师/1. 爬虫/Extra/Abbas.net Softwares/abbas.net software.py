@@ -1,18 +1,18 @@
 import time
 import requests
 import re
+from fake_useragent import UserAgent
 
 
 class SoftwareSpider:
     def __init__(self):
         self.url = 'https://abbaspc.net/page/{}'
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0'
-        }
         self.f = open('software.txt', 'a', encoding='utf-8')
 
     def get_html(self, url):
-        html = requests.get(url=url, headers=self.headers).text
+        html = requests.get(url=url, headers={
+            'User-Agent': UserAgent().random
+        }).text
         return html
 
     def parse_html(self, html, pattern):
