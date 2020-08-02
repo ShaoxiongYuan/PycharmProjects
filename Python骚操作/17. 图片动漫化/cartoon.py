@@ -14,7 +14,7 @@ def get_pig(file_in, file_on):
     with open(file_in, 'rb') as f:
         img = base64.b64encode(f.read())
     params = {'image': img}
-    headers = {'User-Agent':'Mozilla/5.0'}
+    headers = {'User-Agent': 'Mozilla/5.0'}
     response = requests.post(request_url + '?access_token=' + token, data=params, headers=headers).json()
     img = response['image']
     imgdata = base64.b64decode(img)
