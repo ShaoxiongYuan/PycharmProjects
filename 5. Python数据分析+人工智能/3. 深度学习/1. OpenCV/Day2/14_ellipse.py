@@ -5,7 +5,7 @@ gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 cv2.imshow("im", gray)
 # 提取图像轮廓
 ret, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
-img, contours, hierarchy = cv2.findContours(binary,
+contours, hierarchy = cv2.findContours(binary,
                                             cv2.RETR_LIST,
                                             cv2.CHAIN_APPROX_NONE)
 

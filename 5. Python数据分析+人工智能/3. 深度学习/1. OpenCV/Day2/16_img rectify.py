@@ -17,7 +17,7 @@ edged = cv2.Canny(dilate, 30, 120, apertureSize=3)
 
 # 轮廓
 cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+cnts = cnts[1] if imutils.is_cv3() else cnts[0]
 im_cnt = cv2.drawContours(im, cnts, -1, (0, 0, 255), thickness=2)
 cv2.imshow('contour', im)
 

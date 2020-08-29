@@ -8,7 +8,7 @@ gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 ret, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
 cv2.imshow('binary', binary)
 
-img, contours, hierarchy = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+contours, hierarchy = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
 arr_cnt = np.array(contours)
 # print(arr_cnt.shape)

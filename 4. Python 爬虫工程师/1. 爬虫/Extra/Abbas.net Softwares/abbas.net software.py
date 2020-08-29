@@ -48,7 +48,7 @@ class SoftwareSpider:
                         self.get_data_2(item[0], item[1])
                         time.sleep(random.uniform(1, 2))
                     except Exception as e:
-                        self.r.srem('car:spider', finger)
+                        self.r.srem('software:spider', finger)
                 else:
                     sys.exit('更新完成')
 
@@ -68,7 +68,7 @@ class SoftwareSpider:
         time.sleep(random.randint(0, 1))
 
     def run(self):
-        for i in range(1, 326):
+        for i in range(1, 327):
             self.get_data(self.url.format(i))
             print('第%d页爬取完毕。' % i)
             print('*' * 50)

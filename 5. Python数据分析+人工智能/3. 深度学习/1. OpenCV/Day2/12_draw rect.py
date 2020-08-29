@@ -7,7 +7,7 @@ cv2.imshow('im', im)
 ret, binary = cv2.threshold(im, 127, 255, cv2.THRESH_BINARY)
 # cv2.imshow('binary', binary)
 
-img, contours, hierarchy = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+contours, hierarchy = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 
 x, y, w, h = cv2.boundingRect(contours[0])
 print(x, y, w, h)

@@ -11,7 +11,7 @@ ret, im_bin = cv2.threshold(gray, 162, 255, cv2.THRESH_BINARY)
 cv2.imshow('binary', im_bin)
 
 # 轮廓提取
-img, contours, hierarchy = cv2.findContours(im_bin, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+contours, hierarchy = cv2.findContours(im_bin, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 mask = np.zeros(im_bin.shape, dtype=np.uint8)
 mask = cv2.drawContours(mask, contours, -1, (255, 255, 0), -1)
 cv2.imshow('mask', mask)
@@ -26,7 +26,7 @@ im_close = cv2.morphologyEx(im_sub, cv2.MORPH_CLOSE, k, iterations=3)
 cv2.imshow('im_close', im_close)
 
 # 绘制最小外接圆
-image, contours, _ = cv2.findContours(im_close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+contours, _ = cv2.findContours(im_close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 (x, y), radius = cv2.minEnclosingCircle(contours[1])
 center = (int(x), int(y))
 radius = int(radius)
