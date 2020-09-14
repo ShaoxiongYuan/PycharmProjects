@@ -68,7 +68,7 @@ class SoftwareSpider:
         time.sleep(random.randint(0, 1))
 
     def run(self):
-        for i in range(1, 327):
+        for i in range(1, 224):
             self.get_data(self.url.format(i))
             print('第%d页爬取完毕。' % i)
             print('*' * 50)
