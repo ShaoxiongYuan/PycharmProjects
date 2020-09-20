@@ -46,7 +46,7 @@ def generate_mysql():
     conn = pymysql.connect(
         host='localhost',
         user='root',
-        password='******',
+        password='65460035',
         port=3306,
         charset='utf8',
         db='wade')
@@ -58,7 +58,7 @@ def generate_mysql():
 
 
 def write_to_sql(tbl, db='wade'):
-    engine = create_engine('mysql+pymysql://root:******@localhost:3306/{0}?charset=utf8'.format(db))
+    engine = create_engine('mysql+pymysql://root:65460035@localhost:3306/{0}?charset=utf8'.format(db))
     try:
         tbl.to_sql('listed_company2', con=engine, if_exists='append', index=False)
         # append表示在原有表基础上增加，但该表要有表头
@@ -75,10 +75,10 @@ def main(page):
 
 
 # 单进程
-if __name__ == '__main__':
-    main(178)
-    endtime = time.time() - start_time
-    print('程序运行了%.2f秒' % endtime)
+# if __name__ == '__main__':
+#     main(178)
+#     endtime = time.time() - start_time
+#     print('程序运行了%.2f秒' % endtime)
 
 # 多进程
 from multiprocessing import Pool
