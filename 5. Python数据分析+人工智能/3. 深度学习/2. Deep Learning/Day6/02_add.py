@@ -7,7 +7,7 @@ y = fluid.layers.data(name="y", shape=[1], dtype="float32")
 result = fluid.layers.elementwise_add(x, y)  # 两个张量按元素相加
 place = fluid.CPUPlace()  # 指定在CPU上执行
 exe = fluid.Executor(place)  # 创建执行器
-exe.run(fluid.default_startup_program())  # 初始化网络
+# exe.run(fluid.default_startup_program())  # 初始化网络
 # a = numpy.array([int(input("x:"))]) #输入x, 并转换为数组
 # b = numpy.array([int(input("y:"))]) #输入y, 并转换为数组
 # a = numpy.array([1, 2, 3]) # 输入x, 并转换为数组
