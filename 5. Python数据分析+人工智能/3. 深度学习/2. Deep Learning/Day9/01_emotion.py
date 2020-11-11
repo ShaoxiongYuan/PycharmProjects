@@ -145,8 +145,7 @@ optimizer = fluid.optimizer.AdagradOptimizer(learning_rate=0.001)
 opt = optimizer.minimize(avg_cost)
 
 # 定义网络
-place = fluid.CPUPlace()
-# place = fluid.CUDAPlace(0)
+place = fluid.CUDAPlace(0)
 exe = fluid.Executor(place)
 exe.run(fluid.default_startup_program())  # 参数初始化
 

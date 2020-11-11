@@ -155,7 +155,7 @@ optimizer = fluid.optimizer.Adam(learning_rate=0.0001)  # 自适应梯度下降�
 optimizer.minimize(avg_cost)
 
 # 创建Executor
-place = fluid.CPUPlace()
+place = fluid.CUDAPlace(0)
 exe = fluid.Executor(place)
 exe.run(fluid.default_startup_program())
 
@@ -167,7 +167,7 @@ accs = []  # 记录准确率
 times = 0
 batches = []  # 记录批次
 
-for pass_id in range(5):
+for pass_id in range(100):
     train_cost = 0
 
     for batch_id, data in enumerate(batch_train_reader()):
