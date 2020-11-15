@@ -1,7 +1,8 @@
 absl-py==0.11.0
 AccessControl==5.0
 Acquisition==4.7
-amqp==5.0.1
+altgraph==0.17
+amqp==5.0.2
 appdirs==1.4.4
 argon2-cffi==20.1.0
 asn1crypto==1.4.0
@@ -12,7 +13,7 @@ atomicwrites==1.4.0
 attrs==20.3.0
 AuthEncoding==4.2
 Automat==20.2.0
-Babel==2.8.0
+Babel==2.9.0
 backcall==0.2.0
 bce-python-sdk==0.8.49
 bcrypt==3.2.0
@@ -24,7 +25,7 @@ BTrees==4.7.2
 cached-property==1.5.2
 cachetools==4.1.1
 celery==5.0.2
-certifi==2020.6.20
+certifi==2020.11.8
 cffi==1.14.3
 cfgv==3.2.0
 Chameleon==3.8.1
@@ -35,7 +36,7 @@ click-didyoumean==0.0.3
 click-repl==0.1.6
 cma==3.0.3
 colorama==0.4.4
-colorlog==4.5.0
+colorlog==4.6.2
 colorlover==0.3.0
 constantly==15.1.0
 construct==2.5.3
@@ -50,8 +51,8 @@ distlib==0.3.1
 Django==2.2.14
 django-cors-headers==3.5.0
 django-redis==4.12.1
-DocumentTemplate==3.4
-elasticsearch==7.9.1
+DocumentTemplate==4.0
+elasticsearch==7.10.0
 entrypoints==0.3
 et-xmlfile==1.0.1
 ExtensionClass==4.5.0
@@ -93,7 +94,7 @@ ipython-genutils==0.2.0
 ipywidgets==7.5.1
 isort==4.3.21
 itemadapter==0.2.0
-itemloaders==1.0.3
+itemloaders==1.0.4
 itsdangerous==1.1.0
 jdcal==1.4.1
 jedi==0.17.2
@@ -120,7 +121,7 @@ lazy-object-proxy==1.4.3
 lxml==4.6.1
 Markdown==3.3.3
 MarkupSafe==1.1.1
-matplotlib==3.3.2
+matplotlib==3.3.3
 mccabe==0.6.1
 mistune==0.8.4
 mock==4.0.2
@@ -130,7 +131,7 @@ MyQR==2.3.1
 nbclient==0.5.1
 nbconvert==6.0.7
 nbformat==5.0.8
-nest-asyncio==1.4.2
+nest-asyncio==1.4.3
 nltk==3.5
 nodeenv==1.5.0
 notebook==6.1.5
@@ -143,7 +144,7 @@ openpyxl==3.0.5
 opt-einsum==3.3.0
 packaging==20.4
 paddlehub==1.8.3
-paddlepaddle==1.7.1
+paddlepaddle-gpu==1.7.2.post107
 palettable==3.3.0
 pandas==1.1.4
 pandas-datareader==0.9.0
@@ -164,11 +165,11 @@ pluggy==0.13.1
 ply==3.11
 pre-commit==2.8.2
 pretty-errors==1.2.18
-prettytable==1.0.1
+prettytable==2.0.0
 prometheus-client==0.8.0
 prompt-toolkit==3.0.8
 Protego==0.1.16
-protobuf==3.13.0
+protobuf==3.14.0
 py==1.9.0
 pyarrow==2.0.0
 pyasn1==0.4.8
@@ -182,6 +183,7 @@ pydot==1.4.1
 pyecharts==1.9.0
 PyExecJS==1.5.1
 pyflakes==2.2.0
+pygame==2.0.0
 Pygments==2.7.2
 PyHamcrest==2.0.2
 PyJWT==1.7.1
@@ -198,7 +200,7 @@ PySocks==1.7.1
 pytesseract==0.3.6
 pytest==6.1.2
 pytest-base-url==1.4.2
-pytest-html==2.1.1
+pytest-html==3.0.0
 pytest-metadata==1.10.0
 pytest-runner==5.2
 pytest-selenium==2.0.1
@@ -210,18 +212,19 @@ python-gettext==4.0
 python-pptx==0.6.18
 python-ptrace==0.9.7
 pytz==2020.4
-pywin32==228
+pywin32==300
+pywin32-ctypes==0.2.0
 pywinpty==0.5.7
 PyYAML==5.3.1
-pyzmq==19.0.2
+pyzmq==20.0.0
 qtconsole==4.7.7
 QtPy==1.9.0
 queuelib==1.5.0
 rarfile==4.0
 recordio==0.1.7
 redis==3.5.3
-regex==2020.10.28
-requests==2.24.0
+regex==2020.11.13
+requests==2.25.0
 requests-oauthlib==1.3.0
 RestrictedPython==5.1
 retrying==1.3.3
@@ -247,8 +250,8 @@ stylecloud==0.5.1
 tb-paddle==0.4.0
 tenacity==6.2.0
 tensorboard==1.15.0
-tensorflow==1.15.4
 tensorflow-estimator==1.15.1
+tensorflow-gpu==1.15.4
 termcolor==1.1.0
 terminado==0.9.1
 testpath==0.4.4
@@ -262,7 +265,7 @@ transaction==3.0.0
 tushare==1.2.62
 Twisted==20.3.0
 typed-ast==1.4.1
-urllib3==1.25.11
+urllib3==1.26.2
 vega-datasets==0.8.0
 vine==5.0.0
 virtualenv==20.1.0
@@ -278,7 +281,7 @@ Werkzeug==1.0.1
 widgetsnbextension==3.5.1
 win-inet-pton==1.1.0
 wincertstore==0.2
-wordcloud==1.8.0
+wordcloud==1.8.1
 wrapt==1.12.1
 WSGIProxy2==0.4.6
 xgboost==1.2.1
@@ -292,7 +295,7 @@ zExceptions==4.1
 zipp==3.4.0
 ZODB==5.6.0
 zodbpickle==2.0.0
-Zope==5.0
+Zope==5.1
 zope.annotation==4.7.0
 zope.browser==2.3
 zope.browsermenu==4.4

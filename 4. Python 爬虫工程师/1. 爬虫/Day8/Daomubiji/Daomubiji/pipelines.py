@@ -9,6 +9,6 @@
 class DaomubijiPipeline:
     def process_item(self, item, spider):
         filename = item['directory'] + '/' + item['son_title'].replace(' ', '_') + '.txt'
-        with open(filename, 'w') as f:
+        with open(filename, 'w', encoding='utf-8') as f:
             f.write(item['content'])
         return item
