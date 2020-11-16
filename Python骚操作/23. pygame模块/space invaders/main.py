@@ -14,7 +14,7 @@ screen_width = 600
 screen_height = 800
 
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption('Space Invanders')
+pygame.display.set_caption('Space Invaders')
 
 # define fonts
 font30 = pygame.font.SysFont('Constantia', 30)
