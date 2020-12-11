@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+
+</head>
+<body>
+    <div id="c6393be6b02548a2baa8e69e1f0726fb" class="chart-container" style="width:900px; height:500px;"></div>
+    <script>
+        var chart_c6393be6b02548a2baa8e69e1f0726fb = echarts.init(
+            document.getElementById('c6393be6b02548a2baa8e69e1f0726fb'), 'white', {renderer: 'canvas'});
+        var option_c6393be6b02548a2baa8e69e1f0726fb = {
+    "backgroundColor": "#323a5e",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u672c\u79d1\u9662\u6821",
+            "legendHoverLink": true,
+            "data": [
+                57,
+                57,
+                59,
+                61,
+                64,
+                67,
+                68,
+                68,
+                70,
+                77
+            ],
+            "showBackground": false,
+            "barWidth": "25%",
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": false,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "normal": {
+                    "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{                    offset: 0,                    color: '#fccb05'                }, {                    offset: 1,                    color: '#f5804d'                }]),
+                    "barBorderRadius": 11
+                }
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u672c\u79d1\u9662\u6821"
+            ],
+            "selected": {
+                "\u672c\u79d1\u9662\u6821": true
+            },
+            "show": true,
+            "right": 10,
+            "top": 12,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "color": "#fff"
+            }
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "axis",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "shadow"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "color": "#fff"
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "xAxis": [
+        {
+            "type": "category",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "axisLine": {
+                "show": true,
+                "onZero": true,
+                "onZeroAxisIndex": 0,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color": "white"
+                }
+            },
+            "axisLabel": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "data": [
+                "\u6cb3\u5357",
+                "\u9655\u897f",
+                "\u6d59\u6c5f",
+                "\u6cb3\u5317",
+                "\u8fbd\u5b81",
+                "\u5e7f\u4e1c",
+                "\u6e56\u5317",
+                "\u5317\u4eac",
+                "\u5c71\u4e1c",
+                "\u6c5f\u82cf"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "type": "value",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "axisLine": {
+                "show": false,
+                "onZero": true,
+                "onZeroAxisIndex": 0,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color": "white"
+                }
+            },
+            "axisTick": {
+                "show": false,
+                "alignWithLabel": false,
+                "inside": false
+            },
+            "axisLabel": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "max": 90,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color": "rgba(255,255,255,0.3)"
+                }
+            }
+        }
+    ],
+    "title": [
+        {
+            "padding": 5,
+            "itemGap": 10
+        }
+    ],
+    "dataZoom": {
+        "show": true,
+        "type": "slider",
+        "realtime": true,
+        "start": 20,
+        "end": 80,
+        "orient": "horizontal",
+        "zoomLock": false,
+        "top": "94%",
+        "bottom": "2%",
+        "filterMode": "filter"
+    }
+};
+        chart_c6393be6b02548a2baa8e69e1f0726fb.setOption(option_c6393be6b02548a2baa8e69e1f0726fb);
+    </script>
+</body>
+</html>
