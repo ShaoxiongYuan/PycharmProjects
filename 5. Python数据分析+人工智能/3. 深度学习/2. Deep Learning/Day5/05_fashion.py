@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets
 
 
-class FashionMnist():
+class FashionMnist:
     out_features1 = 12  # 第一个卷积池化层输出通道数(即第一个卷基层卷积核数量)
     out_features2 = 24  # 第二个卷积池化层输出通道数(即第二个卷基层卷积核数量)
     con_neurons = 512  # fc神经元的数量
