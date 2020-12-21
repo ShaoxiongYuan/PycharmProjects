@@ -2,6 +2,7 @@ import tensorflow as tf
 import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+tf.compat.v1.disable_eager_execution()
 
 plhd = tf.compat.v1.placeholder(tf.float32, [2, 3])
 plhd2 = tf.compat.v1.placeholder(tf.float32, [None, 3])

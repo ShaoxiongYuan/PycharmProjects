@@ -1,5 +1,7 @@
 import tensorflow as tf
-from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets
+from tensorflow.keras.datasets import fashion_mnist
+
+tf.compat.v1.disable_eager_execution()
 
 
 class FashionMnist:
@@ -9,7 +11,7 @@ class FashionMnist:
 
     def __init__(self, path):
         self.sess = tf.compat.v1.Session()
-        self.data = read_data_sets(path, one_hot=True)
+        self.data = fashion_mnist.load_data()
 
     def init_weight_variable(self, shape):
         initial = tf.random.truncated_normal(shape, stddev=0.1)

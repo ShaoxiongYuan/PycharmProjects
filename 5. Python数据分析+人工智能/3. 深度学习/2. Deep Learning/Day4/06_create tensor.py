@@ -2,6 +2,7 @@ import tensorflow as tf
 import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+tf.compat.v1.disable_eager_execution()
 
 tensor_zeros = tf.zeros(shape=[2, 3], dtype='float32')
 tensor_ones = tf.ones(shape=[3, 4], dtype='float32')

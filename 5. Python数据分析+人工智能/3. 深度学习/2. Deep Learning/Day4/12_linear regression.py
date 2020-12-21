@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+tf.compat.v1.disable_eager_execution()
+
 # 第一步：产生样本数据
 x = tf.random.normal([100, 1], mean=1.75, stddev=0.5, name='x_data')
 y_true = tf.matmul(x, [[2.0]]) + 5
