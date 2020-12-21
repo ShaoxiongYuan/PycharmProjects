@@ -253,7 +253,7 @@ tb-paddle==0.4.0
 tenacity==6.3.1
 tensorboard==1.14.0
 tensorflow-estimator==1.14.0
-tensorflow-gpu==1.14.0
+tensorflow-gpu==2.4.0
 termcolor==1.1.0
 terminado==0.9.1
 testpath==0.4.4
