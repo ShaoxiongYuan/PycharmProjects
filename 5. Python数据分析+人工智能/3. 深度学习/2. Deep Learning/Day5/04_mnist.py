@@ -1,34 +1,31 @@
-"""
-使用神经网络实现手写体识别
-"""
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 import pylab
 
-# 读取数据，定义变量
-mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
-x = tf.placeholder(tf.float32, [None, 784])  # N个样本，784特征
-y = tf.placeholder(tf.float32, [None, 10])  # N个样本，10个概率
 
-w = tf.Variable(tf.random_normal([784, 10]))
+mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+x = tf.compat.v1.placeholder(tf.float32, [None, 784])  
+y = tf.compat.v1.placeholder(tf.float32, [None, 10])  
+
+w = tf.Variable(tf.random.normal([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 
-# 构建模型，损失函数，优化器
-pred_y = tf.nn.softmax(tf.matmul(x, w) + b)
-cross_entropy = -tf.reduce_sum(y * tf.log(pred_y), reduction_indices=1)
-cost = tf.reduce_mean(cross_entropy)
-optimizer = tf.train.GradientDescentOptimizer(0.01).minimize(cost)
 
-# 执行训练，模型评估
-training_epochs = 200
+pred_y = tf.nn.softmax(tf.matmul(x, w) + b)
+cross_entropy = -tf.reduce_sum(input_tensor=y * tf.math.log(pred_y), axis=1)
+cost = tf.reduce_mean(input_tensor=cross_entropy)
+optimizer = tf.compat.v1.train.GradientDescentOptimizer(0.01).minimize(cost)
+
+
+training_epochs = 50
 batch_size = 100
-saver = tf.train.Saver()
+saver = tf.compat.v1.train.Saver()
 model_path = '../model/mnist/mnist_model.ckpt'
 
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
+with tf.compat.v1.Session() as sess:
+    sess.run(tf.compat.v1.global_variables_initializer())
 
-    # 循环训练
+    
     for epoch in range(training_epochs):
         avg_cost = 0.0
         total_batch = int(mnist.train.num_examples / batch_size)
@@ -41,20 +38,20 @@ with tf.Session() as sess:
         print("epoch: %d, cost=%.9f" % (epoch + 1, avg_cost))
     print('Finished!')
 
-    # 模型评估
-    correct_pred = tf.equal(tf.argmax(pred_y, 1), tf.argmax(y, 1))
-    accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+    
+    correct_pred = tf.equal(tf.argmax(input=pred_y, axis=1), tf.argmax(input=y, axis=1))
+    accuracy = tf.reduce_mean(input_tensor=tf.cast(correct_pred, tf.float32))
     print('accuracy:', accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
 
     save_path = saver.save(sess, model_path)
     print('Model Path:', save_path)
 
-# 执行预测
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
+
+with tf.compat.v1.Session() as sess:
+    sess.run(tf.compat.v1.global_variables_initializer())
     saver.restore(sess, model_path)
     batch_xs, batch_ys = mnist.test.next_batch(2)
-    output = tf.argmax(pred_y, 1)
+    output = tf.argmax(input=pred_y, axis=1)
 
     output_val, predv = sess.run([output, pred_y], feed_dict={x: batch_xs})
 
@@ -62,13 +59,13 @@ with tf.Session() as sess:
     print("实际结果:\n", batch_ys, "\n")
     print("预测概率:\n", predv, "\n")
 
-    # 显示图片
-    im = batch_xs[0]  # 第1个测试样本数据
+    
+    im = batch_xs[0]  
     im = im.reshape(-1, 28)
     pylab.imshow(im)
     pylab.show()
 
-    im = batch_xs[1]  # 第2个测试样本数据
+    im = batch_xs[1]  
     im = im.reshape(-1, 28)
     pylab.imshow(im)
     pylab.show()

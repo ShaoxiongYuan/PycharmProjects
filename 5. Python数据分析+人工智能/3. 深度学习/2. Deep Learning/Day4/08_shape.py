@@ -3,7 +3,7 @@ import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-pld = tf.placeholder(tf.float32, [None, 3])
+pld = tf.compat.v1.placeholder(tf.float32, [None, 3])
 print(pld)
 pld.set_shape([4, 3])
 print(pld)

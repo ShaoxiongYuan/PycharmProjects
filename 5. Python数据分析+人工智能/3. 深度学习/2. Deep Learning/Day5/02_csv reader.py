@@ -3,16 +3,16 @@ import os
 
 
 def csv_read(filelist):
-    # 构建文件队列
-    file_queue = tf.train.string_input_producer(filelist)
-    # 创建读取器，读取数据并解码
-    reader = tf.TextLineReader()
+    
+    file_queue = tf.compat.v1.train.string_input_producer(filelist)
+    
+    reader = tf.compat.v1.TextLineReader()
     k, v = reader.read(file_queue)
-    # 解码
+    
     records = [['None'], ['None']]
-    example, label = tf.decode_csv(v, record_defaults=records)
-    # 批处理
-    example_bat, label_bat = tf.train.batch([example, label], batch_size=9, num_threads=1)
+    example, label = tf.io.decode_csv(records=v, record_defaults=records)
+    
+    example_bat, label_bat = tf.compat.v1.train.batch([example, label], batch_size=9, num_threads=1)
     return example_bat, label_bat
 
 
@@ -25,11 +25,11 @@ if __name__ == '__main__':
 
     example, label = csv_read(file_list)
 
-    with tf.Session() as sess:
-        coord = tf.train.Coordinator()  # 线程协调器
-        # 返回一组线程
-        threads = tf.train.start_queue_runners(sess, coord=coord)
+    with tf.compat.v1.Session() as sess:
+        coord = tf.train.Coordinator()  
+        
+        threads = tf.compat.v1.train.start_queue_runners(sess, coord=coord)
         print(sess.run([example, label]))
-        # 等待线程结束回收资源
+        
         coord.request_stop()
         coord.join()

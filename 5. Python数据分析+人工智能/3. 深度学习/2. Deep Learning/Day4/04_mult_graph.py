@@ -1,5 +1,3 @@
-##  一个程序中包含多个graph指定运行某个graph
-
 import tensorflow as tf
 import os
 

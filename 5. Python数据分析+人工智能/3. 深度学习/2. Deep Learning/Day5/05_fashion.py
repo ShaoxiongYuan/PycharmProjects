@@ -1,5 +1,5 @@
 import tensorflow as tf
-from tensorflow_core.contrib.learn.python.learn.datasets.mnist import read_data_sets
+from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets
 
 
 class FashionMnist():

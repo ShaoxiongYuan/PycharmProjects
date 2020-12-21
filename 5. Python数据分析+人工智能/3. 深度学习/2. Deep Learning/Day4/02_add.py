@@ -7,5 +7,5 @@ a = tf.constant(5.0)
 b = tf.constant(1.0)
 c = tf.add(a, b)
 
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     print(sess.run(c))

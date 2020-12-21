@@ -1,17 +1,14 @@
-#查看 op/tensor/session的graph
 import tensorflow as tf
 import os
 
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 a = tf.constant(5.0)
 b = tf.constant(1.0)
 
-c = tf.add(a,b)
+c = tf.add(a, b)
 
-
-graph = tf.compat.v1.get_default_graph()  ## 获取默认的graph
+graph = tf.compat.v1.get_default_graph()
 
 print(graph)
 
