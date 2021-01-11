@@ -1,67 +1,131 @@
 import tensorflow as tf
+from tensorflow.keras import Model, layers
+import numpy as np
+
+# MNIST dataset parameters.
+num_classes = 10  # total classes (0-9 digits).
+num_features = 784  # data features (img shape: 28*28).
+
+# Training parameters.
+learning_rate = 0.1
+training_steps = 2000
+batch_size = 256
+display_step = 100
+
+# Network parameters.
+n_hidden_1 = 128  # 1st layer number of neurons.
+n_hidden_2 = 256  # 2nd layer number of neurons.
+
+# Prepare MNIST data.
 from tensorflow.keras.datasets import mnist
-import pylab
 
-tf.compat.v1.disable_eager_execution()
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+# Convert to float32.
+x_train, x_test = np.array(x_train, np.float32), np.array(x_test, np.float32)
+# Flatten images to 1-D vector of 784 features (28*28).
+x_train, x_test = x_train.reshape([-1, num_features]), x_test.reshape([-1, num_features])
+# Normalize images value from [0, 255] to [0, 1].
+x_train, x_test = x_train / 255., x_test / 255.
 
-mnist = mnist.load_data()
+# Use tf.data API to shuffle and batch data.
+train_data = tf.data.Dataset.from_tensor_slices((x_train, y_train))
+train_data = train_data.repeat().shuffle(5000).batch(batch_size).prefetch(1)
 
-x = tf.compat.v1.placeholder(tf.float32, [None, 784])
-y = tf.compat.v1.placeholder(tf.float32, [None, 10])
 
-w = tf.Variable(tf.random.normal([784, 10]))
-b = tf.Variable(tf.zeros([10]))
+# Create TF Model.
+class NeuralNet(Model):
+    # Set layers.
+    def __init__(self):
+        super(NeuralNet, self).__init__()
+        # First fully-connected hidden layer.
+        self.fc1 = layers.Dense(n_hidden_1, activation=tf.nn.relu)
+        # First fully-connected hidden layer.
+        self.fc2 = layers.Dense(n_hidden_2, activation=tf.nn.relu)
+        # Second fully-connecter hidden layer.
+        self.out = layers.Dense(num_classes)
 
-pred_y = tf.nn.softmax(tf.matmul(x, w) + b)
-cross_entropy = -tf.reduce_sum(input_tensor=y * tf.math.log(pred_y), axis=1)
-cost = tf.reduce_mean(input_tensor=cross_entropy)
-optimizer = tf.compat.v1.train.GradientDescentOptimizer(0.01).minimize(cost)
+    # Set forward pass.
+    def call(self, x, is_training=False):
+        x = self.fc1(x)
+        x = self.fc2(x)
+        x = self.out(x)
+        if not is_training:
+            # tf cross entropy expect logits without softmax, so only
+            # apply softmax when not training.
+            x = tf.nn.softmax(x)
+        return x
 
-training_epochs = 50
-batch_size = 100
-saver = tf.compat.v1.train.Saver()
-model_path = '../model/mnist/mnist_model.ckpt'
 
-with tf.compat.v1.Session() as sess:
-    sess.run(tf.compat.v1.global_variables_initializer())
+# Build neural network model.
+neural_net = NeuralNet()
 
-    for epoch in range(training_epochs):
-        avg_cost = 0.0
-        total_batch = int(mnist.train.num_examples / batch_size)
 
-        for i in range(total_batch):
-            batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-            params = {x: batch_xs, y: batch_ys}
-            o, c = sess.run([optimizer, cost], feed_dict=params)
-            avg_cost += (c / total_batch)
-        print("epoch: %d, cost=%.9f" % (epoch + 1, avg_cost))
-    print('Finished!')
+# Cross-Entropy Loss.
+# Note that this will apply 'softmax' to the logits.
+def cross_entropy_loss(x, y):
+    # Convert labels to int 64 for tf cross-entropy function.
+    y = tf.cast(y, tf.int64)
+    # Apply softmax to logits and compute cross-entropy.
+    loss = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=y, logits=x)
+    # Average loss across the batch.
+    return tf.reduce_mean(loss)
 
-    correct_pred = tf.equal(tf.argmax(input=pred_y, axis=1), tf.argmax(input=y, axis=1))
-    accuracy = tf.reduce_mean(input_tensor=tf.cast(correct_pred, tf.float32))
-    print('accuracy:', accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
 
-    save_path = saver.save(sess, model_path)
-    print('Model Path:', save_path)
+# Accuracy metric.
+def accuracy(y_pred, y_true):
+    # Predicted class is the index of highest score in prediction vector (i.e. argmax).
+    correct_prediction = tf.equal(tf.argmax(y_pred, 1), tf.cast(y_true, tf.int64))
+    return tf.reduce_mean(tf.cast(correct_prediction, tf.float32), axis=-1)
 
-with tf.compat.v1.Session() as sess:
-    sess.run(tf.compat.v1.global_variables_initializer())
-    saver.restore(sess, model_path)
-    batch_xs, batch_ys = mnist.test.next_batch(2)
-    output = tf.argmax(input=pred_y, axis=1)
 
-    output_val, predv = sess.run([output, pred_y], feed_dict={x: batch_xs})
+# Stochastic gradient descent optimizer.
+optimizer = tf.keras.optimizers.SGD(learning_rate)
 
-    print("预测结论:\n", output_val, "\n")
-    print("实际结果:\n", batch_ys, "\n")
-    print("预测概率:\n", predv, "\n")
 
-    im = batch_xs[0]
-    im = im.reshape(-1, 28)
-    pylab.imshow(im)
-    pylab.show()
+# Optimization process.
+def run_optimization(x, y):
+    # Wrap computation inside a GradientTape for automatic differentiation.
+    with tf.GradientTape() as g:
+        # Forward pass.
+        pred = neural_net(x, is_training=True)
+        # Compute loss.
+        loss = cross_entropy_loss(pred, y)
 
-    im = batch_xs[1]
-    im = im.reshape(-1, 28)
-    pylab.imshow(im)
-    pylab.show()
+    # Variables to update, i.e. trainable variables.
+    trainable_variables = neural_net.trainable_variables
+
+    # Compute gradients.
+    gradients = g.gradient(loss, trainable_variables)
+
+    # Update W and b following gradients.
+    optimizer.apply_gradients(zip(gradients, trainable_variables))
+
+
+# Run training for the given number of steps.
+for step, (batch_x, batch_y) in enumerate(train_data.take(training_steps), 1):
+    # Run the optimization to update W and b values.
+    run_optimization(batch_x, batch_y)
+
+    if step % display_step == 0:
+        pred = neural_net(batch_x, is_training=True)
+        loss = cross_entropy_loss(pred, batch_y)
+        acc = accuracy(pred, batch_y)
+        print("step: %i, loss: %f, accuracy: %f" % (step, loss, acc))
+
+# Test model on validation set.
+pred = neural_net(x_test, is_training=False)
+print("Test Accuracy: %f" % accuracy(pred, y_test))
+
+# Visualize predictions.
+import matplotlib.pyplot as plt
+
+# Predict 5 images from validation set.
+n_images = 5
+test_images = x_test[:n_images]
+predictions = neural_net(test_images)
+
+# Display image and model prediction.
+for i in range(n_images):
+    plt.imshow(np.reshape(test_images[i], [28, 28]), cmap='gray')
+    plt.show()
+    print("Model prediction: %i" % np.argmax(predictions.numpy()[i]))
