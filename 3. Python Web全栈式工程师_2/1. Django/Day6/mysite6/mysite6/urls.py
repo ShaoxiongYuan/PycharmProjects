@@ -1,8 +1,8 @@
-from django.conf.urls import url, include
+from django.urls import re_path, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^user/', include('user.urls')),
-    url(r'^note/', include('note.urls'))
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^user/', include('user.urls')),
+    re_path(r'^note/', include('note.urls'))
 ]

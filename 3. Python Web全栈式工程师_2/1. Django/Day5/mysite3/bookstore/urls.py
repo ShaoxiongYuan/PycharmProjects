@@ -1,10 +1,10 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from . import views
 
 urlpatterns = [
-    url(r'^book$', views.book, name='all_book'),
-    url(r'update_book/(?P<id>\d+)', views.update),
-    url(r'delete_book/(?P<id>\d+)', views.delete),
-    url(r'add_book', views.add),
+    re_path(r'^book$', views.book, name='all_book'),
+    re_path(r'update_book/(?P<id>\d+)', views.update),
+    re_path(r'delete_book/(?P<id>\d+)', views.delete),
+    re_path(r'add_book', views.add),
 ]

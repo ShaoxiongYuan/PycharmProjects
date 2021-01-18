@@ -1,10 +1,10 @@
-from django.conf.urls import url
+from django.urls import re_path
 from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^test_page$', views.test_page, name='book'),
-    url(r'^upload$', views.upload_view),
-    url(r'^download$', views.download_view)
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^test_page$', views.test_page, name='book'),
+    re_path(r'^upload$', views.upload_view),
+    re_path(r'^download$', views.download_view)
 ]
