@@ -21,7 +21,7 @@ bce-python-sdk==0.8.53
 bcrypt==3.2.0
 beautifulsoup4==4.9.3
 billiard==3.6.3.0
-bleach==3.2.1
+bleach==3.3.0
 bs4==0.0.1
 BTrees==4.7.2
 cached-property==1.5.2
