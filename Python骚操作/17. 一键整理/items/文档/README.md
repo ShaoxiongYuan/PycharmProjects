@@ -1,2 +1,0 @@
-# PycharmProjects
-Tarena Education
